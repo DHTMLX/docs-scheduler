@@ -8,6 +8,19 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.1.6
+
+Released on January 18, 2024
+
+### Fixes
+
+- Creating a new event and clicking the empty space closes the editor
+- Deleting a recurring event via the popup info works incorrectly
+- Incorrect DTEND of recurring events
+- Incorrect popup position in the Timeline view
+- Case sensitive BYDAY component of RRULE is not compatible with Google Calendar
+- Unexpected behavior of the recurring event form in auto-save mode
+
 ## Version 2.1.5
 
 Released on November 15, 2023
