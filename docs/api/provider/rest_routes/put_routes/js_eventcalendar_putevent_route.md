@@ -4,13 +4,13 @@ title: PUT /events
 description: You can learn about the PUT /events route in the documentation of the DHTMLX JavaScript Event Calendar library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Event Calendar.
 ---
 
-# PUT /events
+# PUT `/events`
 
 ### Description
 
 @short: Updates data on an event
 
-The route handles the PUT request made to the **'/events/{id}'** path.
+The route handles the PUT request made to the `/events/{id}` path.
 
 <table style="border: 1px solid white; border-collapse: collapse; width:50%">
 <thead style="border: 1px solid white; border-collapse: collapse;">
@@ -32,22 +32,22 @@ The route handles the PUT request made to the **'/events/{id}'** path.
 The next parameter is sent in the request line:
 
 | Name       | Type        | Description |
-| ----------- | ----------- | ----------- |
-| `id`       |  number   | *Required*. The ID of the event to be updated.|
+| ---------- | ----------- | ----------- |
+| `id`       |  number     | *Required*. The ID of the event to be updated.|
 
 ### Payload
 
 The server expects to receive a json object with the next properties (both unchanged and modified properties are needed):
 
-| Name       | Type        | Description |
-| ----------- | ----------- | ----------- |
-| `text`       |  string  | *Required*. The name of the event to be updated.|
-| `start_date` |  string  | *Required*. The event start date in the ISO format yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
-| `end_date`   |  string  | *Required*. The event end date in the ISO format yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
-| `allDay`       |  boolean  | *Optional*. Enables/disables the event duration throughout the day.|
-| `type`       |  number  | *Required*. The calendar ID which is the event type.|
-| `details`       |  string  | *Optional*. Details about the event.|
-| `files`       |  object | *Optional*. An array of the files to be attached to the event. You can attach files that are already [uploaded](api/provider/rest_routes/post_routes/js_eventcalendar_postupload_route.md) to the server. The file object should contain the file id, name, and url.|
+| Name         | Type        | Description |
+| ------------ | ----------- | ----------- |
+| `text`       |  string     | *Required*. The name of the event to be updated.|
+| `start_date` |  string     | *Required*. The event start date in the ISO format yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
+| `end_date`   |  string     | *Required*. The event end date in the ISO format yyyy-MM-dd'T'HH:mm:ss.SSSXXX |
+| `allDay`     |  boolean    | *Optional*. Enables/disables the event duration throughout the day.|
+| `type`       |  number     | *Required*. The calendar ID which is the event type.|
+| `details`    |  string     | *Optional*. Details about the event.|
+| `files`      |  object     | *Optional*. An array of the files to be attached to the event. You can attach files that are already [uploaded](api/provider/rest_routes/post_routes/js_eventcalendar_postupload_route.md) to the server. The file object should contain the file id, name, and url.|
 
 Example:
 

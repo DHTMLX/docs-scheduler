@@ -4,13 +4,13 @@ title: POST /uploads
 description: You can learn about the POST /uploads route in the documentation of the DHTMLX JavaScript Event Calendar library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Event Calendar.
 ---
 
-# POST /uploads
+# POST `/uploads`
 
 ### Description
 
 @short: Uploads a binary file to the server and returns a json object with the file id, name, and url
 
-The route handles the POST multipart request made to the **'/uploads'** path.
+The route handles the POST multipart request made to the `/uploads` path.
 
 <table style="border: 1px solid white; border-collapse: collapse; width:50%">
 <thead style="border: 1px solid white; border-collapse: collapse;">

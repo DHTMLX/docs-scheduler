@@ -4,13 +4,13 @@ title: GET /uploads
 description: You can learn about the GET /uploads route in the documentation of the DHTMLX JavaScript Event Calendar library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Event Calendar.
 ---
 
-# GET /uploads
+# GET `/uploads`
 
 ### Description
 
 @short: Gets the requested binary file from the server
 
-The route handles the GET request made to the **'/uploads/{id}/{name}'** path.
+The route handles the GET request made to the `/uploads/{id}/{name}` path.
 
 <table style="border: 1px solid white; border-collapse: collapse; width:50%">
 <thead style="border: 1px solid white; border-collapse: collapse;">
@@ -32,9 +32,9 @@ The route handles the GET request made to the **'/uploads/{id}/{name}'** path.
 The following parameters are sent in the request line:
 
 | Name       | Type        | Description |
-| ----------- | ----------- | ----------- |
-| `id`       |  number   | *Required*. The ID of the required file.|
-| `name`       |  string  | *Required*. The name of the requested file.|
+| ---------- | ----------- | ----------- |
+| `id`       |  number     | *Required*. The ID of the required file.|
+| `name`     |  string     | *Required*. The name of the requested file.|
 
 ### Payload
 
