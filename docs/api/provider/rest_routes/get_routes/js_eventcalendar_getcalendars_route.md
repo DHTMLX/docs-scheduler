@@ -4,13 +4,13 @@ title: GET /calendars
 description: You can learn about the GET /calendars route in the documentation of the DHTMLX JavaScript Event Calendar library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Event Calendar.
 ---
 
-# GET /calendars
+# GET `/calendars`
 
 ### Description
 
 @short: Gets data on all calendars and returns a json object with an array of calendars objects
 
-The route handles the GET request made to the **'/calendars'** path.
+The route handles the GET request made to the `/calendars` path.
 
 <table style="border: 1px solid white; border-collapse: collapse; width:50%">
 <thead style="border: 1px solid white; border-collapse: collapse;">
@@ -31,7 +31,7 @@ No payload is required.
 
 ### Response
 
-The route returns a json object with an array of all calendars objects. 
+The route returns a json object with an array of all calendars objects.
 
 Example:
 
@@ -57,7 +57,7 @@ Example:
         },
         "description": ""
     },
- ...
+    // ...
 ]
 ~~~
 

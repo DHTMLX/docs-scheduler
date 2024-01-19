@@ -31,15 +31,15 @@ To configure the appearance and functionality of *timetable grid*, you can use t
 
 In the object of the [`config`](api/config/js_eventcalendar_config_config.md) parameter you can manage the following behaviour:
 
-- an ability to create new events by drag-n-drop <code style = {{color: "green"}}>dragCreate: boolean</code>
-- an ability to reschedule events by resizing <code style = {{color: "green"}}>dragResize: boolean</code>
-- an ability to reschedule events by drag-n-drop <code style = {{color: "green"}}>dragMove: boolean</code>
-- an ability to display info popup by click <code style = {{color: "green"}}>eventInfoOnClick: boolean</code>
-- an ability to open editor by double click <code style = {{color: "green"}}>editorOnDblClick: boolean</code>
-- an ability to create new event by double click <code style = {{color: "green"}}>createEventOnDblClick: boolean</code>
-- an ability to overlay events <code style = {{color: "green"}}>eventsOverlay: boolean</code>
-- an ability to auto save the event data (via the editor) <code style = {{color: "green"}}>autoSave: boolean</code>
-- an ability to block all operations with events <code style = {{color: "green"}}>readonly: boolean</code>
+- an ability to create new events by drag-n-drop `dragCreate: boolean`
+- an ability to reschedule events by resizing `dragResize: boolean`
+- an ability to reschedule events by drag-n-drop `dragMove: boolean`
+- an ability to display info popup by click `eventInfoOnClick: boolean`
+- an ability to open editor by double click `editorOnDblClick: boolean`
+- an ability to create new event by double click `createEventOnDblClick: boolean`
+- an ability to overlay events `eventsOverlay: boolean`
+- an ability to auto save the event data (via the editor) `autoSave: boolean`
+- an ability to block all operations with events `readonly: boolean`
 
 ~~~jsx {4-12}
 // create Event Calendar
@@ -64,11 +64,11 @@ new eventCalendar.EventCalendar("#root", {
 
 In the object of the [`config`](api/config/js_eventcalendar_config_config.md) parameter you can also set the grid appearance:
 
-- a height of the grid header <code style = {{color: "green"}}>tableHeaderHeight: number</code>
-- a height of the events <code style = {{color: "green"}}>eventHeight: number</code>
-- a step of moving events via drag-n-drop <code style = {{color: "green"}}>timeStep: number</code>
-- a start and end time of day <code style = {{color: "green"}}>timeRange: [number, number]</code>
-- a duration of the new created events by default <code style = {{color: "green"}}>defaultEventDuration: number</code>
+- a height of the grid header `tableHeaderHeight: number`
+- a height of the events `eventHeight: number`
+- a step of moving events via drag-n-drop `timeStep: number`
+- a start and end time of day `timeRange: [number, number]`
+- a duration of the new created events by default `defaultEventDuration: number`
 
 ~~~jsx {3-7}
 config: {
@@ -89,14 +89,14 @@ In the object of the [`config`](api/config/js_eventcalendar_config_config.md) pa
 
 The **Day** and **Week** view modes can be set in the following way:
 
-- a height of multievents <code style = {{color: "green"}}>eventHeight: number</code> (*common config for all view modes*) 
-- enables/disables an ability to overlay events <code style = {{color: "green"}}>eventsOverlay: boolean</code>
-- a step of moving events via d-n-d <code style = {{color: "green"}}>timeStep: number</code>
-- an array with start and end time of day <code style = {{color: "green"}}>timeRange: array</code>
-- a column width of the "hour" scale <code style = {{color: "green"}}>hourScaleWidth: number</code>
-- a row height of the "hour" scale <code style = {{color: "green"}}>hourHeight: number</code>
-- a space between events (px) <code style = {{color: "green"}}>eventMargin: string</code>
-- a right padding of the grid column (px) <code style = {{color: "green"}}>columnPadding: string</code>
+- a height of multievents `eventHeight: number` (*common config for all view modes*) 
+- enables/disables an ability to overlay events `eventsOverlay: boolean`
+- a step of moving events via d-n-d `timeStep: number`
+- an array with start and end time of day `timeRange: array`
+- a column width of the "hour" scale `hourScaleWidth: number`
+- a row height of the "hour" scale `hourHeight: number`
+- a space between events (px) `eventMargin: string`
+- a right padding of the grid column (px) `columnPadding: string`
 
 ~~~jsx {3-10,15-29}
 // settings of the "Day" and "Week" modes
@@ -133,9 +133,9 @@ config: {
 
 The **Month** view mode can be set in the following way:
 
-- a height of multievents <code style = {{color: "green"}}>eventHeight: number</code> (*common config for all view modes*)
-- a min height of a grid cell <code style = {{color: "green"}}>dayHeight: number</code>
-- a max number of events per cell <code style = {{color: "green"}}>maxEventsPerCell: number</code>
+- a height of multievents `eventHeight: number` (*common config for all view modes*)
+- a min height of a grid cell `dayHeight: number`
+- a max number of events per cell `maxEventsPerCell: number`
 
 ~~~jsx {3-5,10-18}
 // settings of the "Month" mode
@@ -501,9 +501,9 @@ new eventCalendar.EventCalendar("#root", {
 
 To configure a sidebar state, you can use the [`sidebar`](api/config/js_eventcalendar_sidebar_config.md) property. There are 3 available states:
 
-- `sidebar:` <code style = {{color: "green"}}>{ show: true }</code> - the sidebar is shown (a toggle button for switching sidebar is shown)
-- `sidebar:` <code style = {{color: "green"}}>{ show: false }</code> - the sidebar is hidden (a toggle button for switching sidebar is shown)
-- `sidebar:` <code style = {{color: "green"}}>null</code> - the sidebar and toggle button are hidden
+- `sidebar: { show: true }` - the sidebar is shown (a toggle button for switching sidebar is shown)
+- `sidebar: { show: false }` - the sidebar is hidden (a toggle button for switching sidebar is shown)
+- `sidebar: null` - the sidebar and toggle button are hidden
 
 To provide the initial data for calendars (event types) located on the sidebar, you can use the [`calendars`](api/config/js_eventcalendar_calendars_config.md) property
 
@@ -543,13 +543,13 @@ new eventCalendar.EventCalendar("#root", {
 
 To set an initial view mode, you can use the [`mode`](api/config/js_eventcalendar_mode_config.md) property. There are 6 default view modes:
 
-- <code style = {{color: "green"}}>mode: "day"</code> - the "Day" view mode
-- <code style = {{color: "green"}}>mode: "week"</code> - the "Week" view mode
-- <code style = {{color: "green"}}>mode: "month"</code> - the "Month" view mode
-- <code style = {{color: "green"}}>mode: "year"</code> - the "Year" view mode
-- <code style = {{color: "green"}}>mode: "agenda"</code> - the "Agenda" view mode
-- <code style = {{color: "green"}}>mode: "timeline"</code> - the "Timeline" view mode
-- <code style = {{color: "green"}}>mode: custom_view_id</code> - the custom view mode
+- `mode: "day"` - the "Day" view mode
+- `mode: "week"` - the "Week" view mode
+- `mode: "month"` - the "Month" view mode
+- `mode: "year"` - the "Year" view mode
+- `mode: "agenda"` - the "Agenda" view mode
+- `mode: "timeline"` - the "Timeline" view mode
+- `mode: custom_view_id` - the custom view mode
 
 ~~~jsx {3}
 // create Event Calendar
@@ -567,7 +567,7 @@ Use the `config.views` property to set a custom view mode
 
 To set (select) an initial date, you can use the [`date`](api/config/js_eventcalendar_date_config.md) property:
 
-- <code style = {{color: "green"}}>date: new Date("2022-04-28 09:00:00")</code> - an initially selected date
+- `date: new Date("2022-04-28 09:00:00")` - an initially selected date
 
 ~~~jsx {3}
 // create Event Calendar
