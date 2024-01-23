@@ -8,6 +8,17 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.1.7
+
+Released on January 23, 2024
+
+### Fixes
+
+- Clicking on the event in the **Year** view causes a script error
+- Default event duration and `timeStep` doesn't apply on event creation
+- Recurring. Changing *end_date* after recurring event causes a script error
+- Single-day month events cannot be find by a css selector. Add specific classes to single-day and multievent
+
 ## Version 2.1.6
 
 Released on January 18, 2024
