@@ -29,19 +29,19 @@ Using this method, you can set the configuration parameters of the Event Calenda
 ~~~jsx {6-17}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // set the configuration parameters of Event Calendar
 calendar.setConfig({
-	config: {
-		dragCreate: true,
-		eventInfoOnClick: true,
-		eventsOverlay: true,
-		autoSave: true,
-		dragResize: true,
-		dragMove: true
-	},
-	locale: eventCalendar.ru,
-	mode: "month"
+    config: {
+        dragCreate: true,
+        eventInfoOnClick: true,
+        eventsOverlay: true,
+        autoSave: true,
+        dragResize: true,
+        dragMove: true
+    },
+    locale: eventCalendar.ru,
+    mode: "month"
 });
 ~~~

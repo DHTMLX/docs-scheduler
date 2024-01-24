@@ -25,7 +25,7 @@ setDate({ value: Date }): void;
 ~~~jsx {6-7}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 //set current date
 const date = new Date("2021-05-24 00:00:00");

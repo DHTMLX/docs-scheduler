@@ -14,8 +14,8 @@ description: You can learn about the on method in the documentation of the DHTML
 
 ~~~jsx {}
 api.on(
-	event: string,
-	handler: function
+    event: string,
+    handler: function
 ): void;
 ~~~
 
@@ -35,10 +35,10 @@ The full list of the Event Calendar internal events can be found [**here**](api/
 ~~~jsx {6-8}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration properties
+    // configuration properties
 });
 // output the event data in console when its deleting
 calendar.api.on("delete-event", (obj) => {
-	console.log(obj);
+    console.log(obj);
 });
 ~~~

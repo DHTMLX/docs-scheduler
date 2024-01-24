@@ -21,7 +21,7 @@ destructor(): void;
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	//configuration parameters
+    //configuration parameters
 });
 // delete Event Calendar
 calendar.destructor();

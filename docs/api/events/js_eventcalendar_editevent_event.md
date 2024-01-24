@@ -14,8 +14,8 @@ description: You can learn about the edit-event event in the documentation of th
 
 ~~~jsx {}
 "edit-event": ({
-	id?: string | number, 
-	add?: boolean | object
+    id?: string | number, 
+    add?: boolean | object
 }) => void;
 ~~~
 
@@ -25,8 +25,8 @@ The callback of the **edit-event** event can take an object with the following p
 
 - `id` - (optional) an ID of the event to be edited
 - `add` - (optional) an ability to add new event. This parameter takes one of 2 available options:
-	- **true** / **false** - enables/disables an ability to add new event
-	- **object** - an object of new event
+    - **true** / **false** - enables/disables an ability to add new event
+    - **object** - an object of new event
 
 Depending on the passed parameters, you can perform the following operations:
 
@@ -35,7 +35,7 @@ Depending on the passed parameters, you can perform the following operations:
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // open the editor for the event with the "1" ID
 calendar.api.exec("edit-event", { id: "1" });
@@ -49,14 +49,14 @@ calendar.api.exec("edit-event", { add: true });
 
 // open the editor for the new event with the initial data
 calendar.api.exec("edit-event", { 
-	add: {
-		id: "44",
-		type: "meeting",
-		start_date: new Date("2023-09-16T15:00:00"),
-		end_date: new Date("2023-09-16T16:00:00"),
-		text: "Custom event",
-		details: "Rome, Italy",
-	} 
+    add: {
+        id: "44",
+        type: "meeting",
+        start_date: new Date("2023-09-16T15:00:00"),
+        end_date: new Date("2023-09-16T16:00:00"),
+        text: "Custom event",
+        details: "Rome, Italy",
+    } 
 });
 ~~~
 
@@ -76,11 +76,11 @@ For handling the inner events of Event Calendar you can use the [**Event Bus met
 ~~~jsx {7-9}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 
 // subscribe on the "edit-event" event
 calendar.api.on("edit-event", (obj) => {
-	console.log(obj);
+    console.log(obj);
 });
 ~~~

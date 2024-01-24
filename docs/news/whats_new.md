@@ -68,7 +68,7 @@ Released on October 31, 2023
 
 - #### Properties
 
-	- [`editorValidation`](../../api/config/js_eventcalendar_editorvalidation_config)
+    - [`editorValidation`](../../api/config/js_eventcalendar_editorvalidation_config)
 
 ### Fixes
 

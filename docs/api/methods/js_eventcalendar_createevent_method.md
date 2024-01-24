@@ -29,17 +29,17 @@ The full list of the **event** parameters can be found [**here**](api/config/js_
 ~~~jsx {6-15}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // create new event
 calendar.createEvent({
     event: {
-		id: "44",
-		type: "meeting",
-		start_date: new Date("2023-09-16T15:00:00"),
-		end_date: new Date("2023-09-16T16:00:00"),
-		text: "Custom event",
-		details: "Rome, Italy",
+        id: "44",
+        type: "meeting",
+        start_date: new Date("2023-09-16T15:00:00"),
+        end_date: new Date("2023-09-16T16:00:00"),
+        text: "Custom event",
+        details: "Rome, Italy",
     }
 });
 ~~~

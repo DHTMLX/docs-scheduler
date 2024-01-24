@@ -22,20 +22,20 @@ The **getState()** method returns an object with the following properties:
 
 ~~~jsx {}
 {
-	bounds: array,
-	config: object,
-	events: array,
-	date: Date,
-	dateRange: array,
-	datepicker: object,
-	edit: boolean,
-	editorShape: array,
-	calendars: array,
-	mode: string,
-	popupInfo: object,
-	selected: string,
-	viewData: array,
-	viewModel: object
+    bounds: array,
+    config: object,
+    events: array,
+    date: Date,
+    dateRange: array,
+    datepicker: object,
+    edit: boolean,
+    editorShape: array,
+    calendars: array,
+    mode: string,
+    popupInfo: object,
+    selected: string,
+    viewData: array,
+    viewModel: object
 }
 ~~~  
 
@@ -44,7 +44,7 @@ The **getState()** method returns an object with the following properties:
 ~~~jsx {5-13}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // get the state of Event Calendar
 const state = calendar.api.getState();

@@ -74,7 +74,7 @@ new eventCalendar.EventCalendar("#root", { // create Event Calendar
             return `
                 <div class="week_event_wrapper">
                     <div>${event.text}</div>
-                    <div> ${start_date} - ${end_date}</div>	
+                    <div> ${start_date} - ${end_date}</div>    
                     ${event.img ? `<img src=${event.img} alt="" />` : ""}
                 </div>`;
         },
@@ -161,7 +161,7 @@ new eventCalendar.EventCalendar("#root", { // create Event Calendar
                 </div>`;
         }
     },
-	// other configuration parameters
+    // other configuration parameters
 });
 ~~~
 

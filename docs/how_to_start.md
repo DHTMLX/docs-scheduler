@@ -20,16 +20,16 @@ There are two necessary files:
 ~~~html {5-6} title="index.html"
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>How to Start with Event Calendar</title>
-		<script src="./dist/event-calendar.js"></script>   
-		<link href="./dist/event-calendar.css" rel="stylesheet">
-	</head>
-	<body>
-		<script>
-		// your code will be here
-		</script>
-	</body>
+    <head>
+        <title>How to Start with Event Calendar</title>
+        <script src="./dist/event-calendar.js"></script>   
+        <link href="./dist/event-calendar.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+        // your code will be here
+        </script>
+    </body>
 </html>
 ~~~
 
@@ -65,52 +65,52 @@ The constructor takes an ID of HTML container where Event Calendar will be place
 ~~~html {9,11-46} title="index.html"
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>How to Start with Event Calendar</title>
-		<script src="./dist/event-calendar.js"></script>   
-		<link href="./dist/event-calendar.css" rel="stylesheet">  
-	</head>
-	<body>
-		<div id="root"></div>
-		<script>
-			new eventCalendar.EventCalendar("#root", {
-				// configuration properties
-				mode: "month",
-				date: new Date("2023-03-12T00:00:00"),
-				events: [
-					{
-						id: "1",
-						type: "work",
-						start_date: new Date("2023-03-23T08:00:00"),
-						end_date: new Date("2023-03-23T10:25:00"),
-						text: "French Open",
-						details: "Philippe-Chatrier Court\n Paris, FRA"
-					},
-					{
-						id: "2",
-						type: "work",
-						start_date: new Date("2023-03-08T00:00:00"),
-						end_date: new Date("2023-03-13T00:00:00"),
-						text: "French Open",
-						details: "Philippe-Chatrier Court\n Paris, FRA",
-					},
-					{
-						id: "3",
-						type: "work",
-						start_date: new Date("2023-02-21T00:00:00"),
-						end_date: new Date("2023-03-16T00:00:00"),
-						text: "Wimbledon",
-						details: "Wimbledon\n June 21, 2009 - July 5, 2009",
-						color: {
-							background: "#BD69BC",
-							border: "#AD44AB",
-							textColor: "#FFFFFF"
-						},
-					}
-				]
-			});
-		</script>
-	</body>
+    <head>
+        <title>How to Start with Event Calendar</title>
+        <script src="./dist/event-calendar.js"></script>   
+        <link href="./dist/event-calendar.css" rel="stylesheet">  
+    </head>
+    <body>
+        <div id="root"></div>
+        <script>
+            new eventCalendar.EventCalendar("#root", {
+                // configuration properties
+                mode: "month",
+                date: new Date("2023-03-12T00:00:00"),
+                events: [
+                    {
+                        id: "1",
+                        type: "work",
+                        start_date: new Date("2023-03-23T08:00:00"),
+                        end_date: new Date("2023-03-23T10:25:00"),
+                        text: "French Open",
+                        details: "Philippe-Chatrier Court\n Paris, FRA"
+                    },
+                    {
+                        id: "2",
+                        type: "work",
+                        start_date: new Date("2023-03-08T00:00:00"),
+                        end_date: new Date("2023-03-13T00:00:00"),
+                        text: "French Open",
+                        details: "Philippe-Chatrier Court\n Paris, FRA",
+                    },
+                    {
+                        id: "3",
+                        type: "work",
+                        start_date: new Date("2023-02-21T00:00:00"),
+                        end_date: new Date("2023-03-16T00:00:00"),
+                        text: "Wimbledon",
+                        details: "Wimbledon\n June 21, 2009 - July 5, 2009",
+                        color: {
+                            background: "#BD69BC",
+                            border: "#AD44AB",
+                            textColor: "#FFFFFF"
+                        },
+                    }
+                ]
+            });
+        </script>
+    </body>
 </html>
 ~~~
 
@@ -128,17 +128,17 @@ Next you can specify the configuration properties you want the Event Calendar co
 
 ~~~jsx {2-12}
 new eventCalendar.EventCalendar("#root", {
-	calendars,
-	colors,
-	config,
-	date,
-	editorShape,
-	events,
-	locale,
-	mode,
-	sidebar,
-	templates,
-	theme
+    calendars,
+    colors,
+    config,
+    date,
+    editorShape,
+    events,
+    locale,
+    mode,
+    sidebar,
+    templates,
+    theme
 });
 ~~~
 

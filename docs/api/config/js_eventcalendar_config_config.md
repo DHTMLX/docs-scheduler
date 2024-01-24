@@ -257,39 +257,39 @@ sections: [
 
 ~~~jsx {}
 const defaultWeekConfig = {
-	eventHorizontalSpace: 3,
-	columnPadding: "8px",
+    eventHorizontalSpace: 3,
+    columnPadding: "8px",
     
 };
 
 const defaultMonthConfig = {
-	maxEventsPerCell: 4,
+    maxEventsPerCell: 4,
 };
 
 const defaultTimelineConfig = {
-	colsCount: 90,
-	minEventWidth: 50,
-	colsWidth: 90,
-	minSectionHeight: 100,
-	sectionWidth: 158,
-	step: [1, "day"],
-	key: "section",
-	header: [
-		{ unit: "month", step: 1, format: "MMM" },
-		{ unit: "day", step: 1, format: "d MMM" },
-	],
-	sections: [
-		{ id: "1", label: "Section 1" },
-		{ id: "2", label: "Section 2" },
-		{ id: "3", label: "Section 3" },
-		{ id: "4", label: "Section 4" },
-		{ id: "5", label: "Section 5" },
-		{ id: "6", label: "Section 6" },
-		{ id: "7", label: "Section 7" },
-		{ id: "8", label: "Section 8" },
-		{ id: "9", label: "Section 9" },
-	],
-	unassignedCol: false,
+    colsCount: 90,
+    minEventWidth: 50,
+    colsWidth: 90,
+    minSectionHeight: 100,
+    sectionWidth: 158,
+    step: [1, "day"],
+    key: "section",
+    header: [
+        { unit: "month", step: 1, format: "MMM" },
+        { unit: "day", step: 1, format: "d MMM" },
+    ],
+    sections: [
+        { id: "1", label: "Section 1" },
+        { id: "2", label: "Section 2" },
+        { id: "3", label: "Section 3" },
+        { id: "4", label: "Section 4" },
+        { id: "5", label: "Section 5" },
+        { id: "6", label: "Section 6" },
+        { id: "7", label: "Section 7" },
+        { id: "8", label: "Section 8" },
+        { id: "9", label: "Section 9" },
+    ],
+    unassignedCol: false,
 };
 
 const defaultConfig = {
@@ -316,27 +316,27 @@ const defaultConfig = {
     viewControl: "auto",
 
     views: [
-		{
-			id: "week",
-			label: "Week",
-			config: defaultWeekConfig,
-			layout: "week"
-		},
-		{ 
+        {
+            id: "week",
+            label: "Week",
+            config: defaultWeekConfig,
+            layout: "week"
+        },
+        { 
             id: "day", 
             label: "Day", 
             config: defaultWeekConfig, 
             layout: "day"
         },
-		{
-			id: "month",
-			label: "Month",
-			config: defaultMonthConfig,
-			layout: "month"
-		},
-		{ id: "year", label: "Year", layout: "year" },
-		{ id: "agenda", label: "Agenda", layout: "agenda" },
-	],
+        {
+            id: "month",
+            label: "Month",
+            config: defaultMonthConfig,
+            layout: "month"
+        },
+        { id: "year", label: "Year", layout: "year" },
+        { id: "agenda", label: "Agenda", layout: "agenda" },
+    ],
 };
 ~~~
 
@@ -360,29 +360,29 @@ new eventCalendar.EventCalendar("#root", {
         eventVerticalSpace: 8,
         dateTitle: (date, [start, end]) => `${format(start, "do")} - ${format(end, "do")} ${format(date, "LLL")}`,
         views: [
-			{
-				id: "timeline",
-				label: "Timeline",
-				layout: "timeline",
-				config: {
-					unassignedCol: true,
-					sections: [
-						{
-							label: "Andy Warh",
-							id: "1",
-							img: "../src/data/common/img/01/avatar_01.jpg",
-						},
-						{
-							label: "Nataly Tamer",
-							id: "2",
-							img: "../src/data/common/img/02/avatar_02.jpg",
-						},
-						// other sections config
-					],
-				},
-			},
+            {
+                id: "timeline",
+                label: "Timeline",
+                layout: "timeline",
+                config: {
+                    unassignedCol: true,
+                    sections: [
+                        {
+                            label: "Andy Warh",
+                            id: "1",
+                            img: "../src/data/common/img/01/avatar_01.jpg",
+                        },
+                        {
+                            label: "Nataly Tamer",
+                            id: "2",
+                            img: "../src/data/common/img/02/avatar_02.jpg",
+                        },
+                        // other sections config
+                    ],
+                },
+            },
             // other custom views config
-		],
+        ],
     },
     // other configuration parameters
 });

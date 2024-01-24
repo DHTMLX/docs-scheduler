@@ -388,13 +388,13 @@ new eventCalendar.EventCalendar("#root", {
             type: "files", 
             key: "attached", // the "attached" key is used when providing the event data via the "events" property
             label: "Attachment",
-			uploadURL: url + "/uploads",
-			config: {
-				accept: "image/*", // "video/*", "audio/*"
-				disabled: false,
-				multiple: true,
-				folder: false
-			}
+            uploadURL: url + "/uploads",
+            config: {
+                accept: "image/*", // "video/*", "audio/*"
+                disabled: false,
+                multiple: true,
+                folder: false
+            }
         },
         // settings of other fields
     ]
@@ -493,7 +493,7 @@ new eventCalendar.EventCalendar("#root", {
     editorValidation: event => {
         if (!event.text) return "Text is required";
     }
-	// other configuration parameters
+    // other configuration parameters
 });
 ~~~
 

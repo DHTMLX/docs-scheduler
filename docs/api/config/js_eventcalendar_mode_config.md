@@ -40,7 +40,7 @@ To set the view mode dynamically, you can use the
 // create Event Calendar
 new eventCalendar.EventCalendar("#root", {
     mode: "timeline"
-	// other configuration parameters
+    // other configuration parameters
 });
 ~~~
 

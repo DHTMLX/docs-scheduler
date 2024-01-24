@@ -37,7 +37,7 @@ To set a theme dynamically, you can use the
 new eventCalendar.EventCalendar("#root", {
     events,
     theme: "willowDark"
-	// other configuration parameters
+    // other configuration parameters
 });
 ~~~
 

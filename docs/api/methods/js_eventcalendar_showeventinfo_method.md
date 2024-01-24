@@ -25,7 +25,7 @@ showEventInfo({ id: string | number }): void;
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// initial configuration parameters
+    // initial configuration parameters
 });
 // open info popup for the event with the "1" ID
 calendar.showEventInfo({ id: "1" });

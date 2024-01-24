@@ -19,16 +19,16 @@ setTheme(theme?: string): void;
 ### Parameters
 
 - `theme` - (optional) a theme to be applied to Event Calendar. There are 3 available themes:
-	- "material"
-	- "willow"
-	- "willowDark"
+    - "material"
+    - "willow"
+    - "willowDark"
 
 ### Example
 
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// initial configuration parameters
+    // initial configuration parameters
 });
 // set the "willow" theme
 calendar.setTheme( "willow" );
