@@ -31,14 +31,14 @@ const url = "https://some_backend_url";
 const restProvider = new eventCalendar.RestDataProvider(url);
 
 Promise.all([
-	restProvider.getEvents(),
-	restProvider.getCalendars()
+    restProvider.getEvents(),
+    restProvider.getCalendars()
 ]).then(([events, calendars]) => {
-	const calendar = new eventCalendar("#root", {
-		events,
-		calendars
-	});
-	calendar.api.setNext(restProvider);
+    const calendar = new eventCalendar("#root", {
+        events,
+        calendars
+    });
+    calendar.api.setNext(restProvider);
 });
 ~~~
 

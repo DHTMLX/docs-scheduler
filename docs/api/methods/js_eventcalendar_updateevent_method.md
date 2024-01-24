@@ -14,8 +14,8 @@ description: You can learn about the updateEvent method in the documentation of 
 
 ~~~jsx {}
 updateEvent({ 
-	event: object, 
-	id: string | number 
+    event: object, 
+    id: string | number 
 }): void;
 ~~~
 
@@ -33,20 +33,20 @@ Note, the **ID** of the event to be updated is required. Other event parameters 
 ~~~jsx {6-13,15-18}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 
 const new_event_data = {
-	id: "1.1",
-	type: "Work",
-	start_date: new Date("2021-05-24 00:00:00"),
-	end_date: new Date("2021-06-08 00:00:00"),
-	text: "Updated Event",
-	details: "Philippe-Chatrier Court\n Paris, FRA"
+    id: "1.1",
+    type: "Work",
+    start_date: new Date("2021-05-24 00:00:00"),
+    end_date: new Date("2021-06-08 00:00:00"),
+    text: "Updated Event",
+    details: "Philippe-Chatrier Court\n Paris, FRA"
 };
 // update data of the event with the 1 ID
 calendar.updateEvent({
-	event: new_event_data,
-	id: "1"
+    event: new_event_data,
+    id: "1"
 });
 ~~~

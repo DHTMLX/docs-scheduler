@@ -22,7 +22,7 @@ The method returns an object with **DataStore**:
 
 ~~~jsx {}
 {
-	state: DataStore // ( object )
+    state: DataStore // ( object )
 }
 ~~~
 
@@ -31,7 +31,7 @@ The method returns an object with **DataStore**:
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration properties
+    // configuration properties
 });
 // get the DataStore object of Event Calendar
 const stores = calendar.api.getStores();

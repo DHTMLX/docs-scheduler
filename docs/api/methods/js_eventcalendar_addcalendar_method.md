@@ -29,17 +29,17 @@ The full list of the **calendar** parameters can be found [**here**](api/config/
 ~~~jsx {6-14,16}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // calendar data
 const new_calendar_data = {
-	id: "new_calendar",
-	active: true,
-	label: "New calendar",
-	color: {
-		background: "#d5eaf7",
-		border: "#098CDC"
-	}
+    id: "new_calendar",
+    active: true,
+    label: "New calendar",
+    color: {
+        background: "#d5eaf7",
+        border: "#098CDC"
+    }
 };
 // add new calendar
 calendar.addCalendar({ calendar: new_calendar_data });

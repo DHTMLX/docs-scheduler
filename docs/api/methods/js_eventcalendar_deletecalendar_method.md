@@ -25,10 +25,10 @@ deleteCalendar({ id: string | number }): void;
 ~~~jsx {6-8}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // delete calendar with the "work" ID
 calendar.deleteCalendar({
-	id: "work"
+    id: "work"
 });
 ~~~

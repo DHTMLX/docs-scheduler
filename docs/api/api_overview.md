@@ -10,7 +10,7 @@ description: You can explore an API overview in the documentation of the DHTMLX 
 
 ~~~jsx {}
 new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 ~~~
 

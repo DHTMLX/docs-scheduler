@@ -29,10 +29,10 @@ For handling the inner events of Event Calendar you can use the [**Event Bus met
 ~~~jsx {6-8}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // subscribe on the "close-event-info" event
 calendar.api.on("close-event-info", () => {
-	console.log("The event info popup is closed!");
+    console.log("The event info popup is closed!");
 });
 ~~~

@@ -95,7 +95,7 @@ new eventCalendar.EventCalendar("#root", {
             colorpicker: "border"
         }
     ],
-	// other configuration parameters
+    // other configuration parameters
 });
 ~~~
 

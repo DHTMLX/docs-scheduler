@@ -14,76 +14,76 @@ description: You can learn about the editorShape config in the documentation of 
 
 ~~~jsx {3,8,18,32,41,57,60,63}
 editorShape?: [
-	{
-		// common settings
-		type: string,
-		key: string,
-		label?: string,
+    {
+        // common settings
+        type: string,
+        key: string,
+        label?: string,
 
-		// for "text" and "textarea" types
-		config?: {
-			readonly?: boolean,
-			focus?: boolean,
-			disabled?: boolean,
-			placeholder?: string,
-			type?: string,
-			inputStyle?: string
-		},
+        // for "text" and "textarea" types
+        config?: {
+            readonly?: boolean,
+            focus?: boolean,
+            disabled?: boolean,
+            placeholder?: string,
+            type?: string,
+            inputStyle?: string
+        },
 
-		// for "combo" and "multiselect" types only
-		template?: (option) => string, 
-		options?: [
-			{
-				id: any,
-				label: string,
-			},
-			{...} // other options
-		],
-		config?: {
-			placeholder?: string,
-			disabled?: boolean
-		},
+        // for "combo" and "multiselect" types only
+        template?: (option) => string, 
+        options?: [
+            {
+                id: any,
+                label: string,
+            },
+            {...} // other options
+        ],
+        config?: {
+            placeholder?: string,
+            disabled?: boolean
+        },
 
-		// for a "radio" type only
-		options?: [
-			{
-				id: any,
-				label?: string, 
-			},
-			{...} // other options
-		],
+        // for a "radio" type only
+        options?: [
+            {
+                id: any,
+                label?: string, 
+            },
+            {...} // other options
+        ],
 
-		// for "color" and "colorSchema" types
-		colors?: [], // for a "color" type only
-		colors?: [ // for a "colorSchema" type only
-			{
-				background?: string,
-				border?: string,
-				textColor? string,
-				colorpicker? string
-			},
-			{...}
-		],
-		config?: {
-			placeholder?: string,
-			clear?: boolean
-		},
+        // for "color" and "colorSchema" types
+        colors?: [], // for a "color" type only
+        colors?: [ // for a "colorSchema" type only
+            {
+                background?: string,
+                border?: string,
+                textColor? string,
+                colorpicker? string
+            },
+            {...}
+        ],
+        config?: {
+            placeholder?: string,
+            clear?: boolean
+        },
 
-		// for a "checkbox" type only
-		text?: string,
+        // for a "checkbox" type only
+        text?: string,
 
-		// for a "date" type only
-		time?: boolean,
+        // for a "date" type only
+        time?: boolean,
 
-		// for a "files" type only
-		uploadURL?: string,
-		config?: {
-			accept?: string,
-			disabled?: boolean,
-			multiple?: boolean,
-			folder?: boolean
-		}
-	}, {...}
+        // for a "files" type only
+        uploadURL?: string,
+        config?: {
+            accept?: string,
+            disabled?: boolean,
+            multiple?: boolean,
+            folder?: boolean
+        }
+    }, {...}
 ];
 ~~~
 
@@ -104,27 +104,27 @@ The **recurring** type of editor doesn't require a key to bind to events!
 ~~~js {4-5,12,20}
 // event data
 const events = [
-	{
-		text: "Current event",
-		start_date: new Date("2021-05-24T00:00:00")
-	}, {...}
+    {
+        text: "Current event",
+        start_date: new Date("2021-05-24T00:00:00")
+    }, {...}
 ];
 // editor settings
 const editorShape = [ 
-	{
-		type: "text",
-		key: "text",
-		label: "Event name",
-		config: {
-			placeholder: "New event"
-		}
-	},
-	{
-		type: "date",
-		key: "start_date", 
-		label: "Start date",
-		time: true
-	}
+    {
+        type: "text",
+        key: "text",
+        label: "Event name",
+        config: {
+            placeholder: "New event"
+        }
+    },
+    {
+        type: "date",
+        key: "start_date", 
+        label: "Start date",
+        time: true
+    }
 ];
 ~~~
 
@@ -133,28 +133,28 @@ const editorShape = [
 #### - Parameters for "text" and "textarea" types
 
 - `config` - (optional) a configuration object of the **"text"** and **"textarea"** fields. Here you can specify the following parameters:
-	- `readonly` - (optional) enables/disables a readonly mode
-	- `focus` - (optional) enables/disables a focus
-	- `disabled` - (optional) enables/disables a field state
-	- `placeholder` - (optional) a placeholder value
-	- `type` - (optional) a type of the input field (only for **text** type). Here you can specify only the **password**, **number**, and **text** values)
-	- `inputStyle` - (optional) a custom css style
+    - `readonly` - (optional) enables/disables a readonly mode
+    - `focus` - (optional) enables/disables a focus
+    - `disabled` - (optional) enables/disables a field state
+    - `placeholder` - (optional) a placeholder value
+    - `type` - (optional) a type of the input field (only for **text** type). Here you can specify only the **password**, **number**, and **text** values)
+    - `inputStyle` - (optional) a custom css style
 
 #### - Parameters for "combo" and "multiselect" types
 
 - `template` - (optional) a function that needs to return a custom template of the drop-down options
 - `options` - (optional) an array of objects containing the dropdown options data. Here you can specify the following parameters:
-	- `id` - (required) an option **ID** 
-	- `label` - (required) an option label 
+    - `id` - (required) an option **ID** 
+    - `label` - (required) an option label 
 - `config` - (optional) a configuration object of the **"combo"** field. Here you can specify the following parameters:
-	- `placeholder` - (optional) a placeholder value
-	- `disabled` - (optional) enables/disables a field state
+    - `placeholder` - (optional) a placeholder value
+    - `disabled` - (optional) enables/disables a field state
 
 #### - Parameters for a "radio" type
 
 - `options` - (optional) an array of objects containing the radio button data. Here you can specify the following parameters:
-	- `value` - (required) a radio button value 
-	- `label` - (optional) an option label 
+    - `value` - (required) a radio button value 
+    - `label` - (optional) an option label 
 
 #### - Parameters for "color" and "colorSchema" types
 
@@ -166,15 +166,15 @@ For a **color** type only
 :::note
 For a **colorSchema** type only. Unless you specify *colors* for the **colorSchema** type, the colorpicker will use a set of parameters specified via the [`colors`](../js_eventcalendar_colors_config) property
 - `colors` - (optional) an array of objects containing the parameters of colors used in colorpicker. For each set of colors you can specify the following parameters:
-	- `background` - (optional) a HEX code of the event background color
-	- `border` - (optional) a HEX code of the event border color
-	- `textColor` - (optional) a HEX code of the event text color
-	- `colorpicker` - (optional) a value (color) used in colorpicker. The possible values are *"background"* and *"border"*
+    - `background` - (optional) a HEX code of the event background color
+    - `border` - (optional) a HEX code of the event border color
+    - `textColor` - (optional) a HEX code of the event text color
+    - `colorpicker` - (optional) a value (color) used in colorpicker. The possible values are *"background"* and *"border"*
 :::
 
 - `config` - (optional) a configuration object of the **"color"** and **"colorSchema"** fields. Here you can specify the following parameters:
-	- `placeholder` - (optional) a placeholder value
-	- `clear` - (optional) shows/hides a "clear" icon
+    - `placeholder` - (optional) a placeholder value
+    - `clear` - (optional) shows/hides a "clear" icon
 
 #### - Parameters for a "checkbox" type
 
@@ -188,10 +188,10 @@ For a **colorSchema** type only. Unless you specify *colors* for the **colorSche
 
 - `uploadURL` - (optional) an URL of the editor uploader
 - `config` - (optional) a configuration object of the **"files"** field. Here you can specify the following parameters:
-	- `accept` - (optional) a file type to be uploaded (***"image/\*", "video/\*", "audio/\*"*** *and other*)
-	- `disabled` - (optional) enables/disables uploading *files*
-	- `multiple` - (optional) enables/disables uploading *multiple files*
-	- `folder` - (optional) enables/disables uploading *folders*
+    - `accept` - (optional) a file type to be uploaded (***"image/\*", "video/\*", "audio/\*"*** *and other*)
+    - `disabled` - (optional) enables/disables uploading *files*
+    - `multiple` - (optional) enables/disables uploading *multiple files*
+    - `folder` - (optional) enables/disables uploading *folders*
 
 :::info
 Unless you specify the editor settings via the **editorShape** property, the widget will apply the **defaultEditorShape** set of parameters!
@@ -205,48 +205,48 @@ You can export the default config using the `eventCalendar.defaultEditorShape` e
 
 ~~~jsx {}
 const defaultEditorShape = [
-	{
-		key: "text",
-		type: "text",
-		label: "Event name",
-		config: {
-			placeholder: "New Event"
-		}
-	},
-	{
-		type: "date",
-		key: "start_date",
-		label: "Start date",
-		time: true
-	},
-	{
-		type: "date",
-		key: "end_date",
-		label: "End date",
-		time: true
-	},
-	{
-		type: "checkbox",
-		key: "allDay",
-		text: "All day"
-	},
-	{
-		type: "combo",
-		key: "type",
-		label: "Type"
-	},
-	{
-		key: "details",
-		type: "textarea",
-		label: "Description",
-		config: {
-			placeholder: "Add description"
-		}
-	},
-	{
-		type: "recurring",
-		label: "Repeat event"
-	}
+    {
+        key: "text",
+        type: "text",
+        label: "Event name",
+        config: {
+            placeholder: "New Event"
+        }
+    },
+    {
+        type: "date",
+        key: "start_date",
+        label: "Start date",
+        time: true
+    },
+    {
+        type: "date",
+        key: "end_date",
+        label: "End date",
+        time: true
+    },
+    {
+        type: "checkbox",
+        key: "allDay",
+        text: "All day"
+    },
+    {
+        type: "combo",
+        key: "type",
+        label: "Type"
+    },
+    {
+        key: "details",
+        type: "textarea",
+        label: "Description",
+        config: {
+            placeholder: "Add description"
+        }
+    },
+    {
+        type: "recurring",
+        label: "Repeat event"
+    }
 ];
 ~~~
 
@@ -266,18 +266,18 @@ const priorities = [
 ];
 // editor settings
 const editorShape = [ 
-	...eventCalendar.defaultEditorShape, // include the default settings
-	{ // add custom radio field
-		type: "radio",
-		key: "priority",
-		label: "Priority",
-		options: priorities
-	}
+    ...eventCalendar.defaultEditorShape, // include the default settings
+    { // add custom radio field
+        type: "radio",
+        key: "priority",
+        label: "Priority",
+        options: priorities
+    }
 ];
 // create Event Calendar
 new eventCalendar.EventCalendar("#root", {
-	editorShape
-	// other configuration parameters
+    editorShape
+    // other configuration parameters
 });
 ~~~
 

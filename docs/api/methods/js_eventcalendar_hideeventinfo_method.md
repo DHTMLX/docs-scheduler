@@ -21,7 +21,7 @@ hideEventInfo(): void;
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // hide an info popup
 calendar.hideEventInfo();

@@ -29,7 +29,7 @@ You can set the **value** parameter to the *"day"*, *"week"*, *"month"*, *"year"
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// initial configuration parameters
+    // initial configuration parameters
 });
 // set the "timeline" mode
 calendar.setMode({ value: "timeline" });

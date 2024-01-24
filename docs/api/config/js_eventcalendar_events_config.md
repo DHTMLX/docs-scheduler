@@ -113,7 +113,7 @@ new eventCalendar.EventCalendar("#root", {
         },
         // other events data
     ] 
-	// other configuration parameters
+    // other configuration parameters
 });
 ~~~
 

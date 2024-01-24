@@ -18,17 +18,17 @@ A **calendar** is a set of parameters you can apply to the events to group them 
 
 ~~~jsx {}
 calendars?: [
-	{ 
-		id: string | number,
-		label: string,
-		readonly: boolean,
-		active: boolean,
-		color?: {
-			background?: string, 
-			border?: string,
-			textColor?: string
-		}
-	}, {...}
+    { 
+        id: string | number,
+        label: string,
+        readonly: boolean,
+        active: boolean,
+        color?: {
+            background?: string, 
+            border?: string,
+            textColor?: string
+        }
+    }, {...}
 ];
 ~~~
 
@@ -41,9 +41,9 @@ For each **calendar** (*event type*) you can specify the following parameters (d
 - `active` - (required) shows/hides events of the current calendar
 - `readonly` - (optional) enables/disables an ability to edit and delete the current calendar
 - `color` - (optional) an object with the style parameters, applied to the events of current calendar. Here you can specify the following parameters (styles):
-	- `background` - (optional) a HEX code of the event background color related to the current calendar
-	- `border` - (optional) a HEX code of the event border color related to the current calendar
-	- `textColor` - (optional) a HEX code of the event text color related to the current calendar
+    - `background` - (optional) a HEX code of the event background color related to the current calendar
+    - `border` - (optional) a HEX code of the event border color related to the current calendar
+    - `textColor` - (optional) a HEX code of the event text color related to the current calendar
 
 ### Default config
 
@@ -53,46 +53,46 @@ You can export the default config using the `eventCalendar.defaultCalendars` exp
 
 ~~~jsx {}
 const defaultCalendars = [
-	{
-		id: "work",
-		label: "Work",
-		readonly: false,
-		active: true,
-		color: {
-			background: "#d5eaf7",
-			border: "#098CDC"
-		}
-	},
-	{
-		id: "meeting",
-		label: "Meeting",
-		readonly: false,
-		active: true,
-		color: {
-			background: "#E6E5EC",
-			border: "#7A67EB"
-		}
-	},
-	{
-		id: "rest",
-		label: "Rest",
-		readonly: false,
-		active: true,
-		color: {
-			background: "#EDD1EC",
-			border: "#AD44AB"
-		}
-	},
-	{
-		id: "movie",
-		label: "Movie",
-		readonly: false,
-		active: true,
-		color: {
-			background: "#CEEDC3",
-			border: "#77D257"
-		}
-	}
+    {
+        id: "work",
+        label: "Work",
+        readonly: false,
+        active: true,
+        color: {
+            background: "#d5eaf7",
+            border: "#098CDC"
+        }
+    },
+    {
+        id: "meeting",
+        label: "Meeting",
+        readonly: false,
+        active: true,
+        color: {
+            background: "#E6E5EC",
+            border: "#7A67EB"
+        }
+    },
+    {
+        id: "rest",
+        label: "Rest",
+        readonly: false,
+        active: true,
+        color: {
+            background: "#EDD1EC",
+            border: "#AD44AB"
+        }
+    },
+    {
+        id: "movie",
+        label: "Movie",
+        readonly: false,
+        active: true,
+        color: {
+            background: "#CEEDC3",
+            border: "#77D257"
+        }
+    }
 ];
 ~~~
 
@@ -107,32 +107,32 @@ To set the **calendars** config dynamically, you can use the
 // custom calendars
 const calendars = [
     {
-		id: "rest",
-		label: "Custom Rest",
-		readonly: true,
-		active: true,
-		color: {
-			background: "#EDD1EC",
-			border: "#AD44AB",
+        id: "rest",
+        label: "Custom Rest",
+        readonly: true,
+        active: true,
+        color: {
+            background: "#EDD1EC",
+            border: "#AD44AB",
             textColor: "#3e98db"
-		}
-	},
-	{
-		id: "movie",
-		label: "Custom Movie",
-		readonly: false,
-		active: false,
-		color: {
-			background: "#CEEDC3",
-			border: "#77D257",
+        }
+    },
+    {
+        id: "movie",
+        label: "Custom Movie",
+        readonly: false,
+        active: false,
+        color: {
+            background: "#CEEDC3",
+            border: "#77D257",
             textColor: "#3e98db"
-		}
-	}
+        }
+    }
 ];
 // create Event Calendar
 new eventCalendar.EventCalendar("#root", {
     calendars
-	// other configuration parameters
+    // other configuration parameters
 });
 ~~~
 

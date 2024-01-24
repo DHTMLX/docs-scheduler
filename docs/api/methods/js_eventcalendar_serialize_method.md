@@ -22,8 +22,8 @@ The method returns an object of Event Calendar data  (events and calendars)
 
 ~~~jsx {}
 {
-	events: [{...}, {...}, ...],
-	calendars: [{...}, {...}, ...]
+    events: [{...}, {...}, ...],
+    calendars: [{...}, {...}, ...]
 }
 ~~~
 
@@ -32,7 +32,7 @@ The method returns an object of Event Calendar data  (events and calendars)
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", { 
-	// configuration parameters
+    // configuration parameters
 });
 // get an object of the Event Calendar data (events and calendars)
 const serialized_data = calendar.serialize();

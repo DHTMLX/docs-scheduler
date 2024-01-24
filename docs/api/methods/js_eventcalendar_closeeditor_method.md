@@ -21,7 +21,7 @@ closeEditor(): void;
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // close an editor
 calendar.closeEditor();

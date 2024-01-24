@@ -30,7 +30,7 @@ new eventCalendar.EventCalendar("#root", {
     editorValidation: event => {
         if (!event.text) return "Text is required";
     }
-	// other configuration parameters
+    // other configuration parameters
 });
 ~~~
 

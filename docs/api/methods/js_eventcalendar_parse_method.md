@@ -25,8 +25,8 @@ To load data for **events** only, pass the following parameter:
 To load data for **events** and **calendars**, pass the following parameters:
 
 - `data` - (required) an object of the events and calendars data:
-	- `events` - an array of objects of the events data
-	- `calendars` - an array of objects of the calendars data
+    - `events` - an array of objects of the events data
+    - `calendars` - an array of objects of the calendars data
 
 :::info
 For details, see the [`events`](../../config/js_eventcalendar_events_config) and [`calendars`](../../config/js_eventcalendar_calendars_config) properties of Event Calendar
@@ -37,26 +37,26 @@ For details, see the [`events`](../../config/js_eventcalendar_events_config) and
 ~~~jsx {6-23,25-48,50}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // events data
 const events = [
-	{
-		id: "1",
-		type: "work",
-		start_date: new Date("2021-05-24T00:00:00"),
-		end_date: new Date("2021-06-08T00:00:00"),
-		text: "French Open",
-		details: "Philippe-Chatrier Court\n Paris, FRA",
-	},
-	{
-		id: "2",
-		type: "work",
-		start_date: new Date("2021-06-07T00:00:00"),
-		end_date: new Date("2021-06-13T00:00:00"),
-		text: "French Open",
-		details: "Philippe-Chatrier Court\n Paris, FRA",
-	}, ...
+    {
+        id: "1",
+        type: "work",
+        start_date: new Date("2021-05-24T00:00:00"),
+        end_date: new Date("2021-06-08T00:00:00"),
+        text: "French Open",
+        details: "Philippe-Chatrier Court\n Paris, FRA",
+    },
+    {
+        id: "2",
+        type: "work",
+        start_date: new Date("2021-06-07T00:00:00"),
+        end_date: new Date("2021-06-13T00:00:00"),
+        text: "French Open",
+        details: "Philippe-Chatrier Court\n Paris, FRA",
+    }, ...
 ];
 // calendars data
 const calendars = [

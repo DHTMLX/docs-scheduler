@@ -14,8 +14,8 @@ description: You can learn about the update-event event in the documentation of 
 
 ~~~jsx {}
 "update-event": ({
-	event: object,
-	id: string | number
+    event: object,
+    id: string | number
 }) => void;
 ~~~
 
@@ -35,10 +35,10 @@ For handling the inner events of Event Calendar you can use the [**Event Bus met
 ~~~jsx {6-8}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // subscribe on the "update-event" event
 calendar.api.on("update-event", (obj) => {
-	console.log(obj);
+    console.log(obj);
 });
 ~~~

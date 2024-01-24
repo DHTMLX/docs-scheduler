@@ -14,8 +14,8 @@ description: You can learn about the exec method in the documentation of the DHT
 
 ~~~jsx {}
 api.exec(
-	event: string,
-	config: object
+    event: string,
+    config: object
 ): void;
 ~~~
 
@@ -35,7 +35,7 @@ The full list of the Event Calendar internal events can be found [**here**](api/
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration properties
+    // configuration properties
 });
 // set "day" mode
 calendar.api.exec("set-mode", { mode: "day" });

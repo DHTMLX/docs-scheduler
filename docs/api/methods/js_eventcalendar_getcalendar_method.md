@@ -31,7 +31,7 @@ The `getCalendar()` method returns an object of the calendar data by the specifi
 ~~~jsx {6}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // get a calendar data with the "work" ID
 const calendar_data = calendar.getCalendar({ id: "work" });

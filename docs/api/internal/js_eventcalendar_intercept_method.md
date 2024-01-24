@@ -14,8 +14,8 @@ description: You can learn about the intercept method in the documentation of th
 
 ~~~jsx {}
 api.intercept(
-	event: string,
-	callback: function
+    event: string,
+    callback: function
 ): void;
 ~~~
 
@@ -35,13 +35,13 @@ The full list of the Event Calendar internal events can be found [**here**](api/
 ~~~jsx {6-11}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration properties
+    // configuration properties
 });
 // prevent the "select-event" inner event
 calendar.api.intercept("select-event", (obj) => {
-	if(obj.id == 1){
-		console.log("ID is " + obj.id);
-		return false;
-	}
+    if(obj.id == 1){
+        console.log("ID is " + obj.id);
+        return false;
+    }
 });
 ~~~

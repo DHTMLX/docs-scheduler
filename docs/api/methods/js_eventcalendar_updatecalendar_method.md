@@ -14,8 +14,8 @@ description: You can learn about the updateCalendar method in the documentation 
 
 ~~~jsx {}
 updateCalendar({ 
-	calendar: object, 
-	id: string | number 
+    calendar: object, 
+    id: string | number 
 }): void;
 ~~~
 
@@ -33,21 +33,21 @@ Note, the **ID** of the calendar to be updated is required. Other calendar param
 ~~~jsx {6-14,16-19}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 
 const new_calendar_data = {
-	id: "movie",
-	active: true,
-	label: "New Calendar",
-	color: {
-		background: "#CEEDC3",
-		border: "#77D257"
-	}
+    id: "movie",
+    active: true,
+    label: "New Calendar",
+    color: {
+        background: "#CEEDC3",
+        border: "#77D257"
+    }
 };
 // update data of the calendar with the "Movie" ID
 calendar.updateCalendar({
-	calendar: new_calendar_data,
-	id: "movie"
+    calendar: new_calendar_data,
+    id: "movie"
 });
 ~~~

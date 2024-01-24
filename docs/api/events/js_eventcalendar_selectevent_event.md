@@ -14,8 +14,8 @@ description: You can learn about the select-event event in the documentation of 
 
 ~~~jsx {}
 "select-event": ({
-	id: string | number,
-	popup?: boolean
+    id: string | number,
+    popup?: boolean
 }) => void;
 ~~~
 
@@ -35,10 +35,10 @@ For handling the inner events of Event Calendar you can use the [**Event Bus met
 ~~~jsx {6-8}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // subscribe on the "select-event" event
 calendar.api.on("select-event", (obj) => {
-	console.log(obj);
+    console.log(obj);
 });
 ~~~

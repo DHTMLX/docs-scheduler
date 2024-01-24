@@ -31,10 +31,10 @@ For handling the inner events of Event Calendar you can use the [**Event Bus met
 ~~~jsx {6-8}
 // create Event Calendar
 const calendar = new eventCalendar.EventCalendar("#root", {
-	// configuration parameters
+    // configuration parameters
 });
 // subscribe on the "toggle-sidebar" event
 calendar.api.on("toggle-sidebar", (obj) => {
-	console.log(obj);
+    console.log(obj);
 });
 ~~~

@@ -96,9 +96,9 @@ const colors = [ // data for colors used in colorpicker
 
 // initialize Event Calendar with the initial data for events, calendars and colors
 new eventCalendar.EventCalendar("#root", {
-	events, 
-	calendars, 
-	colors 
+    events, 
+    calendars, 
+    colors 
 });
 ~~~
 
