@@ -8,6 +8,18 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.1.8
+
+Released on January DAY, 2024
+
+### Fixes
+
+- Incorrect work of the "UNTIL" rule. Event Calendar skips the last instance of the series
+- The `dragResize: false` config shows the icon for resizing events
+- New calendars without specified colors include almost the same colors
+- When the exception in a recurring event is created, the `update-event` event receives an incomplete object
+- Displaying incorrect time after editing via the time picker
+
 ## Version 2.1.7
 
 Released on January 23, 2024
