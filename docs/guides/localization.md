@@ -377,7 +377,6 @@ const calendar = new eventCalendar.EventCalendar("#root", {
 });
 ~~~
 
-
 ## Time and Date format
 
 This example shows how to configure **Date** and **Time** settings:
@@ -403,6 +402,14 @@ const event_calendar = new EventCalendar("#root", {
     date: new Date("2023-02-12T00:00:00"),
     locale: en
 });
+~~~
+
+Use the `timeFormat` property to switch from 12-hour format to 24-hour format:
+
+~~~jsx
+en.calendar.timeFormat = 12;
+// or
+en.calendar.timeFormat = 24;
 ~~~
 
 :::tip
