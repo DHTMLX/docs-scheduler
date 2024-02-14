@@ -376,7 +376,7 @@ const calendar = new eventCalendar.EventCalendar("#root", {
     locale
 });
 ~~~
-:::
+
 
 ## Time and Date format
 
