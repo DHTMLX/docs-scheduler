@@ -10,7 +10,7 @@ If you are updating Event Calendar from an older version, check [Migration to ne
 
 ## Version 2.1.8
 
-Released on February Day, 2024
+Released on February 14, 2024
 
 ### Fixes
 
@@ -19,6 +19,7 @@ Released on February Day, 2024
 - New calendars without specified colors include almost the same colors
 - When the exception in a recurring event is created, the `update-event` event receives an incomplete object
 - Displaying incorrect time after editing via the time picker
+- Extend localization with the `meridianFormat` property. Refer to the [Localization](guides/localization.md#time-and-date-format) guide for more information
 
 ## Version 2.1.7
 

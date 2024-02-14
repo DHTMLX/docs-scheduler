@@ -15,7 +15,7 @@ The **English** locale is used by default:
 ~~~jsx {}
 const en = {
     dateFnsLocale: dateFnsLocaleEn, 
-    eventCalendar: { // translations of the Event Calendar labels
+    scheduler: { // translations of the Event Calendar labels
         "New Event": "New Event",
         "Add description": "Add description",
         "Create event": "Create event",
@@ -34,12 +34,6 @@ const en = {
         Month: "Month",
         Timeline: "Timeline",
         Calendars: "Calendars",
-        hourFormat: "H",
-        minuteFormat: "mm",
-        monthFormat: "EEE",
-        dateFormat: "EEE, d",
-        agendaDateFormat: "MMMM d EEEE",
-        unassignFormat: "d MMM yyyy",
         Color: "Color",
         Delete: "Delete",
         Edit: "Edit",
@@ -50,8 +44,7 @@ const en = {
         Add: "Add",
         Event: "Event",
         confirmDelete: "Are you sure you want to delete {item}?",
-        confirmUnsaved:
-            "You have unsaved changes!  Do you want to discard them?",
+        confirmUnsaved: "You have unsaved changes!  Do you want to discard them?",
         "Repeat event": "Repeat event",
         viewAll: "+{count} more",
         Never: "Never",
@@ -75,10 +68,22 @@ const en = {
         "Recurring events": "Recurring events",
         "Single events": "Single events",
 
+        // Recurring event settings
         recurringEveryMonthDay: "Every {date}",
         recurringEveryMonthPos: "Every {pos} {weekDay}",
         recurringEveryYearDay: "Every {date} of {month}",
         recurringEveryYearPos: "Every {pos} {weekDay} of {month}"
+
+        // Time format settings
+        hourFormat: "H",
+        minuteFormat: "mm",
+        meridianFormat: "aaa",
+
+        // Date format settings
+        monthFormat: "EEE",
+        dateFormat: "EEE, d",
+        agendaDateFormat: "MMMM d EEEE",
+        unassignFormat: "d MMM yyyy",
     },
     calendar: { // translations and settings of the calendar
         monthFull: [
@@ -108,6 +113,7 @@ const en = {
         today: "Today",
         am: ["am", "AM"],
         pm: ["pm", "PM"],
+        timeFormat: 12, // defines a Time format (12 or 24)
         weekStart: 7, // defines a first day of week (Sunday by default)
     },
     core: { // translations of the WX core elements
@@ -116,22 +122,6 @@ const en = {
     }
 };
 ~~~
-
-:::tip Changing the first day of week
-To define a first day of week, assign the required day number to the `weekStart` property. Take into account that **Monday** is equal to **1**.
-
-~~~jsx {2}
-const locale = eventCalendar.en;
-locale.calendar.weekStart = 1; // change start day of week
-
-const calendar = new eventCalendar.EventCalendar("#root", {
-    events,
-    mode: "month",
-    date: new Date("2023-02-12T00:00:00"),
-    locale
-});
-~~~
-:::
 
 :::info
 Besides the ***en*** locale, Event Calendar also includes the built-in ***de*** and ***ru*** ones.
@@ -143,7 +133,7 @@ Besides the ***en*** locale, Event Calendar also includes the built-in ***de*** 
 ~~~jsx
 const de = {
     dateFnsLocale: dateFnsLocaleDe,
-    eventCalendar: { // translations of the Event Calendar labels
+    scheduler: { // translations of the Event Calendar labels
         "New Event": "Neuer Eintrag",
         "Add description": "Beschreibung",
         "Create event": "Neuer Eintrag",
@@ -164,12 +154,6 @@ const de = {
         Timeline: "Zeitleiste",
         Agenda: "Agenda",
         Calendars: "Kalender",
-        hourFormat: "H",
-        minuteFormat: "mm",
-        monthFormat: "EEE",
-        dateFormat: "EEE, d",
-        agendaDateFormat: "MMMM d EEEE",
-        unassignFormat: "d MMM yyyy",
         Color: "Farbe",
         Delete: "Löschen",
         Edit: "Ändern",
@@ -201,10 +185,24 @@ const de = {
         Assignees: "Abtretungsempfänger",
         "Recurring events": "Wiederkehrende ereignisse",
         "Single events": "Einzelereignisse",
+
+        // Recurring events settings
         recurringEveryMonthDay: "Jedes {date}",
         recurringEveryMonthPos: "Jeden {pos} {weekDay}",
         recurringEveryYearDay: "Jedes {date} von {month}",
         recurringEveryYearPos: "Jeden {pos} {weekDay} von {month}",
+
+        // Time format settings
+        hourFormat: "H",
+        minuteFormat: "mm",
+        meridianFormat: "aaa",
+
+        // Date format settings
+        monthFormat: "EEE",
+        dateFormat: "EEE, d",
+        agendaDateFormat: "MMMM d EEEE",
+        unassignFormat: "d MMM yyyy",
+
     },
     calendar: { // translations and settings of the calendar
         monthFull:[
@@ -232,6 +230,7 @@ const de = {
         done:"Fertig",
         clear: "Entfernen",
         today: "Heute",
+        timeFormat: 12, // defines a Time format (12 or 24)
         weekStart: 1, // defines a first day of week (Monday by default)
     },
     core: { // translations of the WX core elements
@@ -248,7 +247,7 @@ const de = {
 ~~~jsx
 const ru = {
     dateFnsLocale: dateFnsLocaleRu,
-    eventCalendar: { // translations of the Event Calendar labels
+    scheduler: { // translations of the Event Calendar labels
         "New Event": "Новое событие",
         "Add description": "Описание",
         "Create event": "Создать событие",
@@ -269,12 +268,6 @@ const ru = {
         Agenda: "Расписание",
         Timeline: "График",
         Calendars: "Календари",
-        hourFormat: "H",
-        minuteFormat: "mm",
-        monthFormat: "EEE",
-        dateFormat: "EEE, d",
-        agendaDateFormat: "MMMM d EEEE",
-        unassignFormat: "d MMM yyyy",
         Color: "Цвет",
         Delete: "Удалить",
         Edit: "Редактировать",
@@ -312,6 +305,17 @@ const ru = {
         recurringEveryMonthPos: "Каждый {pos} {weekDay}",
         recurringEveryYearDay: "Каждое {date} число {month}",
         recurringEveryYearPos: "Каждый {pos} {weekDay}  {month}",
+
+        // Time format settings
+        hourFormat: "H",
+        minuteFormat: "mm",
+        meridianFormat: "aaa",
+
+        // Date format settings
+        monthFormat: "EEE",
+        dateFormat: "EEE, d",
+        agendaDateFormat: "MMMM d EEEE",
+        unassignFormat: "d MMM yyyy",
     },
     calendar: { // translations and settings of the calendar
         monthFull: [
@@ -339,6 +343,7 @@ const ru = {
         done: "Гoтовo",
         clear: "Очистить",
         today: "Сегодня",
+        timeFormat: 24, // defines a Time format (12 or 24)
         weekStart: 1, // defines a first day of week (Monday by default)
     },
     core: { // translations of the WX core elements
@@ -355,6 +360,54 @@ To apply a custom locale you need to:
 
 - create custom locale (or modify the existing one) and provide translations for all text labels of Event Calendar (it can be any language you need)
 - apply new locale via the [`locale`](api/config/js_eventcalendar_locale_config.md) property or via the [`setLocale()`](api/methods/js_eventcalendar_setlocale_method.md) method, that takes an object with translations (custom locale) as a parameter
+
+## First day of week
+
+To define a first day of week, assign the required day number to the `weekStart` property. Take into account that **Monday** is equal to **1**.
+
+~~~jsx {2}
+const locale = eventCalendar.en;
+locale.calendar.weekStart = 1; // change start day of week
+
+const calendar = new eventCalendar.EventCalendar("#root", {
+    events,
+    mode: "month",
+    date: new Date("2023-02-12T00:00:00"),
+    locale
+});
+~~~
+:::
+
+## Time and Date format
+
+This example shows how to configure **Date** and **Time** settings:
+
+~~~jsx {3-7,9-13}
+const { en, EventCalendar } = eventCalendar;
+
+// Time format settings
+en.calendar.timeFormat = 12;
+en.scheduler.hourFormat = "h";
+en.scheduler.minuteFormat = "mm";
+en.scheduler.meridianFormat = "aa"
+
+// Date format settings
+en.scheduler.monthFormat: "EEE";
+en.scheduler.dateFormat: "EEE, d";
+en.scheduler.agendaDateFormat: "MMMM d EEEE";
+en.scheduler.unassignFormat: "d MMM yyyy";
+
+const event_calendar = new EventCalendar("#root", {
+    events,
+    mode: "month",
+    date: new Date("2023-02-12T00:00:00"),
+    locale: en
+});
+~~~
+
+:::tip
+Refer to the [**Format**](https://date-fns.org/v3.3.1/docs/format) topic for more information.
+:::
 
 ## Example
 
