@@ -18,6 +18,9 @@ Released on February 27, 2024
 - The [`setConfig()`](../../api/methods/js_eventcalendar_setconfig_method) method doesn't refresh calendars
 - Creating a recurring event causes a script error
 - Browser is crashed after double-clicking on the date in the `Year` view
+- Type script files are not included in package
+- Event changes are not tracked when using the Multiselect control in the editor
+- Incorrect values of `STDATE` and `DTEND` properties of recurring events after edit
 
 ## Version 2.1.8
 
