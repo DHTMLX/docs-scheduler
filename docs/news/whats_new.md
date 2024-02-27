@@ -8,6 +8,20 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.1.9
+
+Released on February 27, 2024
+
+### Fixes
+
+- All day events are displayed incorrectly in the Timeline mode
+- The [`setConfig()`](../../api/methods/js_eventcalendar_setconfig_method) method doesn't refresh calendars
+- Creating a recurring event causes a script error
+- Browser is crashed after double-clicking on the date in the `Year` view
+- Type script files are not included in package
+- Event changes are not tracked when using the Multiselect control in the editor
+- Incorrect values of `STDATE` and `DTEND` properties of recurring events after edit
+
 ## Version 2.1.8
 
 Released on February 14, 2024
