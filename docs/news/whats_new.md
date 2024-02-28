@@ -8,13 +8,21 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.1.10
+
+Released on February 28, 2024
+
+### Fixes
+
+- Broken trial build on npm server
+
 ## Version 2.1.9
 
 Released on February 28, 2024
 
 ### Fixes
 
-- All day events are displayed incorrectly in the **Timeline** mode
+- All day events are displayed incorrectly in the `Timeline` mode
 - Broken trial build on npm server
 - Browser is crashed after double-clicking on the date in the `Year` view
 - Creating a recurring event causes a script error
