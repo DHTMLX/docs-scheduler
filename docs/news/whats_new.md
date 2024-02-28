@@ -10,17 +10,19 @@ If you are updating Event Calendar from an older version, check [Migration to ne
 
 ## Version 2.1.9
 
-Released on February 27, 2024
+Released on February 28, 2024
 
 ### Fixes
 
-- All day events are displayed incorrectly in the Timeline mode
-- The [`setConfig()`](../../api/methods/js_eventcalendar_setconfig_method) method doesn't refresh calendars
-- Creating a recurring event causes a script error
+- All day events are displayed incorrectly in the **Timeline** mode
+- Broken trial build on npm server
 - Browser is crashed after double-clicking on the date in the `Year` view
-- Type script files are not included in package
+- Creating a recurring event causes a script error
 - Event changes are not tracked when using the Multiselect control in the editor
 - Incorrect values of `STDATE` and `DTEND` properties of recurring events after edit
+- The [`setConfig()`](../../api/methods/js_eventcalendar_setconfig_method) method doesn't refresh calendars
+- The Info block of all day event shows incorrect time
+- Type script files are not included in package
 
 ## Version 2.1.8
 
