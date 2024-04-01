@@ -161,7 +161,6 @@ module.exports = {
                         "api/config/js_eventcalendar_config_config",
                         "api/config/js_eventcalendar_date_config",
                         "api/config/js_eventcalendar_editorshape_config",
-                        "api/config/js_eventcalendar_editorvalidation_config",
                         "api/config/js_eventcalendar_events_config",
                         "api/config/js_eventcalendar_locale_config",
                         "api/config/js_eventcalendar_mode_config",

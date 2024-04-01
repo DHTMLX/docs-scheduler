@@ -37,6 +37,8 @@ config?: {
     timeRange?: [number, number],
     defaultEventDuration?: number,
 
+    editorValidation?: (event: object) => string | false,
+
     viewControl?: string, // "auto" | "toggle" | "dropdown" | "none"
     views?: [
         {
@@ -116,7 +118,7 @@ In the **config** object you can specify the following parameters:
 - `dateClick` - (optional) defines a behavior of clicking on the date in a grid cell in the following way:
     - ***true/false*** - enables/disables an ability to click on the date in a grid cell to go to the corresponding day
     - ***"day" | "week" | "month" | "year" | "agenda" | "timeline"*** - a view mode to be open when a user clicks on a grid cell
-- `dateTitle`- (optional) defines a date title that displays on toolbar. The callback function takes a current date and an array with date range (start-end), and must return a string value of the date title
+- `dateTitle`- (optional) defines a date title that displays on toolbar. The callback function is called with a current date and an array with date range (start-end), and must return a string value of the date title:
 
 ~~~jsx {}
 dateTitle: (date, [start, end]) => 
@@ -129,6 +131,15 @@ dateTitle: (date, [start, end]) =>
 - `timeStep` - (optional) a step of moving an event via d-n-d
 - `timeRange` - (optional) an array with start and end time of day in the "day" and "week" modes (*0-24*)
 - `defaultEventDuration` - (optional) a duration of the new created event by default (without taking into account creating an event via d-n-d)
+- `editorValidation` - (optional) a callback that returns and applies validation rules to editor fields. The callback is called with the event data object:
+
+~~~jsx {}
+editorValidation: event => {
+    console.log(event);
+    if (!event.text) return "Text is required";
+}
+~~~
+
 - `cellCss` - (optional) a custom CSS selector to be applied to a grid cell. This property is used in any of view mode configuration objects to apply a custom style to the grid cell
 - `viewControl` - (optional) defines a control to switch through the view modes. Here you can specify the following values: *"auto" | "toggle" | "dropdown" | "none"*. The *auto* value is set by default
 - `views` - (optional) an array of configuration objects of the specific (custom) view modes. For each view mode you can specify the following settings:
@@ -187,7 +198,7 @@ views: [
     // ...,
     getBounds: (date) => {
         const weekStart = getMonday(date);
-        return [weekStart, new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 7);
+        return [weekStart, new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 7)];
     },
 ]
 ~~~
@@ -347,7 +358,7 @@ To set the **config** property dynamically, you can use the
 
 ### Example
 
-~~~jsx {3-36}
+~~~jsx {3-40}
 // create Event Calendar
 new eventCalendar.EventCalendar("#root", {
     config: {
@@ -359,6 +370,10 @@ new eventCalendar.EventCalendar("#root", {
         dimPastEvents: true,
         eventVerticalSpace: 8,
         dateTitle: (date, [start, end]) => `${format(start, "do")} - ${format(end, "do")} ${format(date, "LLL")}`,
+        editorValidation: event => {
+            console.log(event);
+            if (!event.text) return "Text is required";
+        },
         views: [
             {
                 id: "timeline",

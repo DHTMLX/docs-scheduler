@@ -13,7 +13,6 @@ description: You can explore a properties overview in the documentation of the D
 | [](../config/js_eventcalendar_config_config.md)     | @getshort(../config/js_eventcalendar_config_config.md)     |
 | [](../config/js_eventcalendar_date_config.md)       | @getshort(../config/js_eventcalendar_date_config.md)       |
 | [](../config/js_eventcalendar_editorshape_config.md)| @getshort(../config/js_eventcalendar_editorshape_config.md)|
-| [](../config/js_eventcalendar_editorvalidation_config.md)| @getshort(../config/js_eventcalendar_editorvalidation_config.md)|
 | [](../config/js_eventcalendar_events_config.md)     | @getshort(../config/js_eventcalendar_events_config.md)     |
 | [](../config/js_eventcalendar_locale_config.md)     | @getshort(../config/js_eventcalendar_locale_config.md)     |
 | [](../config/js_eventcalendar_mode_config.md)       | @getshort(../config/js_eventcalendar_mode_config.md)       |

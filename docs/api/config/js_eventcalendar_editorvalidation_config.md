@@ -1,10 +1,14 @@
 ---
-sidebar_label: editorValidation
+sidebar_label: editorValidation (Deprecated)
 title: editorValidation Config
 description: You can learn about the editorValidation config in the documentation of the DHTMLX JavaScript Event Calendar library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Event Calendar.
 ---
 
 # editorValidation
+
+:::warning
+The `editorValidation` property was moved to the [`config`](api/config/js_eventcalendar_config_config.md) property.
+:::
 
 ### Description
 
