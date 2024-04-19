@@ -38,6 +38,7 @@ config?: {
     defaultEventDuration?: number,
 
     editorValidation?: (event: object) => string | false,
+    calendarValidation?: (calendar: object) => string | false,
 
     viewControl?: string, // "auto" | "toggle" | "dropdown" | "none"
     views?: [
@@ -137,6 +138,15 @@ dateTitle: (date, [start, end]) =>
 editorValidation: event => {
     console.log(event);
     if (!event.text) return "Text is required";
+}
+~~~
+
+- `calendarValidation` - (optional) a callback that returns and applies validation rules to calendar fields. The callback is called with the calendar data object:
+
+~~~jsx {}
+calendarValidation: calendar => {
+    console.log(calendar);
+    if (!calendar.text) return "Text is required";
 }
 ~~~
 
@@ -374,6 +384,10 @@ new eventCalendar.EventCalendar("#root", {
             console.log(event);
             if (!event.text) return "Text is required";
         },
+        calendarValidation: calendar => {
+            console.log(calendar);
+            if (!calendar.text) return "Text is required";
+        },
         views: [
             {
                 id: "timeline",
@@ -407,6 +421,6 @@ new eventCalendar.EventCalendar("#root", {
 
 **Change log:**
 
-- The ***dateClick*** property was added in v2.0.2
 - The ***dateTitle***, ***eventVerticalSpace*** and ***eventHorizontalSpace*** properties were added in v2.1
 - The ***eventMargin*** property was deprecated in v2.1
+- The ***calendarValidation*** property was added in v2.2

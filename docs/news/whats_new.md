@@ -21,6 +21,7 @@ Released on April DAY, 2024
 #### Properties
 
 - The [`events`](api/config/js_eventcalendar_events_config) property was extended by the `recurringEventId`, `originalStartTime` and `status` parameters
+- The [`config`](api/config/js_eventcalendar_config_config) property was extended by the `calendarValidation` parameter
 
 #### Events
 
