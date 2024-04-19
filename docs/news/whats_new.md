@@ -8,6 +8,23 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2
+
+Released on April DAY, 2024
+
+### Fixes
+
+- ...
+
+### Updates
+
+#### Properties
+
+- The [`events`](api/config/js_eventcalendar_events_config) property was extended by the `recurringEventId`, `originalStartTime` and `status` parameters
+
+#### Events
+
+- The [update-event](api/events/js_eventcalendar_updateevent_event) event was extended by the `mode` parameter
 ## Version 2.1.10
 
 Released on February 28, 2024
