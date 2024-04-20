@@ -14,18 +14,24 @@ Released on April DAY, 2024
 
 ### Fixes
 
-- ...
+- Hidden events in tne **Month** view are still rendered to DOM
+- Incorrect work of Weekly recurrence when editing a single event in the **Month** view
+- Recurring exception doesn't work if `start_date` is not specified
+- Recurring workdays bug
+- The [`config.viewControl`](../../api/config/js_eventcalendar_config_config) property is set to "auto" for mobile devices
+- UI regression in the **Year** view
 
 ### Updates
 
 #### Properties
 
-- The [`events`](api/config/js_eventcalendar_events_config) property was extended by the `recurringEventId`, `originalStartTime` and `status` parameters
-- The [`config`](api/config/js_eventcalendar_config_config) property was extended by the `calendarValidation` parameter
+- The [`events`](../../api/config/js_eventcalendar_events_config) property was extended by the `recurringEventId`, `originalStartTime` and `status` parameters
+- The [`config`](../../api/config/js_eventcalendar_config_config) property was extended by the `calendarValidation` and `defaultEditorValues` parameters
 
 #### Events
 
-- The [update-event](api/events/js_eventcalendar_updateevent_event) event was extended by the `mode` parameter
+- The [update-event](../../api/events/js_eventcalendar_updateevent_event) event was extended by the `mode` parameter
+
 ## Version 2.1.10
 
 Released on February 28, 2024

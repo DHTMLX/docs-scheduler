@@ -36,6 +36,7 @@ config?: {
     timeStep?: number,
     timeRange?: [number, number],
     defaultEventDuration?: number,
+    defaultEditorValues?: () => object | false,
 
     editorValidation?: (event: object) => string | false,
     calendarValidation?: (calendar: object) => string | false,
@@ -132,7 +133,18 @@ dateTitle: (date, [start, end]) =>
 - `timeStep` - (optional) a step of moving an event via d-n-d
 - `timeRange` - (optional) an array with start and end time of day in the "day" and "week" modes (*0-24*)
 - `defaultEventDuration` - (optional) a duration of the new created event by default (without taking into account creating an event via d-n-d)
-- `editorValidation` - (optional) a callback that returns and applies validation rules to editor fields. The callback is called with the event data object:
+- `defaultEditorValues`- (optional) a callback function that should return an object with default values of the event editor
+
+~~~jsx {}
+defaultEditorValues: () => { 
+    return { 
+        text: "My default text",
+        // ...
+    }
+}
+~~~
+
+- `editorValidation` - (optional) a callback that returns and applies validation rules to event editor fields. The callback is called with the event data object:
 
 ~~~jsx {}
 editorValidation: event => {
@@ -141,7 +153,7 @@ editorValidation: event => {
 }
 ~~~
 
-- `calendarValidation` - (optional) a callback that returns and applies validation rules to calendar fields. The callback is called with the calendar data object:
+- `calendarValidation` - (optional) a callback that returns and applies validation rules to calendar editor fields. The callback is called with the calendar data object:
 
 ~~~jsx {}
 calendarValidation: calendar => {
@@ -368,7 +380,7 @@ To set the **config** property dynamically, you can use the
 
 ### Example
 
-~~~jsx {3-40}
+~~~jsx {3-50}
 // create Event Calendar
 new eventCalendar.EventCalendar("#root", {
     config: {
@@ -387,6 +399,12 @@ new eventCalendar.EventCalendar("#root", {
         calendarValidation: calendar => {
             console.log(calendar);
             if (!calendar.text) return "Text is required";
+        },
+        defaultEditorValues: () => { 
+            return { 
+                text: "My default text",
+                // ...
+            }
         },
         views: [
             {
@@ -423,4 +441,4 @@ new eventCalendar.EventCalendar("#root", {
 
 - The ***dateTitle***, ***eventVerticalSpace*** and ***eventHorizontalSpace*** properties were added in v2.1
 - The ***eventMargin*** property was deprecated in v2.1
-- The ***calendarValidation*** property was added in v2.2
+- The ***calendarValidation*** and ***defaultEditorValues*** properties were added in v2.2
