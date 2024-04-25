@@ -8,6 +8,41 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2
+
+Released on April 25, 2024
+
+[Review of release on the blog](https://dhtmlx.com/blog/dhtmlx-event-calendar-2-2/)
+
+### Updates
+
+- #### Properties
+
+    - The [`events`](../../api/config/js_eventcalendar_events_config) property was extended by the `recurringEventId`, `originalStartTime` and `status` parameters
+    - The [`config`](../../api/config/js_eventcalendar_config_config) property was extended by the `calendarValidation` and `defaultEditorValues` parameters
+
+- #### Events
+
+    - The [update-event](../../api/events/js_eventcalendar_updateevent_event) event was extended by the `mode` parameter
+
+### Fixes
+
+- Hidden events in tne **Month** view are still rendered to DOM
+- Incorrect work of Weekly recurrence when editing a single event in the **Month** view
+- Recurring exception doesn't work if `start_date` is not specified
+- Recurring workdays bug
+- The [`config.viewControl`](../../api/config/js_eventcalendar_config_config) property is set to "auto" for mobile devices
+- UI regression in the **Year** view
+
+### Fixes
+
+- Hidden events in tne **Month** view are still rendered to DOM
+- Incorrect work of Weekly recurrence when editing a single event in the **Month** view
+- Recurring exception doesn't work if `start_date` is not specified
+- Recurring workdays bug
+- The [`config.viewControl`](../../api/config/js_eventcalendar_config_config) property is set to "auto" for mobile devices
+- UI regression in the **Year** view
+
 ## Version 2.1.10
 
 Released on February 28, 2024
@@ -148,6 +183,7 @@ Released on September 5, 2023
 Released on August 30, 2023
 
 ### Updates
+
 - #### Properties
 
     - The [`config`](../../api/config/js_eventcalendar_config_config) property was extended by the ***dateTitle***, ***eventVerticalSpace*** and ***eventHorizontalSpace*** parameters

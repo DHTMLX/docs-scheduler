@@ -25,6 +25,9 @@ events?: [
         dragResize?: boolean,
         readonly?: boolean,
         dragMove?: boolean,
+        recurringEventId?: string | number,
+        originalStartTime?: Date,
+        status?: string,
         color?: {
             background?: string,
             border?: string,
@@ -63,6 +66,9 @@ If there are multiple events with the same **id**, the calendar will drop an err
 - `dragResize` - (optional) enables/disables an ability to resize the event via d-n-d
 - `readonly` - (optional) enables/disables an ability to perform all the event's operations
 - `dragMove` - (optional) enables/disables an ability to move the event via d-n-d
+- `recurringEventId` - (optional) an ID of the original series
+- `originalStartTime` - (optional) a time where the event was before changes
+- `status` - (optional) a status of event, that was deleted from series. After deleting an event, the status is "cancelled"
 - `color` - (optional) an object with the style parameters of the event. Here you can specify the following parameters (styles):
     - `background` - (optional) a HEX code of the event background color
     - `border` - (optional) a HEX code of the event border color
@@ -117,4 +123,4 @@ new eventCalendar.EventCalendar("#root", {
 });
 ~~~
 
-**Change log:** The ***RRULE***, ***STDATE***, ***DTEND*** and ***recurring*** parameters were added in v2.0
+**Change log:** The ***recurringEventId***, ***originalStartTime*** and ***status*** parameters were added in v2.2

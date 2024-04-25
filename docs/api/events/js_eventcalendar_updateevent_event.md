@@ -15,7 +15,8 @@ description: You can learn about the update-event event in the documentation of 
 ~~~jsx {}
 "update-event": ({
     event: object,
-    id: string | number
+    id: string | number,
+    mode?: "all" | "future"
 }) => void;
 ~~~
 
@@ -25,6 +26,7 @@ The callback of the **update-event** event can take an object with the following
 
 - `event` - (required) an object of the event data. The full list of the **event** parameters can be found [**here**](api/config/js_eventcalendar_events_config.md)
 - `id` - (required) an ID of the event to be updated
+- `mode` - (optional) indicates which option the user chose, update "all" or "this and future"
 
 :::info
 For handling the inner events of Event Calendar you can use the [**Event Bus methods**](api/overview/internal_eventbus_overview.md)
@@ -42,3 +44,5 @@ calendar.api.on("update-event", (obj) => {
     console.log(obj);
 });
 ~~~
+
+**Change log:** The ***mode*** parameter was added in v2.2
