@@ -6,6 +6,48 @@ description: You can learn about the Migration to Newer Versions in the document
 
 # Migration to newer versions
 
+## 2.1 -> 2.2
+
+The release v2.2 was extended by new properties related to recurring events and changes the format of **RRULE** values.
+
+All the data created in v2.1 remains compatible with v2.2+ and should not require any changes to be loaded into Event Calendar v2.2.
+
+Note that any new changes will be saved using the updated format of the recurrence and changes to the existing code are required.
+
+1) The following new properties should be added to the [event](../../api/config/js_eventcalendar_events_config) record:
+
+- `recurringEventId`
+- `originalStartTime`
+- `status`
+
+2) The `EXDATE` component of `RRULE` no longer contains dates of exceptions of recurring series. If you need to locate exceptions from code, you can find related records by the `recurringEventId` property which will match the id of the parent series.
+
+```js
+const exceptions = allEvents.filter(e => e.recurringEventId === seriesId);
+```
+
+The `originalStartTime` value of these records will contain the dates of replaced entries, that were previously stored in `EXDATE`.
+
+3) Deleted occurrences of the series are now stored as separate records of event object. The Event Calendar will never display these entries. You can locate them by the value of status property, deleted instances will have "cancelled" status.
+
+```js
+const deletedInstances = allEvents.filter(e => e.status === "cancelled");
+```
+
+4) The `UNTIL` component of `RRULE` now contains dates in short ISO format as required by [iCalendar](https://icalendar.org/) specification and stored in zero-offset UTC timezone.
+
+The example of `RRULE` string from v2.1: `FREQ=DAILY;INTERVAL=1;UNTIL=2024-04-25T23:59:59`
+
+The example of `RRULE` string from v2.2: `FREQ=DAILY;INTERVAL=1;UNTIL=20240424T195959Z`
+
+This change shouldn't require any actions from your end, the Event Calendar will still understand `RRULE` created by it's older version, but keep these changes in mind if you manage recurrence on the backend.
+
+5) API events that contain mode parameter should not be processed by the backend or by permanent data storage.
+
+Starting from v2.2, whenever a user modifies the recurring series from the UI, the Event Calendar will fire [`update-event`](../../api/events/js_eventcalendar_updateevent_event) with the new mode property, which will indicate whether the change should occur to the whole series or to 'this and following' events of the series. This event is fired for the modified occurrence of the series and should not be stored to the backend or permanent data storage.
+
+This event will be followed by [`add-event`](../../api/events/js_eventcalendar_addevent_event) and [`update-event`](../../api/events/js_eventcalendar_updateevent_event) calls that will perform actual modifications of the recurring series and will not contain mode flag.
+
 ## 2.0.2 -> 2.1
 
 ### Api
