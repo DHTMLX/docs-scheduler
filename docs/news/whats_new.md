@@ -8,6 +8,14 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2.1
+
+Released on May 7, 2024
+
+### Fixes
+
+- Redundant calls of subscription to reactive bounds
+
 ## Version 2.2
 
 Released on April 25, 2024
@@ -24,15 +32,6 @@ Released on April 25, 2024
 - #### Events
 
     - The [update-event](../../api/events/js_eventcalendar_updateevent_event) event was extended by the `mode` parameter
-
-### Fixes
-
-- Hidden events in tne **Month** view are still rendered to DOM
-- Incorrect work of Weekly recurrence when editing a single event in the **Month** view
-- Recurring exception doesn't work if `start_date` is not specified
-- Recurring workdays bug
-- The [`config.viewControl`](../../api/config/js_eventcalendar_config_config) property is set to "auto" for mobile devices
-- UI regression in the **Year** view
 
 ### Fixes
 
