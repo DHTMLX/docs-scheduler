@@ -184,9 +184,10 @@ span.token-line.theme-code-block-highlighted-line {
 
 /* list */
 
-.markdown ul  {
+.markdown ul li {
   margin-top: 10px;
-	line-height: 24px;
+  margin-bottom: 10px;
+  line-height: 2;
 }
 
 ::marker {
@@ -241,3 +242,8 @@ table th:first-child {
 }
 
 /* end styles for infoblock */
+
+p {
+  line-height: 2;
+}
+
