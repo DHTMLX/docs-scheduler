@@ -17,7 +17,7 @@ module.exports = {
                 type: 'generated-index',
                 title: "What's new and migration",
                 keywords: ['news'],
-                image: '/img/docusaurus.png',
+                image: '/img/docusaurus.png'
             },
             items: [
                 "news/whats_new",
@@ -67,8 +67,7 @@ module.exports = {
                         "api/methods/js_eventcalendar_showeventinfo_method",
                         "api/methods/js_eventcalendar_togglesidebar_method",
                         "api/methods/js_eventcalendar_updatecalendar_method",
-                        "api/methods/js_eventcalendar_updateevent_method",
-                        // other methods
+                        "api/methods/js_eventcalendar_updateevent_method"
                     ]
                 },
                 // Event Calendar internal methods
@@ -114,8 +113,7 @@ module.exports = {
                                 "api/internal/js_eventcalendar_getstate_method",
                                 "api/internal/js_eventcalendar_getstores_method"
                             ]
-                        },
-                        
+                        } 
                     ]
                 },     
                 {
@@ -141,8 +139,7 @@ module.exports = {
                         "api/events/js_eventcalendar_setmode_event",
                         "api/events/js_eventcalendar_togglesidebar_event",
                         "api/events/js_eventcalendar_updatecalendar_event",
-                        "api/events/js_eventcalendar_updateevent_event",
-                        
+                        "api/events/js_eventcalendar_updateevent_event"
                     ]
                 },
                 {
@@ -169,34 +166,50 @@ module.exports = {
                         "api/config/js_eventcalendar_theme_config"
                     ]
                 },
-                // RestDataProvider api
+                // Backend api
                 {
                     type: "category",
-                    label: "RestDataProvider API",
+                    label: "Backend API",
                     collapsible: true,
                     collapsed: true,
                     link: {
                         type: 'generated-index',
-                        title: "RestDataProvider API",
+                        title: "Backend API",
                         keywords: ['rest api'],
                         image: '/img/docusaurus.png'
                     },
                     items: [
+                        // RestDataProvider api
                         {
                             type: "category",
-                            label: "REST methods",
+                            label: "RestDataProvider API",
+                            collapsible: true,
                             collapsed: true,
                             link: {
-                                type: 'doc',
-                                id: "api/overview/rest_methods_overview"                            
+                                type: 'generated-index',
+                                title: "RestDataProvider API",
+                                keywords: ['rest api'],
+                                image: '/img/docusaurus.png'
                             },
                             items: [
-                                "api/provider/rest_methods/js_eventcalendar_getevents_method",
-                                "api/provider/rest_methods/js_eventcalendar_getcalendars_method",
-                                "api/provider/rest_methods/js_eventcalendar_send_method",
+                                // REST methods
+                                {
+                                    type: "category",
+                                    label: "REST methods",
+                                    collapsed: true,
+                                    link: {
+                                        type: 'doc',
+                                        id: "api/overview/rest_methods_overview"                            
+                                    },
+                                    items: [
+                                        "api/provider/rest_methods/js_eventcalendar_getevents_method",
+                                        "api/provider/rest_methods/js_eventcalendar_getcalendars_method",
+                                        "api/provider/rest_methods/js_eventcalendar_send_method"
+                                    ]
+                                }
                             ]
-                            
                         },
+                        // REST routes
                         {
                             type: "category",
                             label: "REST routes",
@@ -219,7 +232,7 @@ module.exports = {
                                     items: [
                                         "api/provider/rest_routes/get_routes/js_eventcalendar_getevents_route",
                                         "api/provider/rest_routes/get_routes/js_eventcalendar_getcalendars_route",
-                                        "api/provider/rest_routes/get_routes/js_eventcalendar_getuploads_route",
+                                        "api/provider/rest_routes/get_routes/js_eventcalendar_getuploads_route"
                                     ]
                                 },
                                 {
@@ -235,7 +248,7 @@ module.exports = {
                                     items: [
                                         "api/provider/rest_routes/post_routes/js_eventcalendar_postevent_route",
                                         "api/provider/rest_routes/post_routes/js_eventcalendar_postcalendar_route",
-                                        "api/provider/rest_routes/post_routes/js_eventcalendar_postupload_route",
+                                        "api/provider/rest_routes/post_routes/js_eventcalendar_postupload_route"
                                     ]
                                 },
                                 {
@@ -250,7 +263,7 @@ module.exports = {
                                     },
                                     items: [
                                         "api/provider/rest_routes/put_routes/js_eventcalendar_putevent_route",
-                                        "api/provider/rest_routes/put_routes/js_eventcalendar_putcalendar_route",
+                                        "api/provider/rest_routes/put_routes/js_eventcalendar_putcalendar_route"
                                     ]
                                 },
                                 {
@@ -265,16 +278,15 @@ module.exports = {
                                     },
                                     items: [
                                         "api/provider/rest_routes/delete_routes/js_eventcalendar_deleteevent_route",
-                                        "api/provider/rest_routes/delete_routes/js_eventcalendar_deletecalendar_route",                                    
+                                        "api/provider/rest_routes/delete_routes/js_eventcalendar_deletecalendar_route"                                   
                                     ]
                                 }
                             ]
                         }
                     ]
-                },
+                }
             ]
         },
-
         //start Backend and frameworks integration
         {
             type: "category",
@@ -290,11 +302,10 @@ module.exports = {
                 "guides/integration_with_angular",
                 "guides/integration_with_react",
                 "guides/integration_with_vue",
-                "guides/integration_with_svelte",
-            ],
+                "guides/integration_with_svelte"
+            ]
         },
         // end Backend and frameworks integration
-
         {
             type: "category",
             label: "Guides",
