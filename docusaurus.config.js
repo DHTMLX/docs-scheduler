@@ -138,6 +138,7 @@ const config = {
 	baseUrl: '/eventcalendar/',
 	onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'warn',
+	onBrokenAnchors: 'warn',
 	favicon: 'img/favicon.ico',
 	organizationName: 'DHTMLX', // Usually your GitHub org/user name.
 	projectName: 'docs-calendar', // Usually your repo name.
@@ -178,7 +179,7 @@ const config = {
 		[
 			require.resolve('docusaurus-gtm-plugin'),
 			{
-				id: 'GTM-5M5RCSJ',
+				id: 'GTM-5M5RCSJ'
 			}
 		]
 	],
@@ -228,7 +229,7 @@ const config = {
 					"href": "https://dhtmlx.com/docs/products/dhtmlxEventCalendar/download.shtml",
 					"position": "right"
 				}
-			],
+			]
 		},
     	footer: {
 			"style": "dark",
@@ -299,24 +300,12 @@ const config = {
 						}
 					]
 				}
-			],
+			]
 		},
     	prism: {
 			//theme: lightCodeTheme,
 			//darkTheme: darkCodeTheme,
-		},
-		/*algolia: {
-			// This is a read-only, search-only key served directly by the front-end, managed by Algolia via their
-			// free DocSearch program. The key is not sensitive. See https://docsearch.algolia.com/ for more details.
-			appId: '123',
-			apiKey: '123', // TODO: change it
-			indexName: 'calendaralt', // TODO: change it
-			// Optional: see doc section bellow
-			contextualSearch: true,
-			// Optional: Algolia search parameters
-			searchParameters: {},
-			//... other Algolia params
-		}*/
+		}
     })
 };
 
