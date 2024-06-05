@@ -33,24 +33,20 @@ There are two necessary files:
 </html>
 ~~~
 
+### Installing Event Calendar via npm and yarn
+
+You can import JavaScript Event Calendar into your project using `yarn` or `npm` package manager.
+
+#### Installing trial Event Calendar via npm and yarn
+
 :::info
-You can also import Event Calendar into your project using `yarn` or `npm` commands. To get the trial version of Event Calendar, run the following commands:
-
-~~~jsx {2-3,6-7}
-// npm
-npm config set @dhx:registry https://npm.dhtmlx.com
-npm i @dhx/trial-eventcalendar
-
-// yarn
-yarn config set @dhx:registry https://npm.dhtmlx.com
-yarn add @dhx/trial-eventcalendar
-~~~
-
-To get Event Calendar under the proprietary license, refer to **[Support Center](https://dhtmlx.com/docs/technical-support.shtml)**!
+If you want to use trial version of Event Calendar, download the [**trial Event Calendar package**](https://dhtmlx.com/docs/products/dhtmlxEventCalendar/download.shtml) and follow steps mentioned in the *README* file. Note that trial Event Calendar is available 30 days only.
 :::
 
-:::tip
-If you want to integrate JavaScript Event Calendar into React, Angular or Vue projects, refer to the corresponding [**Examples on CodeSandbox**](https://codesandbox.io/u/DHTMLX) for more information.
+#### Installing PRO Event Calendar via npm and yarn
+
+:::info
+If you have already own Event Calendar under the proprietary license, send your **license number** on the *contact@dhtmlx.com* email to receive *login* and *password* for private **npm** as well as detailed guide on how to install Event Calendar. Note that private **npm** is available before the expiration of the proprietary Event Calendar license.
 :::
 
 ## Step 2. Creating Event Calendar
