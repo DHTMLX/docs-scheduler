@@ -66,7 +66,7 @@ import { EventCalendar } from 'dhx-eventcalendar-package';
 import 'dhx-eventcalendar-package/dist/eventcalendar.css'; 
 ~~~
 
-Note that depending on the used package, the source files can be minified. In this case make sure that you are importing the CSS file as **eventcalendar.min.css**.
+Note that depending on the used package, the source files can be minified. In this case make sure that you are importing the CSS file as **event-calendar.min.css**.
 
 - if you use the trial version of Event Calendar, specify the following paths:
 
