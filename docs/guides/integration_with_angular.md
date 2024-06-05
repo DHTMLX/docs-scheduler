@@ -173,9 +173,7 @@ import { getData } from './data';
 
 ngOnInit() {
     const events = getData();
-    const calendar = new EventCalendar(this.container.nativeElement, {
-        events
-    });
+    const calendar = new EventCalendar(this.container.nativeElement, {});
 
     calendar.parse(events);
 }
