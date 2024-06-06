@@ -34,10 +34,10 @@ Check the details in the [related article](https://svelte.dev/docs/introduction#
 
 ### Installation of dependencies
 
-Let's name the project as **event-calendar-svelte** and go to the app directory:
+Let's name the project as **my-svelte-event-calendar-app** and go to the app directory:
 
 ~~~json
-cd event-calendar-svelte
+cd my-svelte-event-calendar-app
 ~~~
 
 Install dependencies and run the app. For this, use a package manager:
@@ -104,14 +104,7 @@ To display Event Calendar on the page, you need to set the container to render t
     let container;
 </script>
 
-<div bind:this={container} class="container"></div>
-
-<style>
-    .container {
-        width: 100%;
-        height: 100%;
-    }
-</style>
+<div bind:this={container} style="width: 100%; height: 100%;"></div>
 ~~~
 
 Then you need to render Event Calendar in the container. Use the `new EventCalendar()` constructor inside the `onMount()` method of Svelte, to initialize Event Calendar inside of the container:
@@ -129,7 +122,7 @@ Then you need to render Event Calendar in the container. Use the `new EventCalen
     });
 </script>
 
-<div bind:this={container} class="container"></div>
+<div bind:this={container} style="width: 100%; height: 100%;"></div>
 ~~~
 
 #### Loading data
@@ -192,7 +185,7 @@ Open the ***EventCalendar.svelte*** file and apply the passed **props** to the E
     });
 </script>
 
-<div bind:this={container} class="container"></div>
+<div bind:this={container} style="width: 100%; height: 100%;"></div>
 ~~~
 
 You can also use the `parse()` method inside the `onMount()` method of Svelte to load data into Event Calendar:
