@@ -18,6 +18,7 @@ Released on June 7, 2024
 - Incorrect state on select weekly recurring that is longer than 7 days
 - Month view. The hidden events are still rendered to DOM
 - Redundant calls of subscription to reactive bounds
+- The [showEventInfo()](/api/methods/js_eventcalendar_showeventinfo_method/) method works incorrectly
 - Unable to open a popup after editing a recurring event
 
 ## Version 2.2.1
