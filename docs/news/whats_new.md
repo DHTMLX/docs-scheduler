@@ -8,6 +8,19 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2.2
+
+Released on June 7, 2024
+
+### Fixes
+
+- Agenda view. The "Today" column text is cut off
+- Incorrect state on select weekly recurring that is longer than 7 days
+- Month view. The hidden events are still rendered to DOM
+- Redundant calls of subscription to reactive bounds
+- The [showEventInfo()](/api/methods/js_eventcalendar_showeventinfo_method/) method works incorrectly
+- Unable to open a popup after editing a recurring event
+
 ## Version 2.2.1
 
 Released on May 7, 2024
