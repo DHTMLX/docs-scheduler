@@ -160,7 +160,7 @@ ngOnInit() {
 }
 ~~~
 
-You can also use the [`parse()`](/api/methods/parse_method/) method inside the `ngOnInit()` method of Angular to load data into Event Calendar. It will reload data on each applied change.
+You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `ngOnInit()` method of Angular to load data into Event Calendar. It will reload data on each applied change.
 
 ~~~jsx {11} title="event-calendar.component.ts"
 // importing the data file

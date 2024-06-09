@@ -216,7 +216,7 @@ Open the ***EventCalendarComponent.vue*** file and apply the passed **props** to
 </script>
 ~~~
 
-You can also use the [`parse()`](/api/methods/parse_method/) method inside the `mounted()` method of Vue to load data into Event Calendar:
+You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `mounted()` method of Vue to load data into Event Calendar:
 
 ~~~html {7} title="EventCalendarComponent.vue"
 <script>

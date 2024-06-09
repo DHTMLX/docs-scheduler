@@ -188,7 +188,7 @@ Open the ***EventCalendar.svelte*** file and apply the passed **props** to the E
 <div bind:this={container} style="width: 100%; height: 100%;"></div>
 ~~~
 
-You can also use the [`parse()`](/api/methods/parse_method/) method inside the `onMount()` method of Svelte to load data into Event Calendar:
+You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `onMount()` method of Svelte to load data into Event Calendar:
 
 ~~~html {3-4,8-11} title="App.svelte"
 <script>

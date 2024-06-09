@@ -195,7 +195,7 @@ const EventCalendarComponent = (props) => {
 export default EventCalendarComponent;
 ~~~
 
-You can also use the [`parse()`](/api/methods/parse_method/) method inside the `useEffect()` method of React to load data into Event Calendar:
+You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `useEffect()` method of React to load data into Event Calendar:
 
 ~~~jsx {4,9} title="EventCalendar.jsx"
 const EventCalendarComponent = (props) => {
