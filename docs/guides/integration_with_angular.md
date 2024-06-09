@@ -34,7 +34,7 @@ Go to the app directory:
 cd my-angular-event-calendar-app
 ~~~
 
-Run the app with the following command:
+Run the app with the following commands:
 
 ~~~json
 yarn install
@@ -63,16 +63,12 @@ Open the file and import Event Calendar source files. Note that:
 
 ~~~jsx
 import { EventCalendar } from 'dhx-eventcalendar-package';
-import 'dhx-eventcalendar-package/dist/eventcalendar.css'; 
 ~~~
-
-Note that depending on the used package, the source files can be minified. In this case make sure that you are importing the CSS file as **event-calendar.min.css**.
 
 - if you use the trial version of Event Calendar, specify the following paths:
 
 ~~~jsx
 import { EventCalendar } from '@dhx/trial-eventcalendar';
-import '@dhx/trial-eventcalendar/dist/eventcalendar.css';
 ~~~
 
 In this tutorial you can see how to configure the **trial** version of Event Calendar.
@@ -83,7 +79,6 @@ To display Event Calendar on the page, you need to set the container to render t
 
 ~~~jsx title="event-calendar.component.ts"
 import { EventCalendar } from '@dhx/trial-eventcalendar';
-import '@dhx/trial-eventcalendar/dist/eventcalendar.css';
 import { Component, ElementRef, OnInit, ViewChild, OnDestroy} from '@angular/core';
 
 @Component({
@@ -165,7 +160,7 @@ ngOnInit() {
 }
 ~~~
 
-You can also use the `parse()` method inside the `ngOnInit()` method of Angular to load data into Event Calendar. It will reload data on each applied change.
+You can also use the [`parse()`](/api/methods/parse_method/) method inside the `ngOnInit()` method of Angular to load data into Event Calendar. It will reload data on each applied change.
 
 ~~~jsx {11} title="event-calendar.component.ts"
 // importing the data file
@@ -199,7 +194,7 @@ ngOnInit() {
 
 ### Step 3. Adding Event Calendar into the app
 
-Now it's time to add the component into our app. Open ***src/app/app.component.ts*** and use *EventCalendarComponent* instead of the default content by inserting the code below:
+Now it's time to add the component into your app. Open ***src/app/app.component.ts*** and use *EventCalendarComponent* instead of the default content by inserting the code below:
 
 ~~~jsx title="app.component.ts"
 import { Component } from "@angular/core";
@@ -231,22 +226,6 @@ import { EventCalendarComponent } from "./event-calendar/event-calendar.componen
 export class AppModule {}
 ~~~
 
-For correct rendering of fonts, open the ***angular.json*** file and complete the "assets" array in the following way (replace *eventcalendar_package* with the name of your local folder that contains Event Calendar source files):
-
-~~~jsx {5-9} title="angular.json"
-...
-"assets": [
-    "src/favicon.ico",
-    "src/assets",
-    {
-        "input": "./eventcalendar_package/dist/fonts",
-        "glob": "**/*",
-        "output": "assets"
-    }
-],
-...
-~~~
-
 The last step is to open the ***src/main.ts*** file and replace the existing code with the following one:
 
 ~~~jsx title="main.ts"
@@ -257,7 +236,7 @@ platformBrowserDynamic()
     .catch((err) => console.error(err));
 ~~~
 
-After that, when you can start the app to see Event Calendar loaded with data on a page.
+After that, you can start the app to see Event Calendar loaded with data on a page.
 
 ![Event Calendar initialization](../assets/trial_eventcalendar.png)
 

@@ -159,16 +159,32 @@ export function getData() {
 }
 ~~~
 
-Then open the ***EventCalendar.jsx*** file, pass the name of the data file to the component constructor function:
+Then open the ***App.js*** file and import data. After this you can pass data into the new created `<EventCalendar/>` components as **props**:
 
-~~~jsx {1,6-7} title="EventCalendar.jsx"
+~~~jsx {2,5-6} title="App.jsx"
+import EventCalendar from "./EventCalendar";
+import { getData } from "./data";
+
+function App() {
+    const events = getData();
+    return <EventCalendar events={events} date={new Date(2024, 5, 10)} />;
+}
+
+export default App;
+~~~
+
+Open the ***EventCalendar.jsx*** file and apply the passed **props** to the Event Calendar configuration object:
+
+~~~jsx {4,8-9} title="EventCalendar.jsx"
 const EventCalendarComponent = (props) => {
     let container = useRef();
 
+    const { events, date } = props;
+
     useEffect(() => {
         new EventCalendar(container.current, {
-            events: props.events,
-            date: props.date
+            events,
+            date
         });
         return () => (container.current.innerHTML = "");
     }, []);
@@ -179,26 +195,29 @@ const EventCalendarComponent = (props) => {
 export default EventCalendarComponent;
 ~~~
 
-You can also use the `parse()` method inside the `useEffect()` method of React to load data into Event Calendar:
+You can also use the [`parse()`](/api/methods/parse_method/) method inside the `useEffect()` method of React to load data into Event Calendar:
 
-~~~jsx {7} title="EventCalendar.jsx"
+~~~jsx {4,9} title="EventCalendar.jsx"
 const EventCalendarComponent = (props) => {
     let container = useRef();
-    let events = props.events;
+
+    const { events, date } = props;
 
     useEffect(() => {
         const calendar = new EventCalendar(container.current, {});
 
-        calendar.parse(events);
+        calendar.parse({ events, date });
 
         return () => (container.current.innerHTML = "");
     }, []);
     
     return <div ref={container}></div>;
 };
+
+export default EventCalendarComponent;
 ~~~
 
-The `calendar.parse(events);` line provides data reloading on each applied change.
+The `calendar.parse(data);` line provides data reloading on each applied change.
 
 Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar object with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
 
@@ -236,7 +255,7 @@ function App() {
 export default App;
 ~~~
 
-After that, when you can start the app to see Event Calendar loaded with data on a page.
+After that, you can start the app to see Event Calendar loaded with data on a page.
 
 ![Event Calendar initialization](../assets/trial_eventcalendar.png)
 

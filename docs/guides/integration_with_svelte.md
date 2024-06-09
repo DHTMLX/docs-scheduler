@@ -188,7 +188,7 @@ Open the ***EventCalendar.svelte*** file and apply the passed **props** to the E
 <div bind:this={container} style="width: 100%; height: 100%;"></div>
 ~~~
 
-You can also use the `parse()` method inside the `onMount()` method of Svelte to load data into Event Calendar:
+You can also use the [`parse()`](/api/methods/parse_method/) method inside the `onMount()` method of Svelte to load data into Event Calendar:
 
 ~~~html {3-4,8-11} title="App.svelte"
 <script>
@@ -237,7 +237,7 @@ To add the component into the app, open the **App.svelte** file and replace the 
 <EventCalendar events={events} date={new Date(2024, 5, 10)} />
 ~~~
 
-After that, when we start the app, we should see Event Calendar loaded with data on a page.
+After that, you can start the app to see Event Calendar loaded with data on a page.
 
 ![Event Calendar initialization](../assets/trial_eventcalendar.png)
 
