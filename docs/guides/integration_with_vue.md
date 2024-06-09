@@ -107,6 +107,7 @@ Then you need to render Event Calendar in the container. Use the `new EventCalen
 
 ~~~html title="EventCalendarComponent.vue"
 <script>
+    // ...
     export default {
         mounted: function() {
             this.calendar = new EventCalendar(this.$refs.container, {});
@@ -119,7 +120,7 @@ Then you need to render Event Calendar in the container. Use the `new EventCalen
 </template>
 ~~~
 
-To clear the component as it has unmounted, use the `calendar.destructor()` call and remove the container after that inside the `unmounted()` method of ***Vue.js***, as follows:
+To clear the component as it has unmounted, use the `calendar.destructor()` method and remove the container inside the `unmounted()` method of ***Vue.js***, as follows:
 
 ~~~html {7-10} title="EventCalendarComponent.vue"
 <script>
@@ -215,7 +216,7 @@ Open the ***EventCalendarComponent.vue*** file and apply the passed **props** to
 </script>
 ~~~
 
-You can also use the `parse()` method inside the `mounted()` method of Vue to load data into Event Calendar:
+You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `mounted()` method of Vue to load data into Event Calendar:
 
 ~~~html {7} title="EventCalendarComponent.vue"
 <script>
@@ -277,7 +278,7 @@ To add the component into the app, open the **App.vue** file and replace the def
 </template>
 ~~~
 
-After that, when you can start the app to see Event Calendar loaded with data on a page.
+After that, you can start the app to see Event Calendar loaded with data on a page.
 
 ![Event Calendar initialization](../assets/trial_eventcalendar.png)
 
