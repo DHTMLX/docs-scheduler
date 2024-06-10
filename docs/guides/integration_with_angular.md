@@ -186,7 +186,7 @@ Open the **event-calendar.component.ts** file and complete the `ngOnInit()` meth
 ngOnInit() {
     const calendar = new EventCalendar(this.container.nativeElement,{ /*...*/ });
 
-    calendar.events.on("add-event", (obj) => {
+    calendar.api.on("add-event", (obj) => {
         console.log(obj);
     });
 }

@@ -216,7 +216,7 @@ Open ***EventCalendar.svelte*** and complete the `onMount()` method as in:
 ~~~jsx title="EventCalendar.svelte"
 onMount(() => {
     const calendar = new EventCalendar(container, { columns, cards });
-    calendar.events.on("add-event", (obj) => {
+    calendar.api.on("add-event", (obj) => {
         console.log(obj);
     });
 });

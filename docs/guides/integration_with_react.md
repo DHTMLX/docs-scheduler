@@ -231,7 +231,7 @@ Open **EventCalendar.jsx** and complete the `useEffect()` method in the followin
 useEffect(() => {
     const calendar = new EventCalendar(container.current, {});
 
-    calendar.events.on("add-event", (obj) => {
+    calendar.api.on("add-event", (obj) => {
         console.log(obj);
     });
     

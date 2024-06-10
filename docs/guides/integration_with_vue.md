@@ -245,7 +245,7 @@ Open ***EventCalendarComponent.vue*** and complete the `mounted()` method:
         // ...
         mounted() {
             this.calendar = new EventCalendar(this.$refs.cont, {});
-            this.calendar.events.on("add-event", (obj) => {
+            this.calendar.api.on("add-event", (obj) => {
                 console.log(obj);
             });
         }
