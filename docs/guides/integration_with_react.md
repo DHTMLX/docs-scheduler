@@ -60,7 +60,7 @@ Download the [**trial Event Calendar package**](/how_to_start/#installing-event-
 
 ### Step 2. Component creation
 
-Now you need to create a React component, to add a Event Calendar into the application. Create a new file in the ***src/*** directory and name it ***EventCalendar.jsx***.
+Now you need to create a React component, to add an Event Calendar into the application. Create a new file in the ***src/*** directory and name it ***EventCalendar.jsx***.
 
 #### Importing source files
 
@@ -86,42 +86,27 @@ In this tutorial you can see how to configure the **trial** version of Event Cal
 
 #### Setting the container and adding Event Calendar
 
-To display Event Calendar on the page, you need to set the container to render the component inside. Check the code below:
+To display Event Calendar on the page, you need to create the container for Event Calendar, and initialize this component using the corresponding constructor:
 
-~~~jsx title="EventCalendar.jsx"
-import { EventCalendar } from '@dhx/trial-eventcalendar';
-import '@dhx/trial-eventcalendar/dist/event-calendar.css';
+~~~jsx {2,6,9-10} title="EventCalendar.jsx"
+import { useEffect, useRef } from "react";
+import { EventCalendar } from "@dhx/trial-eventcalendar";
+import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-// eslint-disable-next-line react/prop-types
-const EventCalendarComponent = () => {
-    let container = useRef();
-
-    return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
-};
-
-export default EventCalendarComponent;
-~~~
-
-Then you need to add Event Calendar into the container. For this purpose, import the `useEffect()` method of React and use it to render the Event Calendar instance and destruct when it is no longer needed:
-
-~~~jsx {2,8-12} title="EventCalendar.jsx"
-// ...
-import { useEffect, useRef} from "react";
-
-// eslint-disable-next-line react/prop-types
-const EventCalendarComponent = () => {
-    let container = useRef();
+export default function CalendarComponent(props) {
+    let container = useRef(); // initialize container for Event Calendar
 
     useEffect(() => {
-        new EventCalendar(container.current, {});
+        // initialize the Event Calendar component
+        const calendar = new EventCalendar(container.current, {});
 
-        return () => (container.current.innerHTML = "");
+        return () => {
+            calendar.destructor(); // destruct Event Calendar
+        };
     }, []);
-    
-    return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
-};
 
-export default EventCalendarComponent;
+    return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
+}
 ~~~
 
 #### Loading data
@@ -173,51 +158,60 @@ function App() {
 export default App;
 ~~~
 
-Open the ***EventCalendar.jsx*** file and apply the passed **props** to the Event Calendar configuration object:
+Go to the ***EventCalendar.jsx*** file and apply the passed **props** to the Event Calendar configuration object:
 
-~~~jsx {4,8-9} title="EventCalendar.jsx"
-const EventCalendarComponent = (props) => {
-    let container = useRef();
+~~~jsx {5,10-11} title="EventCalendar.jsx"
+import { useEffect, useRef } from "react";
+import { EventCalendar } from "@dhx/trial-eventcalendar";
+import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-    const { events, date } = props;
+export default function CalendarComponent(props) {
+    let container = useRef(); 
 
     useEffect(() => {
-        new EventCalendar(container.current, {
-            events,
-            date
+        const calendar = new EventCalendar(container.current, {
+            events: props.events,
+            date: props.date,
+            // other configuration properties
         });
-        return () => (container.current.innerHTML = "");
-    }, []);
-    
-    return <div ref={container}></div>;
-};
 
-export default EventCalendarComponent;
+        return () => {
+            calendar.destructor();
+        }
+    }, []);
+
+    return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
+}
 ~~~
 
 You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `useEffect()` method of React to load data into Event Calendar:
 
-~~~jsx {4,9} title="EventCalendar.jsx"
-const EventCalendarComponent = (props) => {
-    let container = useRef();
+~~~jsx {8-9,14} title="EventCalendar.jsx"
+import { useEffect, useRef } from "react";
+import { EventCalendar } from "@dhx/trial-eventcalendar";
+import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-    const { events, date } = props;
+export default function CalendarComponent(props) {
+    let container = useRef(); 
+
+    let events = props.events;
+    let date = props.date;
 
     useEffect(() => {
         const calendar = new EventCalendar(container.current, {});
 
         calendar.parse({ events, date });
 
-        return () => (container.current.innerHTML = "");
+        return () => {
+            calendar.destructor();
+        }
     }, []);
-    
-    return <div ref={container}></div>;
-};
 
-export default EventCalendarComponent;
+    return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
+}
 ~~~
 
-The `calendar.parse(data);` line provides data reloading on each applied change.
+The `calendar.parse(data)` method provides data reloading on each applied change.
 
 Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar object with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
 
@@ -225,9 +219,10 @@ Now the Event Calendar component is ready. When the element will be added to the
 
 When a user makes some action in the Event Calendar, it invokes an event. You can use these events to detect the action and run the desired code for it. See the [full list of events](/api/overview/events_overview/).
 
-Open **EventCalendar.jsx** and complete the `useEffect()` method in the following way:
+Open ***EventCalendar.jsx*** and complete the `useEffect()` method in the following way:
 
-~~~jsx {4-6} title="EventCalendar.jsx"
+~~~jsx {5-7} title="EventCalendar.jsx"
+// ...
 useEffect(() => {
     const calendar = new EventCalendar(container.current, {});
 
@@ -235,13 +230,16 @@ useEffect(() => {
         console.log(obj);
     });
     
-    return () => (container.current.innerHTML = "");
+    return () => {
+        calendar.destructor();
+    }
 }, []);
+// ...
 ~~~
 
 ### Step 3. Adding Event Calendar into the app
 
-To add the component into our app, open the **App.jsx** file and replace the default code with the following one:
+To add the component into the app, open the **App.jsx** file and replace the default code with the following one:
 
 ~~~jsx title="App.jsx"
 import EventCalendar from "./EventCalendar";
