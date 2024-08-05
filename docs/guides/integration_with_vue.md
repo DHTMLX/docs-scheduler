@@ -66,7 +66,7 @@ Download the [**trial Event Calendar package**](/how_to_start/#installing-event-
 
 Now you need to create a Vue component, to add a Event Calendar into the application. Create a new file in the ***src/components/*** directory and name it ***EventCalendar***.
 
-#### Importing source files
+#### Import source files
 
 Open the ***EventCalendar.vue*** file and import Event Calendar source files. Note that:
 

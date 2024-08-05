@@ -62,7 +62,7 @@ Download the [**trial Event Calendar package**](/how_to_start/#installing-event-
 
 Now you need to create a React component, to add an Event Calendar into the application. Create a new file in the ***src/*** directory and name it ***EventCalendar.jsx***.
 
-#### Importing source files
+#### Import source files
 
 Open the ***EventCalendar.jsx*** file and import Event Calendar source files. Note that:
 
