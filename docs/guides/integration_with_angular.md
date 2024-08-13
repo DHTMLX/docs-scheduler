@@ -24,17 +24,17 @@ Create a new **my-angular-event-calendar-app** project using Angular CLI. Run th
 ng new my-angular-event-calendar-app
 ~~~
 
-The command above installs all the necessary tools and dependencies, so you don't need to run any additional commands.
+The command above installs all the necessary tools, so you don't need to run any additional commands.
 
 ### Installation of dependencies
 
-Go to the app directory:
+Go to the new created app directory:
 
 ~~~json
 cd my-angular-event-calendar-app
 ~~~
 
-Run the app with the following commands:
+Install dependencies and start the dev server. For this, use the [**yarn**](https://yarnpkg.com/) package manager:
 
 ~~~json
 yarn install
@@ -55,7 +55,7 @@ Download the [**trial Event Calendar package**](/how_to_start/#installing-event-
 
 Now you need to create a component, to add an Event Calendar into the application. Create  the **event-calendar** folder in the **src/app/** directory, add a new file into it and name it **event-calendar.component.ts**. Then complete the steps described below.
 
-#### Importing source files
+#### Import source files
 
 Open the file and import Event Calendar source files. Note that:
 
@@ -73,43 +73,37 @@ import { EventCalendar } from '@dhx/trial-eventcalendar';
 
 In this tutorial you can see how to configure the **trial** version of Event Calendar.
 
-#### Setting the container and adding Event Calendar
+#### Set the container and initialize Event Calendar
 
-To display Event Calendar on the page, you need to set the container to render the component inside. Use the code below:
+To display Event Calendar on the page, you need to set the container to render the component inside and initialize Event Calendar using the corresponding constructor:
 
-~~~jsx title="event-calendar.component.ts"
+~~~jsx {1,8,12-13,18-19} title="event-calendar.component.ts"
 import { EventCalendar } from '@dhx/trial-eventcalendar';
-import { Component, ElementRef, OnInit, ViewChild, OnDestroy} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, OnDestroy, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector: 'event-calendar',
-    template: '<div #container></div>'
+    encapsulation: ViewEncapsulation.None,
+    selector: "event-calendar", // a template name used in the "app.component.ts" file as <event-calendar />
+    styleUrls: ["./event-calendar.component.css"], // include a css file
+    template: `<div #container class="widget"></div>`,
 })
-export class EventCalendarComponent implements OnInit {
-    @ViewChild('container', { static: true }) container!: ElementRef;
-}
-~~~
 
-Then you need to render our Event Calendar in the container. To do that, use the `ngOnInit()` method of Angular:
-
-~~~jsx {6-9} title="event-calendar.component.ts"
 export class EventCalendarComponent implements OnInit, OnDestroy {
-    @ViewChild('container', { static: true }) container!: ElementRef;
+    // initialize container for Event Calendar
+    @ViewChild('container', { static: true }) calendar_container!: ElementRef;
 
-    private _calendar: any;
+    private _calendar!: EventCalendar;
 
     ngOnInit() {
-        const calendar = new EventCalendar(this.container.nativeElement,{});
-        this._calendar = calendar;
+        // initialize the Event Calendar component
+        this._calendar = new EventCalendar(this.calendar_container.nativeElement, {});
     }
 
-    ngOnDestroy() {
-        this._calendar.destructor();
+    ngOnDestroy(): void {
+        this._calendar.destructor(); // destruct Event Calendar
     }
 }
 ~~~
-
-In the above code you also specified the `ngOnDestroy()` method that contains the `_calendar.destructor()` expression to clear the component when it is no longer needed.
 
 #### Loading data
 
@@ -148,31 +142,73 @@ export function getData() {
 
 Then open the ***event-calendar.component.ts*** file. Import the file with data and specify the corresponding data properties to the configuration object of Event Calendar within the `ngOnInit()` method, as shown below.
 
-~~~jsx {2,5,7} title="event-calendar.component.ts"
-// importing the data file
-import { getData } from './data';
+~~~jsx {2,18,20} title="event-calendar.component.ts"
+import { EventCalendar } from '@dhx/trial-eventcalendar';
+import { getData } from "./data"; // import data
+import { Component, ElementRef, OnInit, ViewChild, OnDestroy, ViewEncapsulation } from '@angular/core';
 
-ngOnInit() {
-    const events = getData();
-    const calendar = new EventCalendar(this.container.nativeElement, {
-        events
-    });
+@Component({
+    encapsulation: ViewEncapsulation.None,
+    selector: "event-calendar", // a template name used in the "app.component.ts" file as <event-calendar />
+    styleUrls: ["./event-calendar.component.css"], // include a css file
+    template: `<div #container class="widget"></div>`,
+})
+
+export class EventCalendarComponent implements OnInit, OnDestroy {
+    @ViewChild('container', { static: true }) calendar_container!: ElementRef;
+
+    private _calendar!: EventCalendar;
+
+    ngOnInit() {
+        const events = getData();
+        this._calendar = new EventCalendar(this.calendar_container.nativeElement, {
+            events, // apply event data
+            date: new Date(2024, 5, 10),
+        });
+    }
+
+    ngOnDestroy(): void {
+        this._calendar.destructor(); // destruct Event Calendar
+    }
 }
 ~~~
 
-You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `ngOnInit()` method of Angular to load data into Event Calendar. It will reload data on each applied change.
+You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `ngOnInit()` method of Angular to load data into Event Calendar.
 
-~~~jsx {11} title="event-calendar.component.ts"
-// importing the data file
-import { getData } from './data';
+~~~jsx {2,18,23-24} title="event-calendar.component.ts"
+import { EventCalendar } from '@dhx/trial-eventcalendar';
+import { getData } from "./data"; // import data
+import { Component, ElementRef, OnInit, ViewChild, OnDestroy, ViewEncapsulation } from '@angular/core';
 
-ngOnInit() {
-    const events = getData();
-    const calendar = new EventCalendar(this.container.nativeElement, {});
+@Component({
+    encapsulation: ViewEncapsulation.None,
+    selector: "event-calendar", // a template name used in the "app.component.ts" file as <event-calendar />
+    styleUrls: ["./event-calendar.component.css"], // include a css file
+    template: `<div #container class="widget"></div>`,
+})
 
-    calendar.parse(events);
+export class EventCalendarComponent implements OnInit, OnDestroy {
+    @ViewChild('container', { static: true }) calendar_container!: ElementRef;
+
+    private _calendar!: EventCalendar;
+
+    ngOnInit() {
+        const events = getData();
+        this._calendar = new EventCalendar(this.calendar_container.nativeElement, {
+            date: new Date(2024, 5, 10),
+        });
+
+        // apply the data via the parse() method
+        this._calendar.parse(events);
+    }
+
+    ngOnDestroy(): void {
+        this._calendar.destructor(); // destruct Event Calendar
+    }
 }
 ~~~
+
+The `this._calendar.parse(data)` method provides data reloading on each applied change.
 
 Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar object with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
 
@@ -182,35 +218,42 @@ When a user makes some action in the Event Calendar, it invokes an event. You ca
 
 Open the **event-calendar.component.ts** file and complete the `ngOnInit()` method as in:
 
-~~~jsx {4-6} title="event-calendar.component.ts"
+~~~jsx {7-9} title="event-calendar.component.ts"
+// ...
 ngOnInit() {
-    const calendar = new EventCalendar(this.container.nativeElement,{ /*...*/ });
+    this._calendar = new EventCalendar(this.calendar_container.nativeElement, {
+        date: new Date(2024, 5, 10),
+    });
 
-    calendar.api.on("add-event", (obj) => {
+    this._calendar.events.on("add-event", (obj) => {
         console.log(obj);
     });
+}
+
+ngOnDestroy(): void {
+    this._calendar.destructor(); 
 }
 ~~~
 
 ### Step 3. Adding Event Calendar into the app
 
-Now it's time to add the component into your app. Open ***src/app/app.component.ts*** and use *EventCalendarComponent* instead of the default content by inserting the code below:
+To add the ***EventCalendarComponent*** component into the app, open the ***src/app/app.component.ts*** file and replace the default code with the following one:
 
-~~~jsx title="app.component.ts"
+~~~jsx {5} title="app.component.ts"
 import { Component } from "@angular/core";
 
 @Component({
     selector: "app-root",
-    template: `<event-calendar/>`
+    template: `<event-calendar/>` // a template created in the "event-calendar.component.ts" file 
 })
 export class AppComponent {
     name = "";
 }
 ~~~
 
-Then create the ***app.module.ts*** file in the ***src/app/*** directory and insert the *EventCalendarComponent* as provided below:
+Then create the ***app.module.ts*** file in the ***src/app/*** directory and specify the *EventCalendarComponent* as shown below:
 
-~~~jsx title="app.module.ts"
+~~~jsx {4-5,8} title="app.module.ts"
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
