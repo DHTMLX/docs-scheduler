@@ -37,7 +37,7 @@ cd my-angular-event-calendar-app
 Install dependencies and start the dev server. For this, use the [**yarn**](https://yarnpkg.com/) package manager:
 
 ~~~json
-yarn install
+yarn
 yarn start
 ~~~
 
@@ -45,7 +45,7 @@ The app should run on a localhost (for instance `http://localhost:3000`).
 
 ## Creating Event Calendar
 
-Now you should get the DHTMLX Event Calendar code. First of all, stop the app and proceed with installing the Event Calendar package.
+Now you should get the DHTMLX Event Calendar source code. First of all, stop the app and proceed with installing the Event Calendar package.
 
 ### Step 1. Package installation
 
@@ -53,19 +53,19 @@ Download the [**trial Event Calendar package**](/how_to_start/#installing-event-
   
 ### Step 2. Component creation
 
-Now you need to create a component, to add an Event Calendar into the application. Create  the **event-calendar** folder in the **src/app/** directory, add a new file into it and name it **event-calendar.component.ts**. Then complete the steps described below.
+Now you need to create an Angular component, to add Event Calendar into the application. Create  the **event-calendar** folder in the **src/app/** directory, add a new file into it and name it **event-calendar.component.ts**. Then complete the steps described below.
 
 #### Import source files
 
 Open the file and import Event Calendar source files. Note that:
 
-- if you use PRO version and install the Event Calendar package from a local folder, the imported paths look like this:
+- if you use PRO version and install the Event Calendar package from a local folder, the imported path looks like this:
 
 ~~~jsx
 import { EventCalendar } from 'dhx-eventcalendar-package';
 ~~~
 
-- if you use the trial version of Event Calendar, specify the following paths:
+- if you use the trial version of Event Calendar, specify the following path:
 
 ~~~jsx
 import { EventCalendar } from '@dhx/trial-eventcalendar';
@@ -149,8 +149,8 @@ import { Component, ElementRef, OnInit, ViewChild, OnDestroy, ViewEncapsulation 
 
 @Component({
     encapsulation: ViewEncapsulation.None,
-    selector: "event-calendar", // a template name used in the "app.component.ts" file as <event-calendar />
-    styleUrls: ["./event-calendar.component.css"], // include a css file
+    selector: "event-calendar", 
+    styleUrls: ["./event-calendar.component.css"],
     template: `<div #container class="widget"></div>`,
 })
 
@@ -160,7 +160,7 @@ export class EventCalendarComponent implements OnInit, OnDestroy {
     private _calendar!: EventCalendar;
 
     ngOnInit() {
-        const events = getData();
+        const events = getData(); // initialize data property
         this._calendar = new EventCalendar(this.calendar_container.nativeElement, {
             events, // apply event data
             date: new Date(2024, 5, 10),
@@ -168,7 +168,7 @@ export class EventCalendarComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this._calendar.destructor(); // destruct Event Calendar
+        this._calendar.destructor(); 
     }
 }
 ~~~
@@ -182,8 +182,8 @@ import { Component, ElementRef, OnInit, ViewChild, OnDestroy, ViewEncapsulation 
 
 @Component({
     encapsulation: ViewEncapsulation.None,
-    selector: "event-calendar", // a template name used in the "app.component.ts" file as <event-calendar />
-    styleUrls: ["./event-calendar.component.css"], // include a css file
+    selector: "event-calendar", 
+    styleUrls: ["./event-calendar.component.css"], 
     template: `<div #container class="widget"></div>`,
 })
 
@@ -203,14 +203,14 @@ export class EventCalendarComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this._calendar.destructor(); // destruct Event Calendar
+        this._calendar.destructor(); 
     }
 }
 ~~~
 
-The `this._calendar.parse(data)` method provides data reloading on each applied change.
+The `parse(data)` method provides data reloading on each applied change.
 
-Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar object with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
+Now the Event Calendar component is ready to use. When the element will be added to the page, it will initialize the Event Calendar with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
 
 #### Handling events
 

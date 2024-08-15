@@ -41,8 +41,8 @@ Install dependencies and start the dev server. For this, use a package manager:
 - if you use [**yarn**](https://yarnpkg.com/), run the following commands:
 
 ~~~json
-yarn install
-yarn dev
+yarn
+yarn start
 ~~~
 
 - if you use [**npm**](https://www.npmjs.com/), run the following commands:
@@ -56,7 +56,7 @@ The app should run on a localhost (for instance `http://localhost:3000`).
 
 ## Creating Event Calendar
 
-Now you should get the DHTMLX Event Calendar code. First of all, stop the app and proceed with installing the Event Calendar package.
+Now you should get the DHTMLX Event Calendar source code. First of all, stop the app and proceed with installing the Event Calendar package.
 
 ### Step 1. Package installation
 
@@ -64,7 +64,7 @@ Download the [**trial Event Calendar package**](/how_to_start/#installing-event-
 
 ### Step 2. Component creation
 
-Now you need to create a Vue component, to add a Event Calendar into the application. Create a new file in the ***src/components/*** directory and name it ***EventCalendar***.
+Now you need to create a Vue component, to add Event Calendar into the application. Create a new file in the ***src/components/*** directory and name it ***EventCalendar***.
 
 #### Import source files
 
@@ -94,9 +94,9 @@ In this tutorial you can see how to configure the **trial** version of Event Cal
 
 #### Setting the container and adding Event Calendar
 
-To display Event Calendar on the page, you need to set the container to render the component inside. Check the code below:
+To display Event Calendar on the page, you need to create the container for Event Calendar, and initialize this component using the corresponding constructor:
 
-~~~html {7-8} title="EventCalendar.vue"
+~~~html {2,7-8} title="EventCalendar.vue"
 <script>
 import { EventCalendar } from "@dhx/trial-eventcalendar";
 import "@dhx/trial-eventcalendar/dist/event-calendar.css";
@@ -153,7 +153,7 @@ export function getData() {
 }
 ~~~
 
-Then open the ***App.vue*** file, import data, and initialize it via the inner `data()` method. After this you can pass data into the new created `<EventCalendar/>` components as **props**:
+Then open the ***App.vue*** file, import data, and initialize it via the inner `data()` method. After this you can pass data into the new created `<EventCalendar/>` component as **props**:
 
 ~~~html {3,7-14,19} title="App.vue"
 <script>
@@ -237,9 +237,9 @@ export default {
 </template>
 ~~~
 
-The `this.calendar.parse(data)` method provides data reloading on each applied change.
+The `parse(data)` method provides data reloading on each applied change.
 
-Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar object with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
+Now the Event Calendar component is ready to use. When the element will be added to the page, it will initialize the Event Calendar with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
 
 #### Handling events
 
@@ -247,7 +247,7 @@ When a user makes some action in the Event Calendar, it invokes an event. You ca
 
 Open ***EventCalendar.vue*** and complete the `mounted()` method:
 
-~~~html {6-8} title="EventCalendar.vue"
+~~~html {8-10} title="EventCalendar.vue"
 <script>
 // ...
 export default {

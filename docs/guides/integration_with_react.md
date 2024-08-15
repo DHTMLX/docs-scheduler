@@ -18,7 +18,7 @@ DHTMLX Event Calendar is compatible with **React**. We have prepared code exampl
 Before you start to create a new project, install [**Vite**](https://vitejs.dev/) (optional) and [**Node.js**](https://nodejs.org/en/).
 :::
 
-You can create a basic **React** project or use **React with Vite**:
+You can create a basic **React** project or use **React with Vite**. Let's name the project as **my-react-event-calendar-app**:
 
 ~~~json
 npx create-vite my-react-event-calendar-app --template react
@@ -26,7 +26,7 @@ npx create-vite my-react-event-calendar-app --template react
 
 ### Installation of dependencies
 
-Go to the app directory. Let's name the project as **my-react-event-calendar-app** and run:
+Go to the new created app directory:
 
 ~~~json
 cd my-react-event-calendar-app
@@ -37,8 +37,8 @@ Install dependencies and start the dev server. For this, use a package manager:
 - if you use [**yarn**](https://yarnpkg.com/), run the following commands:
 
 ~~~json
-yarn install
-yarn dev
+yarn
+yarn start
 ~~~
 
 - if you use [**npm**](https://www.npmjs.com/), run the following commands:
@@ -52,7 +52,7 @@ The app should run on a localhost (for instance `http://localhost:3000`).
 
 ## Creating Event Calendar
 
-Now you should get the DHTMLX Event Calendar code. First of all, stop the app and proceed with installing the Event Calendar package.
+Now you should get the DHTMLX Event Calendar source code. First of all, stop the app and proceed with installing the Event Calendar package.
 
 ### Step 1. Package installation
 
@@ -93,7 +93,7 @@ import { useEffect, useRef } from "react";
 import { EventCalendar } from "@dhx/trial-eventcalendar";
 import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-export default function CalendarComponent(props) {
+export default function EventCalendarComponent(props) {
     let container = useRef(); // initialize container for Event Calendar
 
     useEffect(() => {
@@ -146,7 +146,7 @@ export function getData() {
 
 Then open the ***App.js*** file and import data. After this you can pass data into the new created `<EventCalendar/>` components as **props**:
 
-~~~jsx {2,5-6} title="App.jsx"
+~~~jsx {2,5-6} title="App.js"
 import EventCalendar from "./EventCalendar";
 import { getData } from "./data";
 
@@ -165,12 +165,12 @@ import { useEffect, useRef } from "react";
 import { EventCalendar } from "@dhx/trial-eventcalendar";
 import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-export default function CalendarComponent(props) {
+export default function EventCalendarComponent(props) {
     let container = useRef(); 
 
     useEffect(() => {
         const calendar = new EventCalendar(container.current, {
-            events: props.events,
+            events: props.events, // apply event data
             date: props.date,
             // other configuration properties
         });
@@ -191,7 +191,7 @@ import { useEffect, useRef } from "react";
 import { EventCalendar } from "@dhx/trial-eventcalendar";
 import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-export default function CalendarComponent(props) {
+export default function EventCalendarComponent(props) {
     let container = useRef(); 
 
     let events = props.events;
@@ -211,9 +211,9 @@ export default function CalendarComponent(props) {
 }
 ~~~
 
-The `calendar.parse(data)` method provides data reloading on each applied change.
+The `parse(data)` method provides data reloading on each applied change.
 
-Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar object with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
+Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
 
 #### Handling events
 
@@ -239,9 +239,9 @@ useEffect(() => {
 
 ### Step 3. Adding Event Calendar into the app
 
-To add the component into the app, open the **App.jsx** file and replace the default code with the following one:
+To add the component into the app, open the **App.js** file and replace the default code with the following one:
 
-~~~jsx title="App.jsx"
+~~~jsx title="App.js"
 import EventCalendar from "./EventCalendar";
 import { getData } from "./data";
 
