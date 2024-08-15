@@ -18,7 +18,7 @@ DHTMLX Event Calendar is compatible with **Svelte**. We have prepared code examp
 Before you start to create a new project, install [**Vite**](https://vitejs.dev/) (optional) and [**Node.js**](https://nodejs.org/en/).
 :::
 
-There are several ways of creating a project:
+There are several ways of creating a **Svelte** project:
 
 - you can use the [**SvelteKit**](https://kit.svelte.dev/)
 
@@ -40,13 +40,13 @@ Let's name the project as **my-svelte-event-calendar-app** and go to the app dir
 cd my-svelte-event-calendar-app
 ~~~
 
-Install dependencies and run the app. For this, use a package manager:
+Install dependencies and start the dev server. For this, use a package manager:
 
 - if you use [**yarn**](https://yarnpkg.com/), run the following commands:
 
 ~~~json
-yarn install
-yarn dev
+yarn 
+yarn start
 ~~~
 
 - if you use [**npm**](https://www.npmjs.com/), run the following commands:
@@ -60,7 +60,7 @@ The app should run on a localhost (for instance `http://localhost:3000`).
 
 ## Creating Event Calendar
 
-Now you should get the DHTMLX Event Calendar code. First of all, stop the app and proceed with installing the Event Calendar package.
+Now you should get the DHTMLX Event Calendar source code. First of all, stop the app and proceed with installing the Event Calendar package.
 
 ### Step 1. Package installation
 
@@ -68,17 +68,19 @@ Download the [**trial Event Calendar package**](/how_to_start/#installing-event-
 
 ### Step 2. Component creation
 
-Now you need to create a Svelte component, to add a Event Calendar into the application. Let's create a new file in the ***src/*** directory and name it ***EventCalendar.svelte***.
+Now you need to create a Svelte component, to add Event Calendar into the application. Let's create a new file in the ***src/*** directory and name it ***EventCalendar.svelte***.
 
-#### Importing source files
+#### Import source files
 
 Open the ***EventCalendar.svelte*** file and import Event Calendar source files. Note that:
 
 - if you use PRO version and install the Event Calendar package from a local folder, the import paths look like this:
 
 ~~~html title="EventCalendar.svelte"
+<script>
 import { EventCalendar } from 'dhx-eventcalendar-package';
 import 'dhx-eventcalendar-package/dist/event-calendar.css';
+</script>
 ~~~
 
 Note that depending on the used package, the source files can be minified. In this case make sure that you are importing the CSS file as **event-calendar.min.css**.
@@ -86,39 +88,34 @@ Note that depending on the used package, the source files can be minified. In th
 - if you use the trial version of Event Calendar, specify the following paths:
 
 ~~~html title="EventCalendar.svelte"
+<script>
 import { EventCalendar } from '@dhx/trial-eventcalendar';
 import '@dhx/trial-eventcalendar/dist/event-calendar.css';
+</script>
 ~~~
 
 In this tutorial you can see how to configure the **trial** version of Event Calendar.
 
 #### Setting the container and adding Event Calendar
 
-To display Event Calendar on the page, you need to set the container to render the component inside. Check the code below:
+To display Event Calendar on the page, you need to create the container for Event Calendar, and initialize this component using the corresponding constructor:
 
-~~~html {5,8} title="EventCalendar.svelte"
+~~~html {3,6,10-11} title="EventCalendar.svelte"
 <script>
-    import { EventCalendar } from "@dhx/trial-eventcalendar";
-    import "@dhx/trial-eventcalendar/dist/event-calendar.min.css"
-    
-    let container;
-</script>
-
-<div bind:this={container} style="width: 100%; height: 100%;"></div>
-~~~
-
-Then you need to render Event Calendar in the container. Use the `new EventCalendar()` constructor inside the `onMount()` method of Svelte, to initialize Event Calendar inside of the container:
-
-~~~html {4,8-10} title="EventCalendar.svelte"
-<script>
+    import { onMount, onDestroy } from "svelte";
     import { EventCalendar } from "@dhx/trial-eventcalendar";
     import "@dhx/trial-eventcalendar/dist/event-calendar.css";
-    import { onMount } from "svelte";
 
-    let container;
+    let container; // initialize container for Event Calendar
+    let calendar;
 
     onMount(() => {
-        const calendar = new EventCalendar(container,{}); 
+        // initialize the Event Calendar component
+        calendar = new EventCalendar(container, {})
+    });
+
+    onDestroy(() => {
+        calendar.destructor(); // destruct Event Calendar
     });
 </script>
 
@@ -162,27 +159,41 @@ export function getData() {
 
 Then open the ***App.svelte*** file, import data, and pass it into the new created `<EventCalendar/>` components as **props**:
 
-~~~html {3-4,7} title="App.svelte"
+~~~html {3,5,8} title="App.svelte"
 <script>
-    // ...
+    import EventCalendar from "./EventCalendar.svelte";
     import { getData } from "./data.js";
+
     const events = getData();
 </script>
 
-<EventCalendar events={events} />
+<EventCalendar events={events} date={new Date(2024, 5, 10)} />
 ~~~
 
-Open the ***EventCalendar.svelte*** file and apply the passed **props** to the Event Calendar configuration object:
+Go to the ***EventCalendar.svelte*** file and apply the passed **props** to the Event Calendar configuration object:
 
-~~~html {3,8-11} title="EventCalendar.svelte"
+~~~html {6-7,14-15} title="EventCalendar.svelte"
 <script>
-    // ...
-    export let events; // props
+import { onMount, onDestroy } from "svelte";
+import { EventCalendar } from "@dhx/trial-eventcalendar";
+import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-    let container;
-    onMount(() => {
-        new EventCalendar(container, { events })
-    });
+export let events;
+export let date;
+
+let container;
+let calendar;
+
+onMount(() => {
+    calendar = new EventCalendar(container, {
+        events, // apply event data
+        date
+    })
+});
+
+onDestroy(() => {
+    calendar.destructor();
+});
 </script>
 
 <div bind:this={container} style="width: 100%; height: 100%;"></div>
@@ -190,36 +201,61 @@ Open the ***EventCalendar.svelte*** file and apply the passed **props** to the E
 
 You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `onMount()` method of Svelte to load data into Event Calendar:
 
-~~~html {3-4,8-11} title="App.svelte"
+~~~html {3,6-7,15} title="App.svelte"
 <script>
-    // ...
-    export let events;
-    export let date;
+import { onMount, onDestroy } from "svelte";
+import { EventCalendar } from "@dhx/trial-eventcalendar";
+import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-    let container;
-    onMount(() => {
-        const calendar = new EventCalendar(container, { date });
-        calendar.parse(events);
-    });
+export let events;
+export let date;
+
+let container;
+let calendar;
+
+onMount(() => {
+    calendar = new EventCalendar(container, {})
+
+    calendar.parse({ events, date });
+});
+
+onDestroy(() => {
+    calendar.destructor();
+});
 </script>
-<!-- ... -->
+
+<div bind:this={container} style="width: 100%; height: 100%;"></div>
 ~~~
 
-Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar object with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
+The `parse(data)` method provides data reloading on each applied change.
+
+Now the Event Calendar component is ready to use. When the element will be added to the page, it will initialize the Event Calendar with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
 
 #### Handling events
 
 When a user makes some action in the Event Calendar, it invokes an event. You can use these events to detect the action and run the desired code for it. See the [full list of events](/api/overview/events_overview/).
 
-Open ***EventCalendar.svelte*** and complete the `onMount()` method as in:
+Open ***EventCalendar.svelte*** and complete the `onMount()` method in the following way:
 
-~~~jsx title="EventCalendar.svelte"
+~~~html {8-10} title="EventCalendar.svelte"
+<script>
+// ...
+let calendar;
+
 onMount(() => {
-    const calendar = new EventCalendar(container, { columns, cards });
-    calendar.events.on("add-event", (obj) => {
+    calendar = new EventCalendar(container, {})
+
+    calendar.api.on("add-event", (obj) => {
         console.log(obj);
     });
 });
+
+onDestroy(() => {
+    calendar.destructor();
+});
+</script>
+
+// ...
 ~~~
 
 ### Step 3. Adding Event Calendar into the app
@@ -228,10 +264,10 @@ To add the component into the app, open the **App.svelte** file and replace the 
 
 ~~~html title="App.svelte"
 <script>
-    import EventCalendar from "./EventCalendar.svelte";
-    import { getData } from "./data.js";
-    
-    const events = getData();
+import EventCalendar from "./EventCalendar.svelte";
+import { getData } from "./data.js";
+
+const events = getData();
 </script>
 
 <EventCalendar events={events} date={new Date(2024, 5, 10)} />
