@@ -8,6 +8,16 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2.3
+
+Released on August 19, 2024
+
+### Fixes
+
+- Incorrect behavior after canceling the [`add-event`](../../api/events/js_eventcalendar_addevent_event) via the [`api.intercept()`](../../api/internal/js_eventcalendar_intercept_method) method
+- An error occurs after applying validation rules via the [`config.editorValidation`](../../api/config/js_eventcalendar_config_config) property
+- Add missing type definitions related to `config` options
+
 ## Version 2.2.2
 
 Released on June 7, 2024
