@@ -24,6 +24,10 @@ Create a new **my-angular-event-calendar-app** project using Angular CLI. Run th
 ng new my-angular-event-calendar-app
 ~~~
 
+:::note
+If you want to follow this guide, disable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering) when creating new Angular app!
+:::
+
 The command above installs all the necessary tools, so you don't need to run any additional commands.
 
 ### Installation of dependencies
@@ -102,6 +106,30 @@ export class EventCalendarComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this._calendar.destructor(); // destruct Event Calendar
     }
+}
+~~~
+
+#### Adding styles
+
+To display Event Calendar correctly, you need to provide the corresponding styles. For this purpose, you can create the **event-calendar.component.css** file in the **src/app/event-calendar/** directory and specify important styles for Event Calendar and its container:
+
+~~~css title="event-calendar.component.css"
+/* import Event Calendar styles */
+@import "@dhx/trial-eventcalendar/dist/event-calendar.css";
+
+/* specify styles for initial page */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* specify styles for the Event Calendar container */
+.widget {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 ~~~
 
@@ -184,7 +212,7 @@ import { Component, ElementRef, OnInit, ViewChild, OnDestroy, ViewEncapsulation 
     encapsulation: ViewEncapsulation.None,
     selector: "event-calendar", 
     styleUrls: ["./event-calendar.component.css"], 
-    template: `<div #container class="widget"></div>`,
+    template: `<div #container class="widget"></div>`
 })
 
 export class EventCalendarComponent implements OnInit, OnDestroy {
@@ -263,7 +291,6 @@ import { EventCalendarComponent } from "./event-calendar/event-calendar.componen
 @NgModule({
     declarations: [AppComponent, EventCalendarComponent],
     imports: [BrowserModule],
-    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
