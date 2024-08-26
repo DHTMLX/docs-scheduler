@@ -105,7 +105,27 @@ export default function EventCalendarComponent(props) {
         };
     }, []);
 
-    return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
+    return <div ref={container} className="widget"></div>;
+}
+~~~
+
+#### Adding styles
+
+To display Event Calendar correctly, you need to provide the corresponding styles. You can use the **index.css** file to specify important styles for Event Calendar and its container:
+
+~~~css title="index.css"
+/* specify styles for initial page */
+html,
+body,
+#root {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* specify styles for the Event Calendar container */
+.widget {
+    height: 100%;
 }
 ~~~
 
@@ -180,7 +200,7 @@ export default function EventCalendarComponent(props) {
         }
     }, []);
 
-    return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
+    return <div ref={container} className="widget"></div>;
 }
 ~~~
 
@@ -207,7 +227,7 @@ export default function EventCalendarComponent(props) {
         }
     }, []);
 
-    return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
+    return <div ref={container} className="widget"></div>;
 }
 ~~~
 
