@@ -21,7 +21,7 @@ Before you start to create a new project, install [**Vite**](https://vitejs.dev/
 You can create a basic **React** project or use **React with Vite**. Let's name the project as **my-react-event-calendar-app**:
 
 ~~~json
-npx create-vite my-react-event-calendar-app --template react
+npx create-react-app my-react-event-calendar-app
 ~~~
 
 ### Installation of dependencies
@@ -91,7 +91,7 @@ To display Event Calendar on the page, you need to create the container for Even
 ~~~jsx {2,6,9-10} title="EventCalendar.jsx"
 import { useEffect, useRef } from "react";
 import { EventCalendar } from "@dhx/trial-eventcalendar";
-import "@dhx/trial-eventcalendar/dist/event-calendar.css";
+import "@dhx/trial-eventcalendar/dist/event-calendar.css"; // include Event Calendar styles
 
 export default function EventCalendarComponent(props) {
     let container = useRef(); // initialize container for Event Calendar
@@ -213,7 +213,7 @@ export default function EventCalendarComponent(props) {
 
 The `parse(data)` method provides data reloading on each applied change.
 
-Now the Event Calendar component is ready. When the element will be added to the page, it will initialize the Event Calendar with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
+Now the Event Calendar component is ready to use. When the element will be added to the page, it will initialize the Event Calendar with data. You can provide necessary configuration settings as well. Visit our [Event Calendar API docs](/api/overview/properties_overview/) to check the full list of available properties.
 
 #### Handling events
 
