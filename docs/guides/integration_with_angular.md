@@ -127,8 +127,6 @@ body {
 
 /* specify styles for the Event Calendar container */
 .widget {
-    position: relative;
-    width: 100%;
     height: 100%;
 }
 ~~~
