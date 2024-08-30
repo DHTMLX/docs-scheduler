@@ -111,7 +111,7 @@ export default function EventCalendarComponent(props) {
 
 #### Adding styles
 
-To display Event Calendar correctly, you need to provide the corresponding styles. You can use the **index.css** file to specify important styles for Event Calendar and its container:
+To display Event Calendar correctly, you need to specify important styles for Event Calendar and its container in the main css file of the project:
 
 ~~~css title="index.css"
 /* specify styles for initial page */
@@ -160,7 +160,7 @@ export function getData() {
             text: ' Olympic Stadium - Munich ',
             details: ' Munich, GER '
         }
-    ];
+    ]
 }
 ~~~
 
@@ -255,22 +255,6 @@ useEffect(() => {
     }
 }, []);
 // ...
-~~~
-
-### Step 3. Adding Event Calendar into the app
-
-To add the component into the app, open the **App.js** file and replace the default code with the following one:
-
-~~~jsx title="App.js"
-import EventCalendar from "./EventCalendar";
-import { getData } from "./data";
-
-function App() {
-    const events= getData();
-    return <EventCalendar events={events} date={new Date(2024, 5, 10)} />;
-}
-
-export default App;
 ~~~
 
 After that, you can start the app to see Event Calendar loaded with data on a page.

@@ -18,23 +18,17 @@ DHTMLX Event Calendar is compatible with **Svelte**. We have prepared code examp
 Before you start to create a new project, install [**Vite**](https://vitejs.dev/) (optional) and [**Node.js**](https://nodejs.org/en/).
 :::
 
-There are several ways of creating a **Svelte** project:
-
-- you can use the [**SvelteKit**](https://kit.svelte.dev/)
-
-or
-
-- you can also use **Svelte with Vite** (but without SvelteKit):
+To create a **Svelte** JS project, run the following command:
 
 ~~~json
 npm create vite@latest
 ~~~
 
-Check the details in the [related article](https://svelte.dev/docs/introduction#start-a-new-project-alternatives-to-sveltekit).
+Let's name the project as **my-svelte-event-calendar-app**.
 
 ### Installation of dependencies
 
-Let's name the project as **my-svelte-event-calendar-app** and go to the app directory:
+Go to the app directory:
 
 ~~~json
 cd my-svelte-event-calendar-app
@@ -44,9 +38,9 @@ Install dependencies and start the dev server. For this, use a package manager:
 
 - if you use [**yarn**](https://yarnpkg.com/), run the following commands:
 
-~~~json
+~~~jsx
 yarn 
-yarn start
+yarn start // or yarn dev
 ~~~
 
 - if you use [**npm**](https://www.npmjs.com/), run the following commands:
@@ -100,7 +94,7 @@ In this tutorial you can see how to configure the **trial** version of Event Cal
 
 To display Event Calendar on the page, you need to create the container for Event Calendar, and initialize this component using the corresponding constructor:
 
-~~~html {3,6,10-11} title="EventCalendar.svelte"
+~~~html {3,6,10-11,19} title="EventCalendar.svelte"
 <script>
     import { onMount, onDestroy } from "svelte";
     import { EventCalendar } from "@dhx/trial-eventcalendar";
@@ -119,7 +113,27 @@ To display Event Calendar on the page, you need to create the container for Even
     });
 </script>
 
-<div bind:this={container} style="width: 100%; height: 100%;"></div>
+<div bind:this={container} class="widget"></div>
+~~~
+
+#### Adding styles
+
+To display Event Calendar correctly, you need to specify important styles for Event Calendar and its container in the main css file of the project:
+
+~~~css title="main.css"
+/* specify styles for initial page */
+html,
+body,
+#app { /* make sure that you use the #app root container */
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* specify styles for the Event Calendar container */
+.widget {
+    height: 100%;
+}
 ~~~
 
 #### Loading data
@@ -196,7 +210,7 @@ onDestroy(() => {
 });
 </script>
 
-<div bind:this={container} style="width: 100%; height: 100%;"></div>
+<div bind:this={container} class="widget"></div>
 ~~~
 
 You can also use the [`parse()`](/api/methods/js_eventcalendar_parse_method/) method inside the `onMount()` method of Svelte to load data into Event Calendar:
@@ -256,21 +270,6 @@ onDestroy(() => {
 </script>
 
 // ...
-~~~
-
-### Step 3. Adding Event Calendar into the app
-
-To add the component into the app, open the **App.svelte** file and replace the default code with the following one:
-
-~~~html title="App.svelte"
-<script>
-import EventCalendar from "./EventCalendar.svelte";
-import { getData } from "./data.js";
-
-const events = getData();
-</script>
-
-<EventCalendar events={events} date={new Date(2024, 5, 10)} />
 ~~~
 
 After that, you can start the app to see Event Calendar loaded with data on a page.
