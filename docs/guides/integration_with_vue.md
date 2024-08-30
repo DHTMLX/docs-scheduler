@@ -40,9 +40,9 @@ Install dependencies and start the dev server. For this, use a package manager:
 
 - if you use [**yarn**](https://yarnpkg.com/), run the following commands:
 
-~~~json
+~~~jsx
 yarn
-yarn start
+yarn start // or yarn dev
 ~~~
 
 - if you use [**npm**](https://www.npmjs.com/), run the following commands:
@@ -64,7 +64,7 @@ Download the [**trial Event Calendar package**](/how_to_start/#installing-event-
 
 ### Step 2. Component creation
 
-Now you need to create a Vue component, to add Event Calendar into the application. Create a new file in the ***src/components/*** directory and name it ***EventCalendar***.
+Now you need to create a Vue component, to add Event Calendar into the application. Create a new file in the ***src/components/*** directory and name it ***EventCalendar.vue***.
 
 #### Import source files
 
@@ -96,7 +96,7 @@ In this tutorial you can see how to configure the **trial** version of Event Cal
 
 To display Event Calendar on the page, you need to create the container for Event Calendar, and initialize this component using the corresponding constructor:
 
-~~~html {2,7-8} title="EventCalendar.vue"
+~~~html {2,7-8,18} title="EventCalendar.vue"
 <script>
 import { EventCalendar } from "@dhx/trial-eventcalendar";
 import "@dhx/trial-eventcalendar/dist/event-calendar.css";
@@ -114,8 +114,28 @@ export default {
 </script>
 
 <template>
-    <div ref="container" style="width: 100%; height: 100%"></div>
+    <div ref="container" class="widget"></div>
 </template>
+~~~
+
+#### Adding styles
+
+To display Event Calendar correctly, you need to specify important styles for Event Calendar and its container in the main css file of the project:
+
+~~~css title="main.css"
+/* specify styles for initial page */
+html,
+body,
+#app { /* make sure that you use the #app root container */
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* specify styles for the Event Calendar container */
+.widget {
+    height: 100%;
+}
 ~~~
 
 #### Loading data
@@ -203,7 +223,7 @@ export default {
 </script>
 
 <template>
-    <div ref="container" style="width: 100%; height: 100%;"></div>
+    <div ref="container" class="widget"></div>
 </template>
 ~~~
 
@@ -233,7 +253,7 @@ export default {
 </script>
 
 <template>
-    <div ref="container" style="width: 100%; height: 100%"></div>
+    <div ref="container" class="widget"></div>
 </template>
 ~~~
 
@@ -259,37 +279,11 @@ export default {
             console.log(obj);
         });
     }
+    // ...
 }
 </script>
 
 <!--...-->
-~~~
-
-### Step 3. Adding Event Calendar into the app
-
-To add the component into the app, open the **App.vue** file and replace the default code with the following one:
-
-~~~html title="App.vue"
-<script>
-import EventCalendar from "./components/EventCalendar.vue";
-import { getData } from "./data";
-
-export default {
-    components: { EventCalendar },
-    data() {
-        const events = getData();
-        const date = new Date(2024, 5, 10);
-        return { 
-            events, 
-            date
-        };
-    }
-};
-</script>
-
-<template>
-    <EventCalendar :events="records" :date="date" />
-</template>
 ~~~
 
 After that, you can start the app to see Event Calendar loaded with data on a page.
