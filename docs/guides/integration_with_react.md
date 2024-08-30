@@ -160,7 +160,7 @@ export function getData() {
             text: ' Olympic Stadium - Munich ',
             details: ' Munich, GER '
         }
-    ];
+    ]
 }
 ~~~
 
