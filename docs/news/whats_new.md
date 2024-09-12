@@ -8,6 +8,15 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2.4
+
+Released on September 12, 2024
+
+### Fixes
+
+- Wrong input value for month recurring events
+- The [`parse()`](/api/methods/js_eventcalendar_parse_method/) method throws an error when called after the [`add-event`](/api/events/js_eventcalendar_addevent_event)
+
 ## Version 2.2.3
 
 Released on August 19, 2024
