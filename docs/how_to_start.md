@@ -10,6 +10,8 @@ This clear and comprehensive tutorial will guide your through the steps you need
 
 ## Step 1. Including source files
 
+[Download the package](https://dhtmlx.com/docs/products/dhtmlxEventCalendar/download.shtml) and unpack it into the folder of your project.
+
 Start from creating an HTML file and call it *index.html*. Then proceed to include Event Calendar source files into the created file.
 
 There are two necessary files:
@@ -36,6 +38,10 @@ There are two necessary files:
 ### Installing Event Calendar via npm and yarn
 
 You can import JavaScript Event Calendar into your project using `yarn` or `npm` package manager.
+
+:::info
+If you want to integrate Event Calendar into React, Angular, Svelte or Vue projects, refer to the corresponding [**integration guides**](/category/backend-and-frameworks-integration/) for more information.
+:::
 
 #### Installing trial Event Calendar via npm and yarn
 

@@ -56,7 +56,7 @@ Now you should get the DHTMLX Event Calendar source code. First of all, stop the
 
 ### Step 1. Package installation
 
-Download the [**trial Event Calendar package**](/how_to_start/#installing-event-calendar-via-npm-and-yarn) and follow steps mentioned in the README file. Note that trial Event Calendar is available 30 days only.
+Download the [**trial Event Calendar package**](/how_to_start/#installing-trial-event-calendar-via-npm-and-yarn) and follow steps mentioned in the README file. Note that trial Event Calendar is available 30 days only.
 
 ### Step 2. Component creation
 
@@ -73,7 +73,7 @@ import { EventCalendar } from 'dhx-eventcalendar-package';
 import 'dhx-eventcalendar-package/dist/event-calendar.css';
 ~~~
 
-Note that depending on the used package, the source files can be minified. In this case make sure that you are importing the CSS file as **event-calendar.min.css**.
+Note that depending on the used package, the source files can be minified. In this case make sure that you are importing the CSS file as ***event-calendar.min.css***.
 
 - if you use the trial version of Event Calendar, specify the following paths:
 
