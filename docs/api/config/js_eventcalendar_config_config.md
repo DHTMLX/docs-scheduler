@@ -130,7 +130,7 @@ dateTitle: (date, [start, end]) =>
 - `tableHeaderHeight` - (optional) a height of the Event Calendar header (px)
 - `eventHeight` - (optional) a height of the Event Calendar multievents
 - `eventVerticalSpace` - (optional) a custom vertical space between events in the "week", "day", "timeline" and "month" views
-- `timeStep` - (optional) a step of moving an event via d-n-d
+- `timeStep` - (optional) defines the minimum interval (in minutes) for the timing of events. The start and end time values of the event are rounded to the nearest multiple of this value
 - `timeRange` - (optional) an array with start and end time of day in the "day" and "week" modes (*0-24*)
 - `defaultEventDuration` - (optional) a duration of the new created event by default (without taking into account creating an event via d-n-d)
 - `defaultEditorValues`- (optional) a callback function that should return an object with default values of the event editor
