@@ -53,11 +53,11 @@ Now you should get the DHTMLX Event Calendar source code. First of all, stop the
 
 ### Step 1. Package installation
 
-Download the [**trial Event Calendar package**](/how_to_start/#installing-event-calendar-via-npm-and-yarn) and follow steps mentioned in the README file. Note that trial Event Calendar is available 30 days only.
+Download the [**trial Event Calendar package**](/how_to_start/#installing-trial-event-calendar-via-npm-and-yarn) and follow steps mentioned in the README file. Note that trial Event Calendar is available 30 days only.
   
 ### Step 2. Component creation
 
-Now you need to create an Angular component, to add Event Calendar into the application. Create  the **event-calendar** folder in the **src/app/** directory, add a new file into it and name it **event-calendar.component.ts**. Then complete the steps described below.
+Now you need to create an Angular component, to add Event Calendar into the application. Create  the ***event-calendar*** folder in the ***src/app/*** directory, add a new file into it and name it ***event-calendar.component.ts***. Then complete the steps described below.
 
 #### Import source files
 
@@ -111,7 +111,7 @@ export class EventCalendarComponent implements OnInit, OnDestroy {
 
 #### Adding styles
 
-To display Event Calendar correctly, you need to provide the corresponding styles. For this purpose, you can create the **event-calendar.component.css** file in the **src/app/event-calendar/** directory and specify important styles for Event Calendar and its container:
+To display Event Calendar correctly, you need to provide the corresponding styles. For this purpose, you can create the ***event-calendar.component.css*** file in the **src/app/event-calendar/** directory and specify important styles for Event Calendar and its container:
 
 ~~~css title="event-calendar.component.css"
 /* import Event Calendar styles */
@@ -133,7 +133,7 @@ body {
 
 #### Loading data
 
-To add data into Event Calendar, you need to provide a data set. You can create the **data.ts** file in the **src/app/event-calendar/** directory and add some data into it:
+To add data into Event Calendar, you need to provide a data set. You can create the ***data.ts*** file in the ***src/app/event-calendar/*** directory and add some data into it:
 
 ~~~jsx title="data.ts"
 export function getData() {
@@ -242,7 +242,7 @@ Now the Event Calendar component is ready to use. When the element will be added
 
 When a user makes some action in the Event Calendar, it invokes an event. You can use these events to detect the action and run the desired code for it. See the [full list of events](/api/overview/events_overview/).
 
-Open the **event-calendar.component.ts** file and complete the `ngOnInit()` method as in:
+Open the ***event-calendar.component.ts*** file and complete the `ngOnInit()` method as in:
 
 ~~~jsx {7-9} title="event-calendar.component.ts"
 // ...
