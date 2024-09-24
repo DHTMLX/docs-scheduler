@@ -107,6 +107,47 @@ In this section you can find out how to work with an events editor
 | [Configuring an editor appearance](api/config/js_eventcalendar_editorshape_config.md) | Learn how to configure an editor appearance                         |
 | [Updating editor settings](api/methods/js_eventcalendar_setconfig_method.md) | Learn how to update editor settings in a runtime                             |
 
+### Configuring date format for editor fields
+
+You can specify a custom date format for editor fields via the [`editorShape.config.format`](/api/config/js_eventcalendar_editorshape_config/#--parameters-for-a-date-type) property:
+
+![Event Calendar Date Formar](assets/006_date_format.png)
+
+~~~jsx {6,15,24}
+const editorShape = [
+    {
+        type: "date",
+        key: "start_date",
+        config:{
+            format: "%d/%m/%Y", // you can specify any other format 
+        },
+        label: "Start date",
+        time: true
+    },
+    {
+        type: "date",
+        key: "end_date",
+        config:{
+            format: "%d/%m/%Y", // you can specify any other format 
+        },
+        label: "End date",
+        time: true
+    },
+    // other editor fields
+];
+
+new eventCalendar.EventCalendar("#root", {
+    editorShape,
+    // other configuration properties
+});
+~~~
+
+:::tip
+Explore the [**Format**](https://date-fns.org/v3.3.1/docs/format) topic for more information about available date formats!
+:::
+
+To get more information on how to configure the time and date format in the Event Calendar, refer to the [**Time and Date format**](/guides/localization/#time-and-date-format) section.
+
 ## How to work with inner events
 
 | Topic                                                                          | Description                                               |

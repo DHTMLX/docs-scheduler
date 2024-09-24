@@ -74,6 +74,7 @@ editorShape?: [
 
         // for a "date" type only
         time?: boolean,
+        format?: string,
 
         // for a "files" type only
         uploadURL?: string,
@@ -183,6 +184,12 @@ For a **colorSchema** type only. Unless you specify *colors* for the **colorSche
 #### - Parameters for a "date" type
 
 - `time` - (optional) - enables/disables a *timepicker* (besides a *datepicker*)
+- `format` - (optional) - defines a date format for an editor field. For more information, refer to the [**Configuring date format for editor fields**
+](/howtos/#configuring-date-format-for-editor-fields)
+
+:::tip
+Explore the [**Format**](https://date-fns.org/v3.3.1/docs/format) topic for more information about available date formats!
+:::
 
 #### - Parameters for a "files" type
 
