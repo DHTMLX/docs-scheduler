@@ -117,6 +117,34 @@ In this section you can find out how to work with an events editor
 | [Reordering inner events](api/internal/js_eventcalendar_setnext_method.md)     | Learn how to add the inner event into the Event Bus order |
 | [Subscribing on inner events](api/internal/js_eventcalendar_on_method.md)      | Learn how to subscribe on the inner event                 |
 
+## How to work with view modes
+
+In this section you can find out how to configure and customize view modes
+
+### Configuring the hour scale in Day/Week views
+
+The **hour height** of the time scale in **Day** and **Week** views is defined by the `--wx-event-calendar_hour-cell-height` css variable and can be specified in css:
+
+~~~css
+.wx-event-calendar{
+    --wx-event-calendar_hour-cell-height: 100px !important;
+}
+~~~
+
+This value can be modified at any time the event will adjust its position automatically and will be displayed at correct position relatively to the time scale.
+
+The **hour width** of the time scale is defined by the `--wx-event-calendar_hour-scale-width` variable:
+
+~~~css
+.wx-event-calendar{
+    --wx-event-calendar_hour-cell-width: 100px !important;
+}
+~~~
+
+:::important
+The ***!important*** directive is required for this style to work!
+:::
+
 ## How to work with REST API
 
 | Topic                                                                                     | Description                                        |

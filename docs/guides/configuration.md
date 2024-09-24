@@ -93,20 +93,16 @@ The **Day** and **Week** view modes can be set in the following way:
 - enables/disables an ability to overlay events `eventsOverlay: boolean`
 - a step of moving events via d-n-d `timeStep: number`
 - an array with start and end time of day `timeRange: array`
-- a column width of the "hour" scale `hourScaleWidth: number`
-- a row height of the "hour" scale `hourHeight: number`
 - a space between events (px) `eventMargin: string`
 - a right padding of the grid column (px) `columnPadding: string`
 
-~~~jsx {3-10,15-29}
+~~~jsx {3-8,13-27}
 // settings of the "Day" and "Week" modes
 const day_and_week_settings = {
     eventHeight: 40,
     eventsOverlay: false, 
     timeStep: 15,
     timeRange: [9, 19],
-    hourScaleWidth: 50, 
-    hourHeight: 40, 
     eventMargin: "20px", // if "eventsOverlay: false" only
     columnPadding: "150px"
 };
@@ -130,6 +126,31 @@ config: {
     ]
 }
 ~~~
+
+:::tip
+The **hour height** of the time scale in **Day** and **Week** views is defined by the `--wx-event-calendar_hour-cell-height` css variable and can be specified in css:
+
+~~~css
+.wx-event-calendar{
+    --wx-event-calendar_hour-cell-height: 100px !important;
+}
+~~~
+
+This value can be modified at any time the event will adjust its position automatically and will be displayed at correct position relatively to the time scale.
+
+The **hour width** of the time scale is defined by the `--wx-event-calendar_hour-scale-width` variable:
+
+~~~css
+.wx-event-calendar{
+    --wx-event-calendar_hour-cell-width: 100px !important;
+}
+~~~
+
+    :::note
+    The ***!important*** directive is required for this style to work!
+:::
+
+#### Month view mode
 
 The **Month** view mode can be set in the following way:
 
@@ -158,6 +179,8 @@ config: {
     ]
 }
 ~~~
+
+#### Timeline view mode
 
 The **Timeline** view mode can be set in the following way:
 
