@@ -413,8 +413,10 @@ en.calendar.timeFormat = 24;
 ~~~
 
 :::tip
-Refer to the [**Format**](https://date-fns.org/v3.3.1/docs/format) topic for more information.
+Explore the [**Format**](https://date-fns.org/v3.3.1/docs/format) topic for more information about available date formats!
 :::
+
+To get more information on how to specify a custom date format for editor fields, refer to the [**Configuring date format for editor fields**](/howtos/#configuring-date-format-for-editor-fields) section.
 
 ## Example
 
