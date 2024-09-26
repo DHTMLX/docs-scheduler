@@ -8,6 +8,16 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2.5
+
+Released on September 26, 2024
+
+### Fixes
+
+- The end date of the monthly recurring event is displayed incorrectly
+- The extra week is displayed in the **Month** view
+- Using Bootstrap breaks built-in styles
+
 ## Version 2.2.4
 
 Released on September 12, 2024
