@@ -8,6 +8,15 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2.6
+
+Released on October 21, 2024
+
+### Fixes
+
+- Incorrect work of the custom weekly recurrence when setting the repeat day different from the original start day of the event
+- Incorrect work of the event interception
+
 ## Version 2.2.5
 
 Released on September 26, 2024
