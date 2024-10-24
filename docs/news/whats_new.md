@@ -8,6 +8,16 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2.7
+
+Released on October 24, 2024
+
+### Fixes
+
+- Incorrect work of the `colsWidth` and `colsCount` properties in **Timeline** view
+- Info popup is not updated after saving changes of the event through the edit form
+- Localization error when using templates
+
 ## Version 2.2.6
 
 Released on October 21, 2024
