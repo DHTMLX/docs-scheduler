@@ -10,7 +10,7 @@ If you are updating Event Calendar from an older version, check [Migration to ne
 
 ## Version 2.2.8
 
-Released on November 28, 2024
+Released on November 29, 2024
 
 ### Fixes
 
