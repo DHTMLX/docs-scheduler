@@ -8,6 +8,16 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.2.8
+
+Released on November 29, 2024
+
+### Fixes
+
+- The interception of the `"edit-event"` works incorrectly
+- The event drag resizing is broken for events with numeric IDs in the Timeline view
+- The `RestDataProvider` works incorrectly. The modified events of recurring series
+
 ## Version 2.2.7
 
 Released on October 24, 2024
