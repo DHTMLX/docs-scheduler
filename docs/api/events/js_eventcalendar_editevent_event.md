@@ -84,3 +84,5 @@ calendar.api.on("edit-event", (obj) => {
     console.log(obj);
 });
 ~~~
+
+**Related sample:** [Event Calendar. Configuring editor fields at runtime](https://snippet.dhtmlx.com/22vzkltn?tag=event_calendar)
