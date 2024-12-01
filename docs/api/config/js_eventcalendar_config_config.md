@@ -217,11 +217,18 @@ const getMonday = (date) => {
 
 // ...,
 views: [
-    // ...,
-    getBounds: (date) => {
-        const weekStart = getMonday(date);
-        return [weekStart, new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 7)];
-    },
+    {
+        id: 'timeline',
+        label: 'Timeline',
+        layout: 'timeline',
+        config: {
+            getBounds: (date) => {
+                const weekStart = getMonday(date);
+                return [weekStart, new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 7)];
+            },
+            //...
+        }
+    }
 ]
 ~~~
 
