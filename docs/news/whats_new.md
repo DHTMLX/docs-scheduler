@@ -8,6 +8,16 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.3.0
+
+Released on December Day, 2024
+
+### Fixes
+
+- Improve UI for readonly calendars and events
+- Improve Calendar Info popup
+- Events lasting a few hours that span across 2 days are shown as all-day events
+
 ## Version 2.2.8
 
 Released on November 29, 2024
