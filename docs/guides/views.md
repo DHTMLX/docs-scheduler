@@ -376,7 +376,17 @@ You can find more detailed description of the configuration object [here](api/co
 
 ### Custom Views
 
-Custom views can be defined by extending one of the built-in views and overriding its configuration. 
+Custom views can be created by extending one of the built-in views and overriding its configuration.
+
+A fundamental customization available for all views is modifying the displayed date range and navigation steps. This is achieved by defining the `getBounds`, `getNext`, and `getPrev` properties within the views `config`:
+
+- `getBounds?: (date: Date, config: Config) => [Date, Date]` - this function takes a date and returns an array with two dates that define the time range to be displayed in the view..
+- `getNext?: (date: Date, config: Config) => Date` - this function is triggered when the user clicks the "Next" button in the calendar header to move to the next interval. It takes the current date of the Event Calendar as an argument and must return the `start date` of the next interval. 
+- `getPrev?: (date: Date, config: Config) => Date` - this function is triggered when the user clicks the "Previous" button in the calendar header to move to the previous interval. It takes the current date of the Event Calendar as an argument and must return the `start date` of the previous interval.
+
+The result of the `getNext` and `getPrev` functions is passed to the `getBounds` method to calculate the new interval.
+
+In all cases, the `config` of the view is passed as the second argument to these functions, allowing for more flexible and context-aware customizations.
 
 For example, you can create a custom 5-day view by taking the `week` base view and redefining the `getBounds` method. This method adjusts the displayed range to only show Monday to Friday.
 
@@ -406,7 +416,7 @@ const scheduler = new eventCalendar.EventCalendar("#root", {
 **Related sample:** [Event Calendar. 5-Day Workweek View](https://snippet.dhtmlx.com/af32gon8?tag=event_calendar)
 
 
-Notice that we didn't redefine the getNext and getPrev methods. This is because the default behavior of the base week view works seamlessly, moving forward or backward by one week. If you need custom navigation behavior, you can override these methods.
+Notice that we didn't redefine the `getNext` and `getPrev` methods. This is because the default behavior of the base week view works seamlessly, moving forward or backward by one week. If you need custom navigation behavior, you can override these methods.
 
 Consider another example, Two-Week View with the approrpriate navigation step. In this case you need to override the navigation methods (`getNext` and `getPrev`) in addition to `getBounds`.
 
