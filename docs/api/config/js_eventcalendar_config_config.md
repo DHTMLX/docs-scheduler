@@ -167,7 +167,7 @@ calendarValidation: calendar => {
 - `views` - (optional) an array of configuration objects of the specific (custom) view modes. For each view mode you can specify the following settings:
     - `id` - (required) an ID of the view mode
     - `label` - (required) a label of the view mode
-    - `layout` - (required) a predefined layout of the view mode. Here you can specify the following values: *"year" | "month" | "quarter" | "month" | "week" | "day" | "hour" | "minute"*
+    - `layout` - (required) a predefined layout of the view mode. Here you can specify the following values: *"year" | "month" | "month" | "week" | "day" | "agenda" | "timeline"*
     - `config` - (optional) an object of the custom view mode settings
 
 :::note

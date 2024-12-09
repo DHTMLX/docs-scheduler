@@ -319,6 +319,7 @@ module.exports = {
             },
             items: [
                 "guides/initialization",
+                "guides/views",
                 "guides/configuration",
                 "guides/customization",
                 "guides/stylization",

@@ -12,11 +12,17 @@ If you are updating Event Calendar from an older version, check [Migration to ne
 
 Released on December Day, 2024
 
-### Fixes
+
+### New functionality
+
+- An ability to create [custom views](guides/views.md/#custom-views) from all [built-in views](guides/views.md/#built-in-views)
+
+### Updates
 
 - Improve UI for readonly calendars and events
 - Improve Calendar Info popup
 - Events lasting a few hours that span across 2 days are shown as all-day events
+
 
 ## Version 2.2.8
 
