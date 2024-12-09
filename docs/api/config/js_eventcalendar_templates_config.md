@@ -64,8 +64,9 @@ To set the templates dynamically, you can use the
 ### Example
 
 ~~~jsx {5-14,16-22,24-30,32-44,46-55,57-63,65-73,75-88,90-97}
+const { dateFns, EventCalendar } = eventCalendar;
 const { format } = dateFns; // date-fns library  (https://date-fns.org/)
-new eventCalendar.EventCalendar("#root", { // create Event Calendar
+new EventCalendar("#root", { // create Event Calendar
     templates: {
         // the event template of the "Week" and "Day" modes
         weekEvent: ({ event, calendar }) => {

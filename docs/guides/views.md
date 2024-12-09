@@ -391,8 +391,8 @@ In all cases, the `config` of the view is passed as the second argument to these
 For example, you can create a custom 5-day view by taking the `week` base view and redefining the `getBounds` method. This method adjusts the displayed range to only show Monday to Friday.
 
 ~~~jsx
-
-const scheduler = new eventCalendar.EventCalendar("#root", {
+const { dateFns, EventCalendar } = eventCalendar;
+const calendar = new EventCalendar("#root", {
     config: {
         views: [
             {
@@ -421,6 +421,7 @@ Notice that we didn't redefine the `getNext` and `getPrev` methods. This is beca
 Consider another example, Two-Week View with the approrpriate navigation step. In this case you need to override the navigation methods (`getNext` and `getPrev`) in addition to `getBounds`.
 
 ~~~jsx
+const { dateFns, EventCalendar } = eventCalendar;
 const calendar = new EventCalendar("#root", {
     config: {
         views: [
@@ -451,6 +452,7 @@ const calendar = new EventCalendar("#root", {
 By default, the **Agenda** view displays upcoming events starting from the active date. You can redefine this behavior to display events for an entire month, with navigation moving one month at a time.
 
 ~~~jsx
+const { dateFns, EventCalendar } = eventCalendar;
 const calendar = new EventCalendar("#root", {
     config: {
         views: [
