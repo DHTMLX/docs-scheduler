@@ -1,10 +1,10 @@
 ---
-sidebar_label: Configuration
-title: Configuration
+sidebar_label: Common Configuration
+title: Common Configuration
 description: You can learn about the configuration in the documentation of the DHTMLX JavaScript Event Calendar library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Event Calendar.
 ---
 
-# Configuration
+# Common Configuration
 
 You can configure the *Event Calendar* appearance and functionality via corresponding API. The available parameters will allow you to:
 
