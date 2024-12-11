@@ -25,6 +25,7 @@ config?: {
     eventsOverlay?: boolean,
     autoSave?: boolean,
     readonly?: boolean,
+    highlightReadonly?: boolean,
     dimPastEvents?: boolean,
     dateClick?: boolean | string, // (true/false or "day" | "week" | "month" | "year" | "agenda" | "timeline")
     dateTitle?: (date, [start, end]) => string, 
@@ -82,7 +83,7 @@ config?: {
                 step?: array, // [number, "day" | "week" | "month" | "year" | "hour" | "minute"]
                 header?: [
                     {
-                        unit: string, // "year" | "month" | "quarter" | "month" | "week" | "day" | "hour" | "minute"
+                        unit: string, // "year" | "month" | "quarter" | "week" | "day" | "hour" | "minute"
                         format: string, // date-fns format
                         step: number
                     },
@@ -95,8 +96,8 @@ config?: {
                         // ... other custom parameters
                     },
                     // other sections config
-                ],
-            },
+                ]
+            }
         },
         // other views config
     ]        
@@ -116,6 +117,7 @@ In the **config** object you can specify the following parameters:
 - `eventsOverlay` - (optional) enables/disables an ability to overlay events
 - `autoSave` - (optional) enables/disables an ability to auto save event data (via the editor)
 - `readonly` - (optional) enables/disables an ability to perform operations on events
+- `highlightReadonly` - (optional) enables/disables highlighting the readonly events
 - `dimPastEvents` - (optional) enables/disables an ability to dim past events
 - `dateClick` - (optional) defines a behavior of clicking on the date in a grid cell in the following way:
     - ***true/false*** - enables/disables an ability to click on the date in a grid cell to go to the corresponding day
@@ -258,7 +260,7 @@ step: [8, "hour"], // "day" | "week" | "month" | "year" | "hour" | "minute"
 ~~~
 
 - `header?: array` - defines headers for the Timeline grid. In this array you can specify objects with the following parameters:
-    - `unit: string` - a timeline unit. Here you can specify one of the following values:  *"year" | "month" | "quarter" | "month" | "week" | "day" | "hour" | "minute"*
+    - `unit: string` - a timeline unit. Here you can specify one of the following values:  *"year" | "month" | "quarter" | "week" | "day" | "hour" | "minute"*
     - `format: string` - a time format (use a [date-fns](https://date-fns.org/) format)
     - `step: number` - a time duration
 
@@ -298,12 +300,11 @@ sections: [
 ~~~jsx {}
 const defaultWeekConfig = {
     eventHorizontalSpace: 3,
-    columnPadding: "8px",
-    
+    columnPadding: "8px"  
 };
 
 const defaultMonthConfig = {
-    maxEventsPerCell: 4,
+    maxEventsPerCell: 4
 };
 
 const defaultTimelineConfig = {
@@ -329,7 +330,7 @@ const defaultTimelineConfig = {
         { id: "8", label: "Section 8" },
         { id: "9", label: "Section 9" },
     ],
-    unassignedCol: false,
+    unassignedCol: false
 };
 
 const defaultConfig = {
@@ -344,6 +345,7 @@ const defaultConfig = {
     eventsOverlay: false,
     autoSave: true,
     readonly: false,
+    highlightReadonly: true,
 
     tableHeaderHeight: 32,
     eventHeight: 24,
@@ -376,7 +378,7 @@ const defaultConfig = {
         },
         { id: "year", label: "Year", layout: "year" },
         { id: "agenda", label: "Agenda", layout: "agenda" },
-    ],
+    ]
 };
 ~~~
 
@@ -387,13 +389,14 @@ To set the **config** property dynamically, you can use the
 
 ### Example
 
-~~~jsx {3-50}
+~~~jsx {3-51}
 // create Event Calendar
 new eventCalendar.EventCalendar("#root", {
     config: {
         autoSave: false,
         dragResize: false,
         readonly: true,
+        highlightReadonly: false,
         dragMove: false,
         viewControl: "toggle",
         dimPastEvents: true,
@@ -436,7 +439,7 @@ new eventCalendar.EventCalendar("#root", {
                 },
             },
             // other custom views config
-        ],
+        ]
     },
     // other configuration parameters
 });
@@ -449,3 +452,4 @@ new eventCalendar.EventCalendar("#root", {
 - The ***dateTitle***, ***eventVerticalSpace*** and ***eventHorizontalSpace*** properties were added in v2.1
 - The ***eventMargin*** property was deprecated in v2.1
 - The ***calendarValidation*** and ***defaultEditorValues*** properties were added in v2.2
+- The ***highlightReadonly*** property was added in v2.3

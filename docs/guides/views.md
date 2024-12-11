@@ -1,18 +1,18 @@
 ---
-sidebar_label: Views
-title: Views
+sidebar_label: View Configuration
+title: View Configuration
 description: You can learn about the available Views in the documentation of the DHTMLX JavaScript Event Calendar library. Browse developer guides and API reference, try out code examples and live demos, and download a free 30-day evaluation version of DHTMLX Event Calendar.
 ---
 
-# Views
+# View Configuration
 
-The DHTMLX Event Calendar offers six built-in views: **day**, **week**, **month**, **year**, **agenda**, and **timeline**. These views can be specified in the `views` property of the [configuration object](api/config/js_eventcalendar_config_config.md) as an array. The calendar can dynamically switch between these views, enabling flexible navigation for end-users.
+The DHTMLX Event Calendar provides six built-in views: **day**, **week**, **month**, **year**, **agenda**, and **timeline**. To configure these views, use the [`config.views`](api/config/js_eventcalendar_config_config.md) property. You can flexible navigate between these views dynamically.
 
 Each view requires three essential properties:
 
-- **id** - API name for programmatic access
-- **label** - display name shown in the view control at the top-right of the calendar
-- **layout** - reference to the base view (e.g., `day`, `week`)
+- **id** - the view id used for programmatic access
+- **label** - the label displayed in the change view control
+- **layout** - the predefined layout of the view mode. Here you can specify the following values: *"year" | "month" | "week" | "day" | "agenda" | "timeline"*
 
 ~~~jsx
 const calendar = new eventCalendar.EventCalendar("#root", {
@@ -31,7 +31,7 @@ const calendar = new eventCalendar.EventCalendar("#root", {
             {
                 id: "month",
                 label: "Month",
-                layout: "month",
+                layout: "month"
             },
             {
                 id: "year",
@@ -41,20 +41,20 @@ const calendar = new eventCalendar.EventCalendar("#root", {
             {
                 id: "agenda",
                 label: "Agenda",
-                layout: "agenda",
+                layout: "agenda"
             }
         ]
     },
-    events: [],
-    date: new Date(),
+    events: [/* event data */],
+    date: new Date()
 });
 ~~~
 
-By default, the available views are displayed in the top-right of the user interface, accessible through the view selection control. Views appear in the order they are defined in the `views` configuration array. The appearance of the view selector can be further customized using the [`viewControl`](api/config/js_eventcalendar_config_config.md/#:~:text=viewControl%20%2D%20(optional)%20defines%20a%20control%20to%20switch%20through%20the%20view%20modes.) property.
+By default, the available view controls are displayed in the top-right part of the user interface. View controls appear in the order they are defined in the `views` configuration array. You can use the [`config.viewControl`](api/config/js_eventcalendar_config_config.md) property to change the appearance of a view control.
 
-Optionally, each view can accept it's own `config` object with extra settings allowing configuring the view:
+Optionally, each view can accept it's own `config` object with extra settings, that allow you to configure a view:
 
-~~~jsx
+~~~jsx {8-10}
 const calendar = new eventCalendar.EventCalendar("#root", {
     config: {
         views: [
@@ -69,13 +69,13 @@ const calendar = new eventCalendar.EventCalendar("#root", {
         ]
     },
     events: [],
-    date: new Date(),
+    date: new Date()
 });
 ~~~
 
-Settings that should be applied to multiple views can be specified at the global config level:
+Settings that should be applied to multiple views can be specified at the global `config`:
 
-~~~jsx
+~~~jsx {2-16}
 const calendar = new eventCalendar.EventCalendar("#root", {
     config: {
         timeRange: [8, 17],
@@ -92,14 +92,14 @@ const calendar = new eventCalendar.EventCalendar("#root", {
             }
         ]
     },
-    events: [],
-    date: new Date(),
+    events: [/* event data */],
+    date: new Date()
 });
 ~~~
 
-And vice-versa, view-level settings can override the global config:
+And vice-versa, view-level settings can override the global `config`:
 
-~~~jsx
+~~~jsx {14-17}
 const calendar = new eventCalendar.EventCalendar("#root", {
     config: {
         timeRange: [8, 17],
@@ -121,19 +121,21 @@ const calendar = new eventCalendar.EventCalendar("#root", {
         ]
     },
     events: [],
-    date: new Date(),
+    date: new Date()
 });
 ~~~
 
-For more details about the `config` object, please refer to the [Configuration Guide](guides/configuration.md/#configuring-view-modes)
+For more details about the `config` object, please refer to the [Configuration Guide](guides/configuration.md/#configuring-view-modes).
 
 ## Built-in Views
 
-Below is a detailed list of default views, including their configuration options.
+Below is the detailed list of default views, including their configuration options.
 
 ### Day
 
 The **Day** view shows events for a single day.
+
+#### Short configuration
 
 ~~~jsx
 config: {
@@ -143,39 +145,45 @@ config: {
 }
 ~~~
 
-Extended configuration:
+#### Extended configuration
 
 ~~~jsx
-{
-    id: "day",
-    label: "Day",
-    layout: "day",
-    config: {
-        dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
-        getBounds?: (date: Date, config: Config) => [Date, Date];
-        getNext?: (date: Date, config: Config) => Date;
-        getPrev?: (date: Date, config: Config) => Date;
+config: {
+    views: [
+        {
+            id: "day",
+            label: "Day",
+            layout: "day",
+            config: {
+                dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
+                getBounds?: (date: Date, config: Config) => [Date, Date];
+                getNext?: (date: Date, config: Config) => Date;
+                getPrev?: (date: Date, config: Config) => Date;
 
-        cellCss?: (date: Date) => string;
-        template?: (event: Event) => string;
+                cellCss?: (date: Date) => string;
+                template?: (event: Event) => string;
 
-        eventHeight?: number;
-        timeRange?: [number, number];
-        timeStep?: number;
-        eventsOverlay?: false;
-        eventVerticalSpace?: number;
-        eventHorizontalSpace?: string;
-        columnPadding?: string;
-        weekStartsOn?: number;
-    }
+                eventHeight?: number;
+                timeRange?: [number, number];
+                timeStep?: number;
+                eventsOverlay?: false;
+                eventVerticalSpace?: number;
+                eventHorizontalSpace?: string;
+                columnPadding?: string;
+                weekStartsOn?: number;
+            }
+        }
+    ]
 }
 ~~~
 
-You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md/#:~:text=To%20configure%20a%20custom%20view%20mode%20(or%20modes)%2C%20you%20can%20specify%20the%20following%20parameters%3A)
+You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md).
 
 ### Week
 
-The **Week** view displays events for an entire week:
+The **Week** view displays events for the entire week.
+
+#### Short configuration
 
 ~~~jsx
 config: {
@@ -185,75 +193,85 @@ config: {
 }
 ~~~
 
-Extended configuration:
+#### Extended configuration
 
 ~~~jsx
-{
-    id: "week",
-    label: "Week",
-    layout: "week",
-    config: {
-        dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
-        getBounds?: (date: Date, config: Config) => [Date, Date];
-        getNext?: (date: Date, config: Config) => Date;
-        getPrev?: (date: Date, config: Config) => Date;
+config: {
+    views: [
+        {
+            id: "week",
+            label: "Week",
+            layout: "week",
+            config: {
+                dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
+                getBounds?: (date: Date, config: Config) => [Date, Date];
+                getNext?: (date: Date, config: Config) => Date;
+                getPrev?: (date: Date, config: Config) => Date;
 
-        cellCss?: (date: Date) => string;
-        template?: (event: Event) => string;
+                cellCss?: (date: Date) => string;
+                template?: (event: Event) => string;
 
-        eventHeight?: number;
-        timeRange?: [number, number];
-        timeStep?: number;
-        eventsOverlay?: false;
-        eventVerticalSpace?: number;
-        eventHorizontalSpace?: string;
-        columnPadding?: string;
-        weekStartsOn?: number;
-    }
+                eventHeight?: number;
+                timeRange?: [number, number];
+                timeStep?: number;
+                eventsOverlay?: false;
+                eventVerticalSpace?: number;
+                eventHorizontalSpace?: string;
+                columnPadding?: string;
+                weekStartsOn?: number;
+            }
+        }
+    ]
 }
 ~~~
 
-
-You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md/#:~:text=To%20configure%20a%20custom%20view%20mode%20(or%20modes)%2C%20you%20can%20specify%20the%20following%20parameters%3A)
+You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md).
 
 ### Month
 
-The **Month** view organizes events by calendar months:
+The **Month** view displays events for the entire month.
 
-```
+#### Short configuration
+
+~~~jsx
 config: {
     views: [
         { id: "month", label: "Month", layout: "month" }
     ]
 }
-```
+~~~
 
-Extended configuration:
+#### Extended configuration
 
 ~~~jsx
-{
-    id: "month",
-    label: "Month",
-    layout: "month",
-    config: {
-        dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
-        getBounds?: (date: Date, config: Config) => [Date, Date];
-        getNext?: (date: Date, config: Config) => Date;
-        getPrev?: (date: Date, config: Config) => Date;
+config: {
+    views: [
+        {
+            id: "month",
+            label: "Month",
+            layout: "month",
+            config: {
+                dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
+                getBounds?: (date: Date, config: Config) => [Date, Date];
+                getNext?: (date: Date, config: Config) => Date;
+                getPrev?: (date: Date, config: Config) => Date;
 
-        weekStartsOn?: number;
-        maxEventsPerCell?: number;
-        eventVerticalSpace?: number;
-    }
+                weekStartsOn?: number;
+                maxEventsPerCell?: number;
+                eventVerticalSpace?: number;
+            }
+        }
+    ]
 }
 ~~~
 
-
-You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md/#:~:text=To%20configure%20a%20custom%20view%20mode%20(or%20modes)%2C%20you%20can%20specify%20the%20following%20parameters%3A)
+You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md).
 
 ### Year
 
-The **Year** view provides an overview of events across a year:
+The **Year** view displays events for the entire year.
+
+#### Short configuration
 
 ~~~jsx
 config: {
@@ -263,29 +281,33 @@ config: {
 }
 ~~~
 
-Extended configuration:
+#### Extended configuration
 
 ~~~jsx
-{
-    id: "year",
-    label: "Year",
-    layout: "year",
-    config: {
-        dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
-        getBounds?: (date: Date, config: Config) => [Date, Date];
-        getNext?: (date: Date, config: Config) => Date;
-        getPrev?: (date: Date, config: Config) => Date;
-    }
+config: {
+    views: [
+        {
+            id: "year",
+            label: "Year",
+            layout: "year",
+            config: {
+                dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
+                getBounds?: (date: Date, config: Config) => [Date, Date];
+                getNext?: (date: Date, config: Config) => Date;
+                getPrev?: (date: Date, config: Config) => Date;
+            }
+        }
+    ]
 }
 ~~~
 
-
-You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md/#:~:text=To%20configure%20a%20custom%20view%20mode%20(or%20modes)%2C%20you%20can%20specify%20the%20following%20parameters%3A)
+You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md).
 
 ### Agenda
 
-The **Agenda** view lists upcoming events starting from the current date:
+The **Agenda** view lists upcoming events starting from the current date.
 
+#### Short configuration
 
 ~~~jsx
 config: {
@@ -295,29 +317,33 @@ config: {
 }
 ~~~
 
-Extended configuration:
+#### Extended configuration
 
 ~~~jsx
-{
-    id: "agenda",
-    label: "Agenda",
-    layout: "agenda",
-    config: {
-        dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
-        getBounds?: (date: Date, config: Config) => [Date, Date];
-        getNext?: (date: Date, config: Config) => Date;
-        getPrev?: (date: Date, config: Config) => Date;
-    }
+config: {
+    views: [
+        {
+            id: "agenda",
+            label: "Agenda",
+            layout: "agenda",
+            config: {
+                dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
+                getBounds?: (date: Date, config: Config) => [Date, Date];
+                getNext?: (date: Date, config: Config) => Date;
+                getPrev?: (date: Date, config: Config) => Date;
+            }
+        }
+    ]
 }
 ~~~
 
-
-You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md/#:~:text=To%20configure%20a%20custom%20view%20mode%20(or%20modes)%2C%20you%20can%20specify%20the%20following%20parameters%3A)
+You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md).
 
 ### Timeline
 
-The **Timeline**  view is ideal for visualizing events across multiple resources or time units:
+The **Timeline** view is ideal for visualizing events across multiple resources or time units.
 
+#### Short configuration
 
 ~~~jsx
 config: {
@@ -327,31 +353,35 @@ config: {
 }
 ~~~
 
-Extended configuration:
+#### Extended configuration
 
 ~~~jsx
-{
-    id: "timeline",
-    label: "Timeline",
-    layout: "timeline",
-    config: {
-        dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
-        getBounds?: (date: Date, config: Config) => [Date, Date];
-        getNext?: (date: Date, config: Config) => Date;
-        getPrev?: (date: Date, config: Config) => Date;
+config: {
+    views: [
+        {
+            id: "timeline",
+            label: "Timeline",
+            layout: "timeline",
+            config: {
+                dateTitle?: (currentDate: Date, bounds: [Date, Date]) => string;
+                getBounds?: (date: Date, config: Config) => [Date, Date];
+                getNext?: (date: Date, config: Config) => Date;
+                getPrev?: (date: Date, config: Config) => Date;
 
-        colsCount?: number;
-        colsWidth?: number;
-        minEventWidth?: number;
-        eventVerticalSpace?: number;
-        minSectionHeight?: number;
-        sectionWidth?: number;
-        step?: [number, "day" | "week" | "month" | "year" | "hour" | "minute"];
-        header?: ITimelineHeader[];
-        sections?: ISection[];
-        key?: string;
-        unassignedCol?: boolean;
-    }
+                colsCount?: number;
+                colsWidth?: number;
+                minEventWidth?: number;
+                eventVerticalSpace?: number;
+                minSectionHeight?: number;
+                sectionWidth?: number;
+                step?: [number, "day" | "week" | "month" | "year" | "hour" | "minute"];
+                header?: ITimelineHeader[];
+                sections?: ISection[];
+                key?: string;
+                unassignedCol?: boolean;
+            }
+        }
+    ]
 }
 ~~~
 
@@ -371,14 +401,13 @@ export interface ISection {
 }
 ~~~
 
-
-You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md/#:~:text=To%20configure%20a%20custom%20view%20mode%20(or%20modes)%2C%20you%20can%20specify%20the%20following%20parameters%3A)
+You can find more detailed description of the configuration object [here](api/config/js_eventcalendar_config_config.md).
 
 ### Custom Views
 
 Custom views can be created by extending one of the built-in views and overriding its configuration.
 
-A fundamental customization available for all views is modifying the displayed date range and navigation steps. This is achieved by defining the `getBounds`, `getNext`, and `getPrev` properties within the views `config`:
+A fundamental customization available for all views. This is achieved by defining the `getBounds`, `getNext`, and `getPrev` properties within the views `config`:
 
 - `getBounds?: (date: Date, config: Config) => [Date, Date]` - this function takes a date and returns an array with two dates that define the time range to be displayed in the view..
 - `getNext?: (date: Date, config: Config) => Date` - this function is triggered when the user clicks the "Next" button in the calendar header to move to the next interval. It takes the current date of the Event Calendar as an argument and must return the `start date` of the next interval. 
@@ -388,7 +417,7 @@ The result of the `getNext` and `getPrev` functions is passed to the `getBounds`
 
 In all cases, the `config` of the view is passed as the second argument to these functions, allowing for more flexible and context-aware customizations.
 
-For example, you can create a custom 5-day view by taking the `week` base view and redefining the `getBounds` method. This method adjusts the displayed range to only show Monday to Friday.
+For example, you can create a custom 5-day view by taking the `week` base view and redefining the `getBounds` method. This method adjusts the displayed range to only show **Monday** to **Friday**.
 
 ~~~jsx
 const { dateFns, EventCalendar } = eventCalendar;
@@ -415,10 +444,9 @@ const calendar = new EventCalendar("#root", {
 
 **Related sample:** [Event Calendar. 5-Day Workweek View](https://snippet.dhtmlx.com/af32gon8?tag=event_calendar)
 
+Note that we didn't redefine the `getNext()` and `getPrev()` methods. This is because the default behavior of the base week view works seamlessly, moving forward or backward by one week. If you need to implement custom navigation behavior, you can override these methods.
 
-Notice that we didn't redefine the `getNext` and `getPrev` methods. This is because the default behavior of the base week view works seamlessly, moving forward or backward by one week. If you need custom navigation behavior, you can override these methods.
-
-Consider another example, Two-Week View with the approrpriate navigation step. In this case you need to override the navigation methods (`getNext` and `getPrev`) in addition to `getBounds`.
+Consider another example, Two-Week View with the appropriate navigation step. In this case you need to override the navigation methods (`getNext()` and `getPrev()`) in addition to `getBounds()`.
 
 ~~~jsx
 const { dateFns, EventCalendar } = eventCalendar;
