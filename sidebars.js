@@ -319,7 +319,8 @@ module.exports = {
             },
             items: [
                 "guides/initialization",
-                "guides/configuration",
+                "guides/configuration", // Common Configuration
+                "guides/views", // View Configuration
                 "guides/customization",
                 "guides/stylization",
                 "guides/localization",

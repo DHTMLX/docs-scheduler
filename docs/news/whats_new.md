@@ -8,6 +8,20 @@ description: You can explore what's new in DHTMLX Event Calendar and its release
 
 If you are updating Event Calendar from an older version, check [Migration to newer versions](news/migration.md) for details.
 
+## Version 2.3.0
+
+Released on December 11, 2024
+
+### New functionality
+
+- An ability to create [custom views](guides/views.md/#custom-views) based on [built-in views](guides/views.md/#built-in-views)
+
+### Updates
+
+- Improve UI for readonly calendars and events. Use the [`config.highlightReadonly`](../../api/config/js_eventcalendar_config_config) property to manage highlighting the readonly events
+- Improve Calendar Info popup
+- Events lasting a few hours that span across 2 days are shown as all-day events
+
 ## Version 2.2.8
 
 Released on November 29, 2024

@@ -148,6 +148,103 @@ Explore the [**Format**](https://date-fns.org/v3.3.1/docs/format) topic for more
 
 To get more information on how to configure the time and date format in the Event Calendar, refer to the [**Time and Date format**](/guides/localization/#time-and-date-format) section.
 
+### Configuring editor fields at runtime
+
+You have an ability to rebuild or modify editor form if a user fills input fields. For this purpose, you need to handle the ["edit-event"](/api/events/js_eventcalendar_editevent_event/) event as shown in the following code snippet:
+
+~~~jsx {}
+// The user dataset for Type 1
+const users_dataset_1 = [
+    { id: '1', label: 'Steve Smith', avatar: 'https://snippet.dhtmlx.com/codebase/data/kanban/01/img/user-1.jpg' },
+    { id: '2', label: 'Aaron Long', avatar: 'https://snippet.dhtmlx.com/codebase/data/kanban/01/img/user-2.jpg' },
+    { id: '3', label: 'Angela Allen', avatar: 'https://snippet.dhtmlx.com/codebase/data/kanban/01/img/user-3.jpg' },
+    { id: '4', label: 'Angela Long', avatar: 'https://snippet.dhtmlx.com/codebase/data/kanban/01/img/user-4.jpg' }
+];
+// The user dataset for Type 2
+const users_dataset_2 = [
+    { id: '1', label: 'Steve Smith', avatar: 'https://snippet.dhtmlx.com/codebase/data/kanban/01/img/user-1.jpg' },
+    { id: '2', label: 'Aaron Long', avatar: 'https://snippet.dhtmlx.com/codebase/data/kanban/01/img/user-2.jpg' }
+];
+
+// The dataset for Task Type selector
+const task_types = [
+    { id: 'type1', label: 'Type 1' },
+    { id: 'type2', label: 'Type 2' }
+];
+
+// Specify configuration for Editor fields
+const editorShapeConfig = [
+    ...eventCalendar.defaultEditorShape,
+    {   // The selector for task types
+        type: 'combo',
+        key: 'task_type',
+        label: 'Task Type',
+        options: task_types,
+        config: { disabled: false, placeholder: "Select task type" }
+    },
+    {   // The selector for users. This selector changes its dataset depending on the selected Task Type
+        type: 'multiselect',
+        key: 'users',
+        label: 'Users',
+        options: users_dataset_1,
+        template: optionTemplate,
+        config: {
+            disabled: false,
+            placeholder: "Select user"
+        }
+    }
+];
+
+// The template that displays users in the Users selector
+function optionTemplate(option) {
+    return `<div class='multiselect-wraper'>
+                <img src=${option.avatar} alt='' class='multieselectOption-img' />
+                ${option.label}
+            </div>`
+}
+
+// Initialize Event Calendar
+const calendar = new eventCalendar.EventCalendar('#root', {
+    events, // Data for events
+    editorShape: editorShapeConfig, // Configuration for editor fields
+    mode: 'month',
+    date: new Date('2024-12-01T00:00:00')
+});
+
+// Update the user dataset depending on the selected Task Type
+function updateUsersBasedOnTaskType(shape, selectedType) {
+    const updatedShape = shape.map(field => {
+        if (field.key === 'users') {
+            const options = selectedType === 'Type 2' ? users_dataset_2 : users_dataset_1;
+            return { ...field, options };
+        }
+        return field;
+    });
+    return updatedShape
+}
+
+// Subscribe on the "edit-event" event
+// If a user selects the Type 1, he can select 4 users in the Users selector
+// If a user selects the Type 2, he can select 2 users in the Users selector
+calendar.api.on("edit-event", (obj) => {
+    setTimeout(() => {
+        // Get the Editor form container
+        const formContainer = document.querySelector('.wx-event-calendar-editor-form');
+
+        if (formContainer) {
+            const comboInput = document.querySelector('#combo_task_type');
+            comboInput.addEventListener('focusout', () => {
+                const newShape = updateUsersBasedOnTaskType(editorShape,comboInput.value)
+                calendar.form.update(() => newShape )
+            });
+        }
+    }, 0);
+});
+
+~~~
+
+**Related sample:** [Event Calendar. Configuring editor fields at runtime](https://snippet.dhtmlx.com/22vzkltn?tag=event_calendar)
+
 ## How to work with inner events
 
 | Topic                                                                          | Description                                               |
