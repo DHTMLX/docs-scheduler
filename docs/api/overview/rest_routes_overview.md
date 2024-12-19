@@ -31,23 +31,23 @@ For quick navigation you can use either the tabs below or the side menu:
 </thead>
 <tbody>
 <tr>
-<td>GET</td>
-<td><a href="../../../api/provider/rest_routes/get_routes/js_eventcalendar_getevents_route"> /events</a></td>
+<td>`GET`</td>
+<td><a href="../../../api/provider/rest_routes/get_routes/js_eventcalendar_getevents_route/"> /events</a></td>
 <td>Gets data on all events and returns a json object with an array of events objects</td>
 </tr>
 <tr>
-<td>POST</td>
-<td><a href=" ../../../api/provider/rest_routes/post_routes/js_eventcalendar_postevent_route"> /events</a></td>
+<td>`POST`</td>
+<td><a href="../../../api/provider/rest_routes/post_routes/js_eventcalendar_postevent_route/"> /events</a></td>
 <td>Creates a new event and returns a json object with the event ID in it</td>
 </tr>
 <tr>
-<td>PUT</td>
-<td><a href=" ../../../api/provider/rest_routes/put_routes/js_eventcalendar_putevent_route"> /events</a></td>
+<td>`PUT`</td>
+<td><a href="../../../api/provider/rest_routes/put_routes/js_eventcalendar_putevent_route/"> /events</a></td>
 <td>Updates data on an event</td>
 </tr>
 <tr>
-<td>DELETE</td>
-<td><a href=" ../../../api/provider/rest_routes/delete_routes/js_eventcalendar_deleteevent_route"> /events</a></td>
+<td>`DELETE`</td>
+<td><a href="../../../api/provider/rest_routes/delete_routes/js_eventcalendar_deleteevent_route/"> /events</a></td>
 <td>Deletes data on an event</td>
 </tr>
 </tbody>
@@ -67,22 +67,22 @@ For quick navigation you can use either the tabs below or the side menu:
 </thead>
 <tbody>
 <tr>
-<td>GET</td>
-<td><a href=" ../../../api/provider/rest_routes/get_routes/js_eventcalendar_getcalendars_route"> /calendars</a></td>
+<td>`GET`</td>
+<td><a href="../../../api/provider/rest_routes/get_routes/js_eventcalendar_getcalendars_route/"> /calendars</a></td>
 <td>Gets data on all calendars and returns a json object with an array of calendars objects</td>
 </tr>
 <tr>
-<td>POST</td>
-<td ><a href=" ../../../api/provider/rest_routes/post_routes/js_eventcalendar_postcalendar_route"> /calendars</a></td>
+<td>`POST`</td>
+<td ><a href="../../../api/provider/rest_routes/post_routes/js_eventcalendar_postcalendar_route/"> /calendars</a></td>
 <td>Creates a new calendar (event type) and returns a json object with the calendar ID in it</td>
 </tr>
 <tr>
-<td>PUT</td>
-<td><a href=" ../../../api/provider/rest_routes/put_routes/js_eventcalendar_putcalendar_route"> /calendars</a></td><td>Updates data on a calendar (event type)</td>
+<td>`PUT`</td>
+<td><a href="../../../api/provider/rest_routes/put_routes/js_eventcalendar_putcalendar_route/"> /calendars</a></td><td>Updates data on a calendar (event type)</td>
 </tr>
 <tr>
-<td>DELETE</td>
-<td><a href=" ../../../api/provider/rest_routes/delete_routes/js_eventcalendar_deletecalendar_route"> /calendars</a></td>
+<td>`DELETE`</td>
+<td><a href="../../../api/provider/rest_routes/delete_routes/js_eventcalendar_deletecalendar_route/"> /calendars</a></td>
 <td>Deletes data on a calendar (event type)</td>
 </tr>
 </tbody>
@@ -101,13 +101,13 @@ For quick navigation you can use either the tabs below or the side menu:
 </thead>
 <tbody>
 <tr>
-<td>GET</td>
-<td><a href=" ../../../api/provider/rest_routes/get_routes/js_eventcalendar_getuploads_route"> /uploads</a></td>
+<td>`GET`</td>
+<td><a href="../../../api/provider/rest_routes/get_routes/js_eventcalendar_getuploads_route/"> /uploads</a></td>
 <td>Gets the requested binary file from the server</td>
 </tr>
 <tr>
-<td>POST</td>
-<td><a href=" ../../../api/provider/rest_routes/post_routes/js_eventcalendar_postupload_route"> /uploads</a></td>
+<td>`POST`</td>
+<td><a href="../../../api/provider/rest_routes/post_routes/js_eventcalendar_postupload_route/"> /uploads</a></td>
 <td>Uploads a binary file to the server and returns a json object with its id, name, and url</td>
 </tr>
 </tbody>
