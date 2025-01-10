@@ -72,7 +72,7 @@ const en = {
         recurringEveryMonthDay: "Every {date}",
         recurringEveryMonthPos: "Every {pos} {weekDay}",
         recurringEveryYearDay: "Every {date} of {month}",
-        recurringEveryYearPos: "Every {pos} {weekDay} of {month}"
+        recurringEveryYearPos: "Every {pos} {weekDay} of {month}",
 
         // Time format settings
         hourFormat: "H",
